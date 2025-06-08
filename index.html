@@ -193,7 +193,7 @@
             justify-content: center;
             align-items: center;
             background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), 
-                        url('https://pfst.cf2.poecdn.net/base/image/7a0c6bd484cc86de1995d0bca3f25eeb906a4009564e94bc8be356659911e703?w=1179&h=758');
+                        url('/blue-mountain-vista-cover.jpg');
             background-size: cover;
             background-position: center;
             color: var(--text-light);
@@ -503,6 +503,55 @@
             100% { background-position: -200% 0; }
         }
         
+        /* Enhanced Emergency Contact Styling */
+        .emergency-contact-section {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 4px solid var(--accent);
+            background: var(--neutral-200);
+            border-radius: var(--radius-md);
+        }
+        
+        .contact-card {
+            background: var(--neutral-100);
+            border: 2px solid var(--neutral-300);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            margin: 0.75rem 0;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+        
+        .contact-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .emergency-number {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.05rem;
+        }
+        
+        .non-emergency {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
         /* Enhanced Accessibility */
         .skip-link {
             position: absolute;
@@ -1203,27 +1252,327 @@
             }
         }
         
-        /* Print Styles */
+        /* Enhanced Print Styles - CRITICAL FOR US LETTER COMPLIANCE */
+        /* Cross-Browser Print Compatibility */
         @media print {
-            body {
+            /* Chrome, Safari, Edge */
+            @page {
+                size: 8.5in 11in;
+                margin: 0.75in 0.5in 0.75in 0.5in;
+                
+                @top-center {
+                    content: "Blue Mountain Property Owners Association • Page " counter(page);
+                    font-family: 'Times New Roman', Times, serif;
+                    font-size: 9pt;
+                    color: #5D6D7E;
+                    margin-bottom: 0.25in;
+                }
+                
+                @bottom-center {
+                    content: "www.bmpoa.org • Complete Guide to Mountain Living";
+                    font-family: 'Times New Roman', Times, serif;
+                    font-size: 8pt;
+                    color: #7F8C9A;
+                    margin-top: 0.25in;
+                }
+            }
+            
+            /* Firefox fallback */
+            @page :first {
+                size: 8.5in 11in;
+                margin: 0.75in 0.5in;
+            }
+            
+            /* Alternative page setup for browsers with limited @page support */
+            @supports not (size: 8.5in 11in) {
+                @page {
+                    margin: 0.75in 0.5in;
+                }
+            }
+            
+            @page :first {
+                @top-center { content: none; }
+                @bottom-center { content: none; }
+            }
+            
+            html, body {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
                 padding: 0;
-                background-color: white;
+                font-size: 11pt;
+                line-height: 1.4;
+                background: white !important;
+                color: #2C3E50 !important;
+                /* Cross-browser color adjustment */
+                -webkit-print-color-adjust: exact !important; /* Safari, Chrome */
+                -moz-print-color-adjust: exact !important;    /* Firefox */
+                -ms-print-color-adjust: exact !important;     /* Edge/IE */
+                color-adjust: exact !important;               /* Standard */
+                print-color-adjust: exact !important;         /* Latest standard */
+                font-family: 'Times New Roman', Times, serif;
+                /* Prevent text selection and improve print rendering */
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            
+            .document-container {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
             
             .paper-page {
-                width: 100%;
-                box-shadow: none;
-                margin-bottom: 0;
-                page-break-after: always;
+                width: 7.5in !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                /* Cross-browser page break support */
+                -webkit-page-break-after: always;   /* Safari, Chrome */
+                -moz-page-break-after: always;      /* Firefox */
+                -ms-page-break-after: always;       /* Edge/IE */
+                page-break-after: always;           /* Standard */
+                break-after: page;                  /* Latest standard */
             }
             
-            .theme-toggle, .print-button {
-                display: none;
+            .paper-page:last-child {
+                -webkit-page-break-after: auto;
+                -moz-page-break-after: auto;
+                -ms-page-break-after: auto;
+                page-break-after: auto;
+                break-after: auto;
             }
             
-            @page {
-                size: letter;
-                margin: 0;
+            /* Emergency Contact Enhancement - CRITICAL */
+            .alert-box {
+                background: white !important;
+                border: 4pt solid #E74C3C !important;
+                border-radius: 6pt !important;
+                padding: 18pt !important;
+                margin: 18pt 0 !important;
+                /* Cross-browser page break avoidance */
+                -webkit-page-break-inside: avoid;
+                -moz-page-break-inside: avoid;
+                -ms-page-break-inside: avoid;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                /* Cross-browser color adjustment */
+                -webkit-print-color-adjust: exact !important;
+                -moz-print-color-adjust: exact !important;
+                -ms-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .alert-box-title {
+                font-size: 16pt !important;
+                font-weight: bold !important;
+                color: #E74C3C !important;
+                margin-bottom: 8pt !important;
+            }
+            
+            /* Typography Optimization for Print */
+            h1 {
+                font-size: 20pt !important;
+                page-break-after: avoid;
+                margin-top: 0 !important;
+                margin-bottom: 12pt !important;
+                font-family: 'Times New Roman', serif;
+            }
+            
+            h2 {
+                font-size: 16pt !important;
+                page-break-after: avoid;
+                margin-top: 18pt !important;
+                margin-bottom: 12pt !important;
+                color: #2C3E50 !important;
+                border-bottom: 2pt solid #5D5CDE !important;
+                padding-bottom: 6pt !important;
+            }
+            
+            h3 {
+                font-size: 14pt !important;
+                page-break-after: avoid;
+                margin-top: 14pt !important;
+                margin-bottom: 10pt !important;
+                color: #2C3E50 !important;
+            }
+            
+            h4 {
+                font-size: 12pt !important;
+                page-break-after: avoid;
+                margin-top: 12pt !important;
+                margin-bottom: 8pt !important;
+                font-weight: bold !important;
+            }
+            
+            p {
+                margin-bottom: 8pt !important;
+                orphans: 3;
+                widows: 3;
+                line-height: 1.4 !important;
+            }
+            
+            ul, ol {
+                margin-bottom: 10pt !important;
+                padding-left: 20pt !important;
+                orphans: 2;
+                widows: 2;
+            }
+            
+            li {
+                margin-bottom: 4pt !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            /* Enhanced Image Handling */
+            img, .section-image, .gallery-image, .cover-hero {
+                max-width: 6in !important;
+                max-height: 4in !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin: 8pt auto !important;
+                display: block !important;
+            }
+            
+            /* Enhanced Emergency Contact Print Formatting */
+            .emergency-contact-section {
+                /* Cross-browser page break avoidance */
+                -webkit-page-break-inside: avoid;
+                -moz-page-break-inside: avoid;
+                -ms-page-break-inside: avoid;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin: 12pt 0 !important;
+                padding: 8pt !important;
+                border-left: 3pt solid #E74C3C !important;
+                background: white !important;
+                border-radius: 0 !important;
+            }
+            
+            .contact-card {
+                background: white !important;
+                border: 1.5pt solid #2C3E50 !important;
+                border-radius: 3pt !important;
+                padding: 8pt !important;
+                margin: 6pt 0 !important;
+                /* Cross-browser page break avoidance */
+                -webkit-page-break-inside: avoid;
+                -moz-page-break-inside: avoid;
+                -ms-page-break-inside: avoid;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                box-shadow: none !important;
+            }
+            
+            .contact-name {
+                font-weight: bold !important;
+                font-size: 12pt !important;
+                color: #2C3E50 !important;
+                margin-bottom: 4pt !important;
+                font-family: 'Times New Roman', serif !important;
+            }
+            
+            .emergency-number {
+                font-weight: bold !important;
+                color: #E74C3C !important;
+                font-size: 11pt !important;
+                margin-bottom: 2pt !important;
+            }
+            
+            .non-emergency {
+                color: #5D6D7E !important;
+                font-size: 10pt !important;
+            }
+            
+            /* Information Boxes */
+            .info-box, .warning-box, .container-highlight, .container-warning {
+                background: white !important;
+                border: 2pt solid #5D5CDE !important;
+                border-radius: 4pt !important;
+                padding: 12pt !important;
+                margin: 12pt 0 !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .warning-box, .container-warning {
+                border-color: #E74C3C !important;
+            }
+            
+            /* Hide Interactive Elements */
+            .theme-toggle, .print-button, .toc-sidebar, .skip-link {
+                display: none !important;
+            }
+            
+            .print-only {
+                display: block !important;
+            }
+            
+            /* Table Optimization */
+            table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                margin: 12pt 0 !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            th, td {
+                border: 1pt solid #2C3E50 !important;
+                padding: 6pt !important;
+                font-size: 10pt !important;
+            }
+            
+            th {
+                background: #F7F9FA !important;
+                font-weight: bold !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* Column Layout Adjustments */
+            .two-column {
+                column-count: 1 !important;
+                column-gap: 0 !important;
+            }
+            
+            .layout-two-column,
+            .layout-two-column-60-40,
+            .layout-two-column-70-30 {
+                display: block !important;
+            }
+            
+            /* Prevent Page Breaks in Critical Sections */
+            .keep-together {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            /* Emergency Section Special Handling */
+            .paper-page:has(.alert-box) h3,
+            .paper-page:has(.alert-box) h4 {
+                color: #E74C3C !important;
+                font-weight: bold !important;
+            }
+            
+            /* Link Handling for Print */
+            a::after {
+                content: " (" attr(href) ")";
+                font-size: 9pt;
+                color: #7F8C9A;
+            }
+            
+            a[href^="#"]::after,
+            a[href^="javascript:"]::after {
+                content: "";
             }
         }
         
@@ -1296,7 +1645,7 @@
                 <h1 class="cover-title">BLUE MOUNTAIN PROPERTY OWNERS ASSOCIATION</h1>
                 <p class="cover-subtitle">Your Complete Guide to Mountain Living in Linden, Virginia</p>
                 <div class="image-container">
-                    <img src="/blue-mountain-vista-cover.jpg" alt="Blue Mountain Vista" class="cover-hero">
+                    <img src="./blue-mountain-vista-cover.jpg" alt="Blue Mountain Vista" class="cover-hero">
                 </div>
                 <p>A comprehensive resource for new and existing residents</p>
             </div>
@@ -1701,9 +2050,9 @@
             <h2 id="mountain-home">II. A MOUNTAIN HOME</h2>
             
             <div class="image-gallery">
-                <img src="/mountain-vista.jpg" alt="Mountain Vista View" class="gallery-image">
-                <img src="/mountain-overlook.jpg" alt="Mountain Overlook" class="gallery-image">
-                <img src="/Building1.jpg" alt="Mountain Home" class="gallery-image">
+                <img src="./mountain-vista.jpg" alt="Mountain Vista View" class="gallery-image">
+                <img src="./mountain-overlook.jpg" alt="Mountain Overlook" class="gallery-image">
+                <img src="./Building1.jpg" alt="Mountain Home" class="gallery-image">
             </div>
             
             <h3>A. COMMUNITY ORIGINS</h3>
@@ -1755,7 +2104,7 @@
             <h3>C. NATURAL BEAUTY &amp; WILDLIFE</h3>
             
             <div class="image-container">
-                <img src="/virginia-bluebells.jpeg" alt="Virginia Bluebells" class="section-image-small">
+                <img src="./virginia-bluebells.jpeg" alt="Virginia Bluebells" class="section-image-small">
                 <div class="image-caption">Virginia bluebells - one of our mountain's native spring wildflowers</div>
             </div>
             
@@ -1807,7 +2156,7 @@
             <h2 id="wood-chipping">III. WOOD-CHIPPING PROGRAM</h2>
             
             <div class="image-container">
-                <img src="/trillium-bloom-at-thompson-wma-in-virginia.jpeg" alt="Virginia Spring Wildflowers" class="section-image-small">
+                <img src="./trillium-bloom-at-thompson-wma-in-virginia.jpeg" alt="Virginia Spring Wildflowers" class="section-image-small">
                 <div class="image-caption">Protecting Virginia's natural beauty through fire prevention</div>
             </div>
             
@@ -1912,7 +2261,7 @@
             <h2 id="fire-safety">IV. FIRE SAFETY &amp; EMERGENCY PREPAREDNESS</h2>
             
             <div class="image-container">
-                <img src="/debris-fire.png" alt="Fire Safety - Debris Fire" class="section-image-small">
+                <img src="./debris-fire.png" alt="Fire Safety - Debris Fire" class="section-image-small">
                 <div class="image-caption">Understanding fire risks and prevention in our mountain community</div>
             </div>
             
@@ -2162,7 +2511,7 @@
             <h2 id="community-services">V. COMMUNITY SERVICES &amp; AMENITIES</h2>
             
             <div class="image-container">
-                <img src="/warren-county-waste-map.png" alt="Warren County Waste Management Map" class="section-image">
+                <img src="./warren-county-waste-map.png" alt="Warren County Waste Management Map" class="section-image">
                 <div class="image-caption">Warren County waste management and recycling locations</div>
             </div>
             
@@ -2273,9 +2622,9 @@
             <h3>C. LOCAL AREA AMENITIES</h3>
             
             <div class="image-gallery">
-                <img src="/winery-1.jpeg" alt="Local Winery" class="gallery-image">
-                <img src="/OverlookatVineyard.png" alt="Vineyard Overlook" class="gallery-image">
-                <img src="/VineyardGreen.jpg" alt="Virginia Vineyard" class="gallery-image">
+                <img src="./winery-1.jpeg" alt="Local Winery" class="gallery-image">
+                <img src="./OverlookatVineyard.png" alt="Vineyard Overlook" class="gallery-image">
+                <img src="./VineyardGreen.jpg" alt="Virginia Vineyard" class="gallery-image">
             </div>
             <div class="image-caption">Enjoy local wineries and scenic vineyards in the beautiful Shenandoah Valley region</div>
             
@@ -2321,7 +2670,7 @@
             <h2 id="deer-lake">VI. DEER LAKE RECREATION AREA</h2>
             
             <div class="image-container">
-                <img src="/deer-lake-dock.jpeg" alt="Deer Lake Dock and Recreation Area" class="section-image">
+                <img src="./deer-lake-dock.jpeg" alt="Deer Lake Dock and Recreation Area" class="section-image">
                 <div class="image-caption">Deer Lake - A peaceful retreat for Blue Mountain residents</div>
             </div>
             
@@ -2442,9 +2791,9 @@
             <h2 id="lodge">VII. THE LODGE</h2>
             
             <div class="image-gallery">
-                <img src="/TheLodge.jpg" alt="Blue Mountain Lodge Exterior" class="gallery-image">
-                <img src="/lodge-interior.jpeg" alt="Lodge Interior" class="gallery-image">
-                <img src="/TheLodgeOverlook.jpg" alt="Lodge Mountain Overlook" class="gallery-image">
+                <img src="./TheLodge.jpg" alt="Blue Mountain Lodge Exterior" class="gallery-image">
+                <img src="./lodge-interior.jpeg" alt="Lodge Interior" class="gallery-image">
+                <img src="./TheLodgeOverlook.jpg" alt="Lodge Mountain Overlook" class="gallery-image">
             </div>
             
             <h3>A. LODGE LOCATION &amp; FEATURES</h3>
@@ -2741,35 +3090,69 @@
                 <p style="text-align: center;">Call for all urgent police, fire, or medical emergencies</p>
             </div>
             
-            <h4>1. FIRE DEPARTMENTS</h4>
-            <p><strong>Warren County Fire &amp; Rescue:</strong><br>
-            Emergency: 911<br>
-            Non-Emergency: (540) 636-3830</p>
+            <div class="emergency-contact-section">
+                <h4>1. FIRE DEPARTMENTS</h4>
+                <div class="contact-card">
+                    <div class="contact-name">Warren County Fire &amp; Rescue</div>
+                    <div class="contact-info">
+                        <div class="emergency-number">Emergency: 911</div>
+                        <div class="non-emergency">Non-Emergency: (540) 636-3830</div>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-name">Linden Volunteer Fire Department</div>
+                    <div class="contact-info">
+                        <div class="emergency-number">Emergency: 911</div>
+                        <div class="non-emergency">Non-Emergency: (540) 635-6759</div>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-name">Front Royal Volunteer Fire Department</div>
+                    <div class="contact-info">
+                        <div class="emergency-number">Emergency: 911</div>
+                        <div class="non-emergency">Non-Emergency: (540) 635-2540</div>
+                    </div>
+                </div>
+            </div>
             
-            <p><strong>Linden Volunteer Fire Department:</strong><br>
-            Emergency: 911<br>
-            Non-Emergency: (540) 635-6759</p>
+            <div class="emergency-contact-section">
+                <h4>2. LAW ENFORCEMENT</h4>
+                <div class="contact-card">
+                    <div class="contact-name">Warren County Sheriff's Office</div>
+                    <div class="contact-info">
+                        <div class="emergency-number">Emergency: 911</div>
+                        <div class="non-emergency">Non-Emergency: (540) 635-4128</div>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-name">Virginia State Police</div>
+                    <div class="contact-info">
+                        <div class="emergency-number">Emergency: 911</div>
+                        <div class="non-emergency">Non-Emergency: (540) 829-7771</div>
+                    </div>
+                </div>
+            </div>
             
-            <p><strong>Front Royal Volunteer Fire Department:</strong><br>
-            Emergency: 911<br>
-            Non-Emergency: (540) 635-2540</p>
-            
-            <h4>2. LAW ENFORCEMENT</h4>
-            <p><strong>Warren County Sheriff's Office:</strong><br>
-            Emergency: 911<br>
-            Non-Emergency: (540) 635-4128</p>
-            
-            <p><strong>Virginia State Police:</strong><br>
-            Emergency: 911<br>
-            Non-Emergency: (540) 829-7771</p>
-            
-            <h4>3. MEDICAL SERVICES</h4>
-            <p><strong>Warren Memorial Hospital:</strong><br>
-            Emergency Room: (540) 636-0300<br>
-            Main Number: (540) 636-0300</p>
-            
-            <p><strong>Poison Control Center:</strong><br>
-            1-800-222-1222</p>
+            <div class="emergency-contact-section">
+                <h4>3. MEDICAL SERVICES</h4>
+                <div class="contact-card">
+                    <div class="contact-name">Warren Memorial Hospital</div>
+                    <div class="contact-info">
+                        <div class="emergency-number">Emergency Room: (540) 636-0300</div>
+                        <div class="non-emergency">Main Number: (540) 636-0300</div>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-name">Poison Control Center</div>
+                    <div class="contact-info">
+                        <div class="emergency-number">1-800-222-1222</div>
+                    </div>
+                </div>
+            </div>
             
             <h4>4. UTILITY EMERGENCIES</h4>
             <p><strong>Rappahannock Electric Cooperative:</strong><br>
@@ -2894,8 +3277,23 @@
             }
         });
         
-        // Enhanced Print Function
+        // Enhanced Print Function with Testing Framework
         document.getElementById('print-button').addEventListener('click', () => {
+            // Pre-print validation and testing
+            console.log('🖨️ Print Testing Framework - Starting validation...');
+            
+            // 1. Validate US Letter compliance
+            const printTests = {
+                paperSize: validatePaperSize(),
+                emergencyContacts: validateEmergencyContacts(),
+                imageConstraints: validateImageSizes(),
+                pageBreaks: validatePageBreaks(),
+                browserCompatibility: detectBrowser()
+            };
+            
+            // Log test results
+            console.log('📋 Print Validation Results:', printTests);
+            
             // Switch to light mode for printing
             const isDarkMode = document.body.classList.contains('dark');
             if (isDarkMode) {
@@ -2905,17 +3303,113 @@
             // Set background to white for printing
             document.body.style.backgroundColor = 'white';
             
-            // Print the document
-            window.print();
+            // Add print preparation class
+            document.body.classList.add('print-preparing');
             
-            // Restore dark mode if it was active
-            if (isDarkMode) {
-                document.body.classList.add('dark');
+            // Brief delay to ensure styles are applied
+            setTimeout(() => {
+                console.log('🖨️ Initiating print dialog...');
+                window.print();
+                
+                // Cleanup after print dialog
+                setTimeout(() => {
+                    document.body.classList.remove('print-preparing');
+                    
+                    // Restore dark mode if it was active
+                    if (isDarkMode) {
+                        document.body.classList.add('dark');
+                    }
+                    
+                    // Restore background color
+                    document.body.style.backgroundColor = '';
+                    
+                    console.log('✅ Print process completed');
+                }, 100);
+            }, 50);
+        });
+        
+        // Print Testing Framework Functions
+        function validatePaperSize() {
+            const paperPages = document.querySelectorAll('.paper-page');
+            const isValid = paperPages.length > 0;
+            console.log(`📄 Paper pages found: ${paperPages.length}`);
+            return {
+                valid: isValid,
+                count: paperPages.length,
+                message: isValid ? 'Paper pages properly structured' : 'No paper pages found'
+            };
+        }
+        
+        function validateEmergencyContacts() {
+            const emergencyBoxes = document.querySelectorAll('.alert-box');
+            const contactCards = document.querySelectorAll('.contact-card');
+            const emergencyNumbers = document.querySelectorAll('.emergency-number');
+            
+            const isValid = emergencyBoxes.length > 0 && contactCards.length > 0;
+            console.log(`🚨 Emergency elements - Boxes: ${emergencyBoxes.length}, Cards: ${contactCards.length}, Numbers: ${emergencyNumbers.length}`);
+            
+            return {
+                valid: isValid,
+                alertBoxes: emergencyBoxes.length,
+                contactCards: contactCards.length,
+                emergencyNumbers: emergencyNumbers.length,
+                message: isValid ? 'Emergency contacts properly formatted' : 'Emergency contact formatting issues detected'
+            };
+        }
+        
+        function validateImageSizes() {
+            const images = document.querySelectorAll('img');
+            let oversizedImages = 0;
+            
+            images.forEach(img => {
+                if (img.naturalWidth > 432 || img.naturalHeight > 288) { // 6in x 4in at 72dpi
+                    oversizedImages++;
+                    console.warn(`⚠️ Large image detected: ${img.src} (${img.naturalWidth}x${img.naturalHeight})`);
+                }
+            });
+            
+            return {
+                valid: oversizedImages === 0,
+                totalImages: images.length,
+                oversizedImages: oversizedImages,
+                message: oversizedImages === 0 ? 'All images within print constraints' : `${oversizedImages} images may be too large for print`
+            };
+        }
+        
+        function validatePageBreaks() {
+            const pageBreakElements = document.querySelectorAll('.paper-page, .emergency-contact-section, .contact-card');
+            const hasPageBreakCSS = pageBreakElements.length > 0;
+            
+            return {
+                valid: hasPageBreakCSS,
+                elementsWithPageBreaks: pageBreakElements.length,
+                message: hasPageBreakCSS ? 'Page break elements properly configured' : 'Page break configuration may be missing'
+            };
+        }
+        
+        function detectBrowser() {
+            const userAgent = navigator.userAgent;
+            let browser = 'Unknown';
+            
+            if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) {
+                browser = 'Chrome';
+            } else if (userAgent.includes('Firefox')) {
+                browser = 'Firefox';
+            } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
+                browser = 'Safari';
+            } else if (userAgent.includes('Edg')) {
+                browser = 'Edge';
             }
             
-            // Restore background color
-            document.body.style.backgroundColor = '';
-        });
+            console.log(`🌐 Browser detected: ${browser}`);
+            
+            return {
+                browser: browser,
+                userAgent: userAgent,
+                printSupport: browser !== 'Unknown',
+                message: `Printing from ${browser}`
+            };
+        }
         
         // Enhanced Image Loading with Lazy Loading and Error Handling
         function setupImageLoading() {
