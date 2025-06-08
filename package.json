@@ -1,0 +1,29 @@
+{
+  "name": "blue-mountain-property-guide",
+  "version": "1.0.0",
+  "description": "Blue Mountain Property Owners Association Guide - Interactive web application optimized for printing",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview --port 4173",
+    "clean": "rm -rf dist node_modules/.vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrunkOnJava/blue-mountain-property-guide.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrunkOnJava/blue-mountain-property-guide/issues"
+  },
+  "homepage": "https://github.com/DrunkOnJava/blue-mountain-property-guide#readme",
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}
