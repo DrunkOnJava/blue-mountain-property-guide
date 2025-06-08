@@ -226,22 +226,102 @@
             font-size: 20pt;
             margin-bottom: 1.5rem;
             text-align: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 1rem;
         }
         
         .toc-section {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         
         .toc-item {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 0.5rem;
             border-bottom: 1px dotted var(--neutral-400);
-            padding-bottom: 0.25rem;
+            padding: 0.5rem 0;
+            transition: background-color 0.2s ease;
+        }
+        
+        .toc-item:hover {
+            background-color: var(--neutral-100);
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            margin-left: -0.5rem;
+            margin-right: -0.5rem;
+            border-radius: 4px;
+        }
+        
+        .toc-item-linked {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .toc-item-linked:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
         }
         
         .toc-page {
-            color: var(--primary);
+            color: var(--neutral-600);
+            font-weight: bold;
+            background-color: var(--neutral-200);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        /* Executive Summary Styles */
+        .exec-summary {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--neutral-100) 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .exec-summary h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .quick-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .quick-nav-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--neutral-300);
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        .quick-nav-item:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .quick-nav-item a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .quick-nav-item p {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.9rem;
+            color: var(--neutral-600);
         }
         
         /* Info Boxes */
@@ -1737,6 +1817,89 @@
             font-weight: 600;
         }
         
+        /* Evacuation Table Styles */
+        .evacuation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-md);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .evacuation-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            padding: 1rem 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .evacuation-table td {
+            padding: 0.75rem;
+            border: 1px solid var(--neutral-300);
+            vertical-align: top;
+            line-height: 1.4;
+        }
+        
+        .zone-cell {
+            background-color: var(--neutral-100);
+            font-weight: 700;
+            text-align: center;
+            width: 80px;
+            font-size: 0.9rem;
+        }
+        
+        .zone-1 {
+            background-color: rgba(220, 53, 69, 0.1);
+            border-left: 4px solid #dc3545;
+        }
+        
+        .zone-2 {
+            background-color: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+        }
+        
+        .zone-3 {
+            background-color: rgba(255, 165, 0, 0.1);
+            border-left: 4px solid #ff8c00;
+        }
+        
+        .zone-4 {
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid #28a745;
+        }
+        
+        .zone-5 {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid #3498db;
+        }
+        
+        .priority-high {
+            background-color: #dc3545;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 4px;
+        }
+        
+        .priority-medium {
+            background-color: #ffc107;
+            color: #000;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 4px;
+        }
+        
+        .priority-low {
+            background-color: #28a745;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 4px;
+        }
+        
         /* Checklist Style */
         .checklist {
             list-style-type: none;
@@ -1755,6 +1918,542 @@
             color: var(--spring);
             font-weight: bold;
         }
+
+        /* ==============================================
+           ENHANCED PRINT CSS FOR BMPOA GUIDE
+           US Letter Paper - Strict Compliance
+           
+           INTEGRATION: Added comprehensive print enhancements
+           to override existing print styles and ensure
+           strict US Letter compliance
+           ============================================== */
+
+        @media print {
+            
+            /* ==============================================
+               CRITICAL US LETTER SETUP - ENHANCED
+               ============================================== */
+            
+            @page {
+                /* Force US Letter dimensions - NO EXCEPTIONS */
+                size: 8.5in 11in;
+                margin: 0.75in 0.5in 0.75in 0.5in; /* top right bottom left */
+                
+                /* Printable area: 7.5in width × 9.5in height */
+                
+                /* Running headers - page numbers */
+                @top-center {
+                    content: "Blue Mountain Property Owners Association • Page " counter(page);
+                    font-family: 'Roboto', Arial, sans-serif;
+                    font-size: 9pt;
+                    color: #5D6D7E;
+                    margin-bottom: 0.25in;
+                }
+                
+                /* Running footer - website */
+                @bottom-center {
+                    content: "www.bmpoa.org • Complete Guide to Mountain Living";
+                    font-family: 'Roboto', Arial, sans-serif;
+                    font-size: 8pt;
+                    color: #7F8C9A;
+                    margin-top: 0.25in;
+                }
+            }
+            
+            /* Special page layouts */
+            @page :first {
+                @top-center { content: none; }
+                @bottom-center { content: none; }
+            }
+            
+            @page emergency-contacts {
+                @top-center {
+                    content: "EMERGENCY CONTACT INFORMATION • Page " counter(page);
+                    color: #E74C3C;
+                    font-weight: bold;
+                }
+            }
+            
+            /* ==============================================
+               ROOT DOCUMENT SETUP - ENHANCED
+               ============================================== */
+            
+            html {
+                width: 8.5in !important;
+                height: 11in !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                font-size: 11pt !important; /* Base print size */
+                line-height: 1.4 !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            body {
+                width: 8.5in !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+                color: #2C3E50 !important;
+                font-family: 'Times New Roman', Times, serif !important;
+                font-size: 11pt !important;
+                line-height: 1.4 !important;
+                -webkit-font-smoothing: antialiased !important;
+            }
+            
+            /* ==============================================
+               DOCUMENT CONTAINER OPTIMIZATION - ENHANCED
+               ============================================== */
+            
+            .document-container {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: block !important;
+                align-items: initial !important;
+            }
+            
+            .paper-page {
+                width: 7.5in !important; /* Available print area */
+                height: auto !important;
+                min-height: 9.5in !important; /* Available print height */
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                background: white !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                
+                /* Ensure content doesn't overflow */
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+            }
+            
+            .paper-page:last-child {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+            
+            /* ==============================================
+               TYPOGRAPHY OPTIMIZATION - ENHANCED
+               ============================================== */
+            
+            h1 {
+                font-family: 'Montserrat', Arial, sans-serif !important;
+                font-size: 20pt !important;
+                font-weight: 700 !important;
+                line-height: 1.2 !important;
+                color: #2C3E50 !important;
+                margin: 0 0 18pt 0 !important;
+                padding: 8pt 0 12pt 0 !important;
+                text-align: center !important;
+                border-bottom: 2pt solid #5D5CDE !important;
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            h2 {
+                font-family: 'Montserrat', Arial, sans-serif !important;
+                font-size: 16pt !important;
+                font-weight: 600 !important;
+                line-height: 1.3 !important;
+                color: #5D5CDE !important;
+                margin: 24pt 0 12pt 0 !important;
+                padding-bottom: 6pt !important;
+                border-bottom: 1pt solid #7A79E3 !important;
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            h3 {
+                font-family: 'Montserrat', Arial, sans-serif !important;
+                font-size: 14pt !important;
+                font-weight: 600 !important;
+                line-height: 1.3 !important;
+                color: #3498DB !important;
+                margin: 18pt 0 8pt 0 !important;
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            h4 {
+                font-family: 'Montserrat', Arial, sans-serif !important;
+                font-size: 12pt !important;
+                font-weight: 600 !important;
+                color: #2C3E50 !important;
+                margin: 12pt 0 6pt 0 !important;
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+            }
+            
+            h5, h6 {
+                font-family: 'Montserrat', Arial, sans-serif !important;
+                font-size: 11pt !important;
+                font-weight: 600 !important;
+                color: #2C3E50 !important;
+                margin: 8pt 0 4pt 0 !important;
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+            }
+            
+            p {
+                font-size: 11pt !important;
+                line-height: 1.4 !important;
+                margin: 0 0 8pt 0 !important;
+                text-align: justify !important;
+                color: #2C3E50 !important;
+                orphans: 2 !important;
+                widows: 2 !important;
+            }
+            
+            /* ==============================================
+               EMERGENCY CONTACTS SPECIAL FORMATTING - ENHANCED
+               ============================================== */
+            
+            .emergency-contacts {
+                page: emergency-contacts !important;
+                background: white !important;
+                border: 4pt solid #E74C3C !important;
+                border-radius: 6pt !important;
+                padding: 18pt !important;
+                margin: 18pt 0 !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                page-break-before: auto !important;
+                break-before: auto !important;
+            }
+            
+            .emergency-contacts h3 {
+                color: #E74C3C !important;
+                text-align: center !important;
+                font-size: 16pt !important;
+                font-weight: 700 !important;
+                text-transform: uppercase !important;
+                margin-bottom: 12pt !important;
+                border-bottom: 2pt solid #E74C3C !important;
+                padding-bottom: 6pt !important;
+            }
+            
+            .emergency-contacts .contact-card {
+                border: 2pt solid #2C3E50 !important;
+                border-radius: 4pt !important;
+                padding: 10pt !important;
+                margin-bottom: 8pt !important;
+                background: white !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            .emergency-contacts .contact-name {
+                font-weight: 700 !important;
+                color: #E74C3C !important;
+                font-size: 12pt !important;
+                margin-bottom: 4pt !important;
+            }
+            
+            .emergency-contacts .contact-info {
+                font-size: 11pt !important;
+                line-height: 1.3 !important;
+                color: #2C3E50 !important;
+            }
+            
+            /* Emergency number highlighting - ENHANCED */
+            .emergency-number,
+            .alert-box-title {
+                color: #E74C3C !important;
+                font-weight: 700 !important;
+                font-size: 18pt !important;
+                text-align: center !important;
+                margin: 8pt 0 !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1pt !important;
+            }
+            
+            /* ==============================================
+               CONTAINER OPTIMIZATION - ENHANCED
+               ============================================== */
+            
+            .container-highlight,
+            .info-box {
+                background: #F7F9FA !important;
+                border-left: 4pt solid #5D5CDE !important;
+                border-radius: 0 !important;
+                padding: 12pt !important;
+                margin: 12pt 0 !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                box-shadow: none !important;
+            }
+            
+            .container-warning,
+            .alert-box {
+                background: #FDF2F2 !important;
+                border: 2pt solid #E74C3C !important;
+                border-radius: 4pt !important;
+                padding: 12pt !important;
+                margin: 12pt 0 !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                box-shadow: none !important;
+            }
+            
+            /* ==============================================
+               CONTACT CARD OPTIMIZATION - ENHANCED
+               ============================================== */
+            
+            .contact-card {
+                border: 1pt solid #A9B4C0 !important;
+                border-radius: 3pt !important;
+                padding: 8pt !important;
+                margin-bottom: 8pt !important;
+                background: white !important;
+                box-shadow: none !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            .contact-name {
+                font-weight: 600 !important;
+                color: #2C3E50 !important;
+                font-size: 11pt !important;
+                margin-bottom: 4pt !important;
+            }
+            
+            .contact-role {
+                font-size: 10pt !important;
+                color: #5D6D7E !important;
+                font-style: italic !important;
+                margin-bottom: 4pt !important;
+            }
+            
+            .contact-info {
+                font-size: 10pt !important;
+                line-height: 1.3 !important;
+                color: #2C3E50 !important;
+            }
+            
+            /* ==============================================
+               TABLE OPTIMIZATION - ENHANCED
+               ============================================== */
+            
+            table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                margin: 12pt 0 !important;
+                font-size: 10pt !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            th {
+                background: #5D5CDE !important;
+                color: white !important;
+                padding: 8pt 6pt !important;
+                border: 1pt solid #2C3E50 !important;
+                font-weight: 600 !important;
+                text-align: left !important;
+                font-size: 10pt !important;
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+            }
+            
+            td {
+                padding: 6pt !important;
+                border: 1pt solid #A9B4C0 !important;
+                vertical-align: top !important;
+                font-size: 10pt !important;
+                line-height: 1.3 !important;
+            }
+            
+            tr {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            /* ==============================================
+               LIST OPTIMIZATION - ENHANCED
+               ============================================== */
+            
+            ul, ol {
+                margin: 8pt 0 12pt 24pt !important;
+                padding: 0 !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            li {
+                margin-bottom: 4pt !important;
+                line-height: 1.4 !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                orphans: 2 !important;
+                widows: 2 !important;
+            }
+            
+            .checklist {
+                list-style: none !important;
+                margin: 8pt 0 12pt 0 !important;
+                padding: 0 !important;
+            }
+            
+            .checklist li {
+                position: relative !important;
+                padding-left: 18pt !important;
+                margin-bottom: 6pt !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            .checklist li::before {
+                content: "☐" !important;
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                color: #5D5CDE !important;
+                font-weight: bold !important;
+                font-size: 12pt !important;
+            }
+            
+            /* ==============================================
+               IMAGE OPTIMIZATION - ENHANCED
+               ============================================== */
+            
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                margin: 8pt auto !important;
+                display: block !important;
+            }
+            
+            .section-image {
+                max-width: 6in !important;
+                max-height: 4in !important;
+                margin: 12pt auto !important;
+            }
+            
+            .section-image-small {
+                max-width: 4in !important;
+                max-height: 3in !important;
+                margin: 8pt auto !important;
+            }
+            
+            .gallery-image {
+                max-width: 2.5in !important;
+                max-height: 2in !important;
+                margin: 6pt !important;
+            }
+            
+            .image-gallery {
+                display: block !important;
+                gap: 0 !important;
+                margin: 12pt 0 !important;
+            }
+            
+            /* ==============================================
+               PAGE BREAK CONTROL - ENHANCED
+               ============================================== */
+            
+            .major-section {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+            
+            .new-section {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+            
+            .keep-together,
+            .section-header,
+            .emergency-info,
+            .important-notice {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            /* Avoid page breaks after headings - ENHANCED */
+            h1, h2, h3, h4, h5, h6 {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            /* ==============================================
+               ELEMENTS TO HIDE IN PRINT - ENHANCED
+               ============================================== */
+            
+            .no-print,
+            .screen-only,
+            .print-button,
+            .theme-toggle,
+            .toc-sidebar,
+            .toc-toggle,
+            nav,
+            .navigation,
+            .sidebar,
+            .popup,
+            .modal,
+            .tooltip,
+            video,
+            iframe,
+            button,
+            input[type="button"],
+            input[type="submit"],
+            input[type="reset"] {
+                display: none !important;
+                visibility: hidden !important;
+            }
+            
+            /* ==============================================
+               PRINT-ONLY ELEMENTS - ENHANCED
+               ============================================== */
+            
+            .print-only {
+                display: block !important;
+                visibility: visible !important;
+            }
+            
+            .print-inline {
+                display: inline !important;
+                visibility: visible !important;
+            }
+            
+            /* ==============================================
+               BROWSER-SPECIFIC FIXES - ENHANCED
+               ============================================== */
+            
+            /* Chrome print fix */
+            @supports (-webkit-appearance: none) {
+                body {
+                    -webkit-print-color-adjust: exact !important;
+                }
+            }
+            
+            /* Firefox print fix */
+            @-moz-document url-prefix() {
+                body {
+                    color-adjust: exact !important;
+                }
+            }
+            
+            /* Edge print fix */
+            @supports (-ms-ime-align: auto) {
+                body {
+                    color-adjust: exact !important;
+                }
+            }
+        }
     </style>
 </head>
 <body>
@@ -1764,12 +2463,12 @@
         <div class="paper-page">
             <div class="cover-page">
                 <div class="image-container">
-                    <img src="bmpoa-emblem.png" alt="BMPOA Emblem" class="emblem">
+                    <img src="./optimized/bmpoa-emblem.png" alt="BMPOA Emblem" class="emblem">
                 </div>
                 <h1 class="cover-title">BLUE MOUNTAIN PROPERTY OWNERS ASSOCIATION</h1>
                 <p class="cover-subtitle">Your Complete Guide to Mountain Living in Linden, Virginia</p>
                 <div class="image-container">
-                    <img src="blue-mountain-vista-cover.jpg" alt="Blue Mountain Vista" class="cover-hero">
+                    <img src="./optimized/blue-mountain-vista-cover.jpg" alt="Blue Mountain Vista" class="cover-hero">
                 </div>
                 <p>A comprehensive resource for new and existing residents</p>
             </div>
@@ -1961,11 +2660,66 @@
             </div>
         </div>
 
+        <!-- Executive Summary / Quick Start Guide Page -->
+        <div class="paper-page">
+            <div class="exec-summary">
+                <h3>EXECUTIVE SUMMARY & QUICK START GUIDE</h3>
+                <p><strong>Welcome to Blue Mountain!</strong> This guide provides essential information for new and existing residents. For immediate needs, use the quick navigation below or refer to the emergency contacts on the back cover.</p>
+                
+                <div class="quick-nav">
+                    <div class="quick-nav-item">
+                        <a href="#contacts">Emergency Contacts</a>
+                        <p>Critical phone numbers and emergency services</p>
+                    </div>
+                    <div class="quick-nav-item">
+                        <a href="#fire-safety">Fire Safety</a>
+                        <p>Evacuation zones, wildfire preparedness, and protection strategies</p>
+                    </div>
+                    <div class="quick-nav-item">
+                        <a href="#governance">How BMPOA Works</a>
+                        <p>Understanding your association, dues, and sanitary district</p>
+                    </div>
+                    <div class="quick-nav-item">
+                        <a href="#wood-chipping">Wood Chipping</a>
+                        <p>Annual brush removal program and fire mitigation</p>
+                    </div>
+                    <div class="quick-nav-item">
+                        <a href="#deer-lake">Deer Lake Access</a>
+                        <p>Recreation passes, lake rules, and seasonal access</p>
+                    </div>
+                    <div class="quick-nav-item">
+                        <a href="#community-services">Essential Services</a>
+                        <p>Roads, refuse collection, internet, and utilities</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="critical-box">
+                <h4>KEY FACTS FOR NEW RESIDENTS</h4>
+                <ul>
+                    <li><strong>You are automatically a BMPOA member</strong> - No separate dues required</li>
+                    <li><strong>Sanitary District Tax</strong> - Collected with your Warren County property taxes</li>
+                    <li><strong>Emergency Evacuations</strong> - Know your zone (see Fire Safety section)</li>
+                    <li><strong>Annual Wood Chipping</strong> - Free brush disposal program each spring</li>
+                    <li><strong>Deer Lake Pass</strong> - Purchase annually for lake and beach access</li>
+                    <li><strong>Road Maintenance</strong> - Privately maintained; follow winter weather guidelines</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h5>MOST IMPORTANT CONTACT INFORMATION</h5>
+                <p><strong>Emergency:</strong> 911<br>
+                <strong>Warren County Sheriff (Non-Emergency):</strong> (540) 635-4128<br>
+                <strong>BMPOA President:</strong> See current contact directory<br>
+                <strong>Road Emergencies:</strong> Contact Board members immediately</p>
+            </div>
+        </div>
+
         <!-- Governance & Structure Page -->
         <div class="paper-page">
             <h2 id="governance">I. GOVERNANCE &amp; STRUCTURE</h2>
             
-            <h3>A. BMPOA OVERVIEW</h3>
+            <h3 id="bmpoa-overview">A. BMPOA OVERVIEW</h3>
             <p>The Blue Mountain Property Owners Association (BMPOA) serves as the governing body for our mountain community. As a homeowner in Blue Mountain, you are automatically a member of this association, which is dedicated to preserving and enhancing our unique mountain lifestyle.</p>
             
             <h4>1. PURPOSE &amp; MISSION</h4>
@@ -2000,11 +2754,11 @@
                 <p>The Board nomination window is currently open and closes at midnight, June 30th. All nine positions on the Board as well as two positions on the nominating committee are up for election at the annual meeting on August 17, 2025. Any property owner may run for any position on the Board.</p>
             </div>
             
-            <h3>B. SANITARY DISTRICT EXPLAINED</h3>
+            <h3 id="sanitary-district">B. SANITARY DISTRICT EXPLAINED</h3>
             
             <div class="flag-emblem-container">
-                <img src="VA-Flag.jpeg" alt="Virginia State Flag" class="va-flag">
-                <img src="bmpoa-emblem.png" alt="BMPOA Emblem" class="emblem">
+                <img src="./optimized/VA-Flag.jpeg" alt="Virginia State Flag" class="va-flag">
+                <img src="./optimized/bmpoa-emblem.png" alt="BMPOA Emblem" class="emblem">
             </div>
             
             <h4>1. WHAT IS A SANITARY DISTRICT?</h4>
@@ -2069,7 +2823,7 @@
                 <p>Currently there are 13 sanitary districts in Warren County including Blue Mountain, Cedarville Heights, High Knob, Lake Front Royal, Linden Heights, Osprey Lane, Riverside, Shangri-La, Shenandoah Farms, Shenandoah Shores, Skyland Estates, South River Estates, and Wildcat Drive.</p>
             </div>
             
-            <h3>C. BOARD &amp; COMMITTEES STRUCTURE</h3>
+            <h3 id="board-committees">C. BOARD &amp; COMMITTEES STRUCTURE</h3>
             
             <h4>1. BOARD OF DIRECTORS</h4>
             <p>The Board of Directors consists of nine members, all of whom are Blue Mountain property owners:</p>
@@ -2100,7 +2854,7 @@
         
         <!-- Membership & Meetings Page -->
         <div class="paper-page">
-            <h3>D. MEMBERSHIP &amp; MEETINGS</h3>
+            <h3 id="membership-meetings">D. MEMBERSHIP &amp; MEETINGS</h3>
             
             <h4>1. ASSOCIATION MEMBERSHIP</h4>
             <p>As a Blue Mountain property owner, you are automatically a member of the BMPOA. Your membership begins when you purchase property and continues as long as you own property within the Blue Mountain subdivision.</p>
@@ -2146,7 +2900,7 @@
         
         <!-- New Home Construction Requirements Page -->
         <div class="paper-page">
-            <h3>E. NEW HOME CONSTRUCTION REQUIREMENTS</h3>
+            <h3 id="construction-requirements">E. NEW HOME CONSTRUCTION REQUIREMENTS</h3>
             
             <h4>1. PRE-CONSTRUCTION REQUIREMENTS</h4>
             <p>Before applying for any building permit or zoning variance from Warren County, the owner must first notify the Chairman of the Architectural Review Committee (ARC) of his/her intent to make such an application. This includes applications made by a contractor or other agent on behalf of the owner.</p>
@@ -2212,9 +2966,9 @@
             <h2 id="mountain-home">II. A MOUNTAIN HOME</h2>
             
             <div class="image-gallery">
-                <img src="mountain-vista.jpg" alt="Mountain Vista View" class="gallery-image">
-                <img src="mountain-overlook.jpg" alt="Mountain Overlook" class="gallery-image">
-                <img src="Building1.jpg" alt="Mountain Home" class="gallery-image">
+                <img src="./optimized/mountain-vista.jpg" alt="Mountain Vista View" class="gallery-image">
+                <img src="./optimized/mountain-overlook.jpg" alt="Mountain Overlook" class="gallery-image">
+                <img src="./optimized/Building1.jpg" alt="Mountain Home" class="gallery-image">
             </div>
             <div class="image-caption">Spectacular mountain views and quality homes define our Blue Mountain community</div>
             
@@ -2267,7 +3021,7 @@
             <h3>C. NATURAL BEAUTY &amp; WILDLIFE</h3>
             
             <div class="image-container">
-                <img src="virginia-bluebells.jpeg" alt="Virginia Bluebells" class="section-image-small">
+                <img src="./optimized/virginia-bluebells.jpeg" alt="Virginia Bluebells" class="section-image-small">
                 <div class="image-caption">Virginia bluebells bloom each spring, showcasing the natural beauty that makes Blue Mountain a special place to live</div>
             </div>
             
@@ -2319,7 +3073,7 @@
             <h2 id="wood-chipping">III. WOOD-CHIPPING PROGRAM</h2>
             
             <div class="image-container">
-                <img src="trillium-bloom-at-thompson-wma-in-virginia.jpeg" alt="Virginia Spring Wildflowers" class="section-image-small">
+                <img src="./optimized/trillium-bloom-at-thompson-wma-in-virginia.jpeg" alt="Virginia Spring Wildflowers" class="section-image-small">
                 <div class="image-caption">Spring wildflowers like trillium remind us why fire prevention is essential to protect our mountain environment</div>
             </div>
             
@@ -2424,7 +3178,7 @@
             <h2 id="fire-safety">IV. FIRE SAFETY &amp; EMERGENCY PREPAREDNESS</h2>
             
             <div class="image-container">
-                <img src="debris-fire.png" alt="Fire Safety - Debris Fire" class="section-image-small">
+                <img src="./optimized/debris-fire.png" alt="Fire Safety - Debris Fire" class="section-image-small">
                 <div class="image-caption">Proper debris management and fire safety practices protect our homes and natural surroundings</div>
             </div>
             
@@ -2461,47 +3215,105 @@
             <h3>B. EVACUATION ZONES &amp; ROUTES</h3>
             
             <h4>1. EVACUATION ZONES &amp; PRIMARY ROUTES</h4>
-            <p><strong>ZONE 1:</strong></p>
-            <ul>
-                <li>FAR VIEW, SHADY TREE, BLACK WALNUT: To Blue Mt Rd, then as directed</li>
-                <li>BLUE MOUNTAIN RD, DOGWOOD BLOSSOM: To Blue Mt Rd, then as directed</li>
-                <li>LITTLE INDIAN, LONESOME PINE, WOODCHUCK: To Blue Mt Rd, then as directed</li>
-                <li>HAWK HILL, LOST CREEK: Old Sawmill to Blue Mt Rd, then as directed</li>
-                <li>MOONSHINER, OLD SAWMILL: Old Sawmill to Blue Mt Rd, then as directed</li>
-            </ul>
             
-            <p><strong>ZONE 2:</strong></p>
-            <ul>
-                <li>BLOOD ROOT, FERN TRAIL, JASPER: Old Sawmill to Blue Mt Rd, then as directed</li>
-                <li>MOCKINGBIRD, SPRING HILL, MOSSY ROCK: Spring Hill to Blue Mt Rd to Freezeland</li>
-                <li>PEE WEE: Uphill to Blue Mt Rd, L to Freezeland</li>
-                <li>ROCKY BOULDER, ROCK SPRING: Uphill to Firetrail, R to Freezeland</li>
-                <li>INDIAN PIPES, PARADISE, WOODHAVEN: Fire Trail, R to Freezeland</li>
-            </ul>
+            <table class="evacuation-table">
+                <thead>
+                    <tr>
+                        <th>Zone</th>
+                        <th>Streets/Areas</th>
+                        <th>Primary Evacuation Route</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="zone-1">
+                        <td class="zone-cell"><strong>ZONE 1</strong></td>
+                        <td>
+                            <strong>Far View, Shady Tree, Black Walnut</strong><br>
+                            Blue Mountain Rd, Dogwood Blossom<br>
+                            Little Indian, Lonesome Pine, Woodchuck
+                        </td>
+                        <td>To Blue Mt Rd, then as directed</td>
+                        <td class="priority-high">HIGH</td>
+                    </tr>
+                    <tr class="zone-1">
+                        <td class="zone-cell"></td>
+                        <td>
+                            <strong>Hawk Hill, Lost Creek</strong><br>
+                            Moonshiner, Old Sawmill
+                        </td>
+                        <td>Old Sawmill to Blue Mt Rd, then as directed</td>
+                        <td class="priority-high">HIGH</td>
+                    </tr>
+                    <tr class="zone-2">
+                        <td class="zone-cell"><strong>ZONE 2</strong></td>
+                        <td>
+                            <strong>Blood Root, Fern Trail, Jasper</strong><br>
+                            Mockingbird, Spring Hill, Mossy Rock<br>
+                            Pee Wee
+                        </td>
+                        <td>
+                            Old Sawmill to Blue Mt Rd, then as directed<br>
+                            Spring Hill to Blue Mt Rd to Freezeland<br>
+                            Uphill to Blue Mt Rd, L to Freezeland
+                        </td>
+                        <td class="priority-high">HIGH</td>
+                    </tr>
+                    <tr class="zone-2">
+                        <td class="zone-cell"></td>
+                        <td>
+                            <strong>Rocky Boulder, Rock Spring</strong><br>
+                            Indian Pipes, Paradise, Woodhaven
+                        </td>
+                        <td>
+                            Uphill to Firetrail, R to Freezeland<br>
+                            Fire Trail, R to Freezeland
+                        </td>
+                        <td class="priority-high">HIGH</td>
+                    </tr>
+                    <tr class="zone-3">
+                        <td class="zone-cell"><strong>ZONE 3</strong></td>
+                        <td>
+                            <strong>Blue Mountain Rd</strong><br>
+                            Chipmunk Trail, Cliff<br>
+                            Henry, Old Dominion<br>
+                            Trillium Trail
+                        </td>
+                        <td>
+                            Uphill on Blue Mt Rd to Freezeland<br>
+                            Cliff to Blue Mt Rd, R to Freezeland<br>
+                            Down to cliff, R to Blue Mt Rd, R to Freezeland<br>
+                            Up to Blue Mt Rd, R to Freezeland
+                        </td>
+                        <td class="priority-medium">MEDIUM</td>
+                    </tr>
+                    <tr class="zone-4">
+                        <td class="zone-cell"><strong>ZONE 4</strong></td>
+                        <td>
+                            <strong>Allegheny, Hideaway, Old Beacon</strong><br>
+                            Peaceful, Freezeland Rd
+                        </td>
+                        <td>Freezeland Rd to Linden</td>
+                        <td class="priority-medium">MEDIUM</td>
+                    </tr>
+                    <tr class="zone-5">
+                        <td class="zone-cell"><strong>ZONE 5</strong></td>
+                        <td>
+                            <strong>Blue Mountain Rd, Old Linden</strong><br>
+                            Scarlet Tanager, Woodpecker
+                        </td>
+                        <td>
+                            Uphill or downhill as directed<br>
+                            To Blue Mt. Rd, then as directed
+                        </td>
+                        <td class="priority-low">LOW</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         
         <!-- Evacuation Routes Page -->
         <div class="paper-page">
-            <p><strong>ZONE 3:</strong></p>
-            <ul>
-                <li>BLUE MOUNTAIN RD: Uphill on Blue Mt Rd to Freezeland</li>
-                <li>CHIPMUNK TRAIL: Cliff to Blue Mt Rd, R to Freezeland</li>
-                <li>CLIFF: Down to Blue Mt Rd, R to Freezeland</li>
-                <li>HENRY, OLD DOMINION: Down to cliff, R to Blue Mt Rd, R to Freezeland</li>
-                <li>TRILLIUM TRAIL: Up to Blue Mt Rd, R to Freezeland</li>
-            </ul>
-            
-            <p><strong>ZONE 4:</strong></p>
-            <ul>
-                <li>ALLEGHENY, HIDEAWAY, OLD BEACON: Freezeland Rd to Linden</li>
-                <li>PEACEFUL, FREEZELAND RD: Freezeland Rd to Linden</li>
-            </ul>
-            
-            <p><strong>ZONE 5:</strong></p>
-            <ul>
-                <li>BLUE MOUNTAIN RD, OLD LINDEN: Uphill or downhill as directed</li>
-                <li>SCARLET TANAGER, WOODPECKER: To Blue Mt. Rd, then as directed</li>
-            </ul>
             
             <div class="alert-box">
                 <h4>IMPORTANT EVACUATION GUIDELINES</h4>
@@ -2674,7 +3486,7 @@
             <h2 id="community-services">V. COMMUNITY SERVICES &amp; AMENITIES</h2>
             
             <div class="image-container">
-                <img src="warren-county-waste-map.png" alt="Warren County Waste Management Map" class="section-image">
+                <img src="./optimized/warren-county-waste-map.png" alt="Warren County Waste Management Map" class="section-image">
                 <div class="image-caption">Warren County waste management and recycling locations</div>
             </div>
             
@@ -2785,9 +3597,9 @@
             <h3>C. LOCAL AREA AMENITIES</h3>
             
             <div class="image-gallery">
-                <img src="winery-1.jpeg" alt="Local Winery" class="gallery-image">
-                <img src="OverlookatVineyard.png" alt="Vineyard Overlook" class="gallery-image">
-                <img src="VineyardGreen.jpg" alt="Virginia Vineyard" class="gallery-image">
+                <img src="./optimized/winery-1.jpeg" alt="Local Winery" class="gallery-image">
+                <img src="./optimized/OverlookatVineyard.png" alt="Vineyard Overlook" class="gallery-image">
+                <img src="./optimized/VineyardGreen.jpg" alt="Virginia Vineyard" class="gallery-image">
             </div>
             <div class="image-caption">Enjoy local wineries and scenic vineyards in the beautiful Shenandoah Valley region</div>
             
@@ -2833,7 +3645,7 @@
             <h2 id="deer-lake">VI. DEER LAKE RECREATION AREA</h2>
             
             <div class="image-container">
-                <img src="deer-lake-dock.jpeg" alt="Deer Lake Dock and Recreation Area" class="section-image">
+                <img src="./optimized/deer-lake-dock.jpeg" alt="Deer Lake Dock and Recreation Area" class="section-image">
                 <div class="image-caption">Deer Lake - A peaceful retreat for Blue Mountain residents</div>
             </div>
             
@@ -2954,9 +3766,9 @@
             <h2 id="lodge">VII. THE LODGE</h2>
             
             <div class="image-gallery">
-                <img src="TheLodge.jpg" alt="Blue Mountain Lodge Exterior" class="gallery-image">
-                <img src="lodge-interior.jpeg" alt="Lodge Interior" class="gallery-image">
-                <img src="TheLodgeOverlook.jpg" alt="Lodge Mountain Overlook" class="gallery-image">
+                <img src="./optimized/TheLodge.jpg" alt="Blue Mountain Lodge Exterior" class="gallery-image">
+                <img src="./optimized/lodge-interior.jpeg" alt="Lodge Interior" class="gallery-image">
+                <img src="./optimized/TheLodgeOverlook.jpg" alt="Lodge Mountain Overlook" class="gallery-image">
             </div>
             <div class="image-caption">The Blue Mountain Lodge provides beautiful event space with panoramic mountain views</div>
             
