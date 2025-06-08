@@ -272,6 +272,69 @@
             margin-top: 0;
             margin-bottom: 0.5rem;
         }
+        
+        /* Enhanced Alert Box Hierarchy */
+        .critical-box {
+            background-color: rgba(139, 0, 0, 0.1);
+            border-left: 6px solid #8B0000;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            border: 2px solid #8B0000;
+        }
+        
+        .critical-box h4, .critical-box h5 {
+            color: #8B0000;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .warning-box {
+            background-color: rgba(255, 165, 0, 0.1);
+            border-left: 4px solid #FF8C00;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+        
+        .warning-box h4, .warning-box h5 {
+            color: #FF8C00;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .success-box {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left: 4px solid var(--spring);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+        
+        .success-box h4, .success-box h5 {
+            color: var(--spring);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .tip-box {
+            background-color: rgba(116, 185, 255, 0.1);
+            border-left: 4px solid #74B9FF;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+        
+        .tip-box h4, .tip-box h5 {
+            color: #74B9FF;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
 
         /* Contact Card */
         .contact-card {
@@ -549,6 +612,13 @@
         .non-emergency {
             color: var(--text-secondary);
             font-size: 0.95rem;
+        }
+        
+        .contact-method {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+            font-weight: 500;
         }
 
         /* Enhanced Accessibility */
@@ -1487,8 +1557,15 @@
                 font-size: 10pt !important;
             }
             
+            .contact-method {
+                color: #2C3E50 !important;
+                font-size: 10pt !important;
+                margin-bottom: 2pt !important;
+                font-weight: 500 !important;
+            }
+            
             /* Information Boxes */
-            .info-box, .warning-box, .container-highlight, .container-warning {
+            .info-box, .container-highlight {
                 background: white !important;
                 border: 2pt solid #5D5CDE !important;
                 border-radius: 4pt !important;
@@ -1501,8 +1578,56 @@
                 print-color-adjust: exact !important;
             }
             
+            .critical-box {
+                background: white !important;
+                border: 4pt solid #8B0000 !important;
+                border-radius: 4pt !important;
+                padding: 15pt !important;
+                margin: 15pt 0 !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
             .warning-box, .container-warning {
-                border-color: #E74C3C !important;
+                background: white !important;
+                border: 3pt solid #FF8C00 !important;
+                border-radius: 4pt !important;
+                padding: 12pt !important;
+                margin: 12pt 0 !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .success-box {
+                background: white !important;
+                border: 2pt solid #2ECC71 !important;
+                border-radius: 4pt !important;
+                padding: 12pt !important;
+                margin: 12pt 0 !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .tip-box {
+                background: white !important;
+                border: 2pt solid #74B9FF !important;
+                border-radius: 4pt !important;
+                padding: 12pt !important;
+                margin: 12pt 0 !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
             
             /* Hide Interactive Elements */
@@ -1657,142 +1782,180 @@
             <div class="toc">
                 <div class="toc-section">
                     <div class="toc-item">
-                        <span>I. GOVERNANCE &amp; STRUCTURE</span>
+                        <a href="#governance" class="toc-item-linked">I. GOVERNANCE &amp; STRUCTURE</a>
+                        <span class="toc-page">Page 3</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;A. BMPOA Overview</span>
+                        <a href="#governance" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;A. BMPOA Overview</a>
+                        <span class="toc-page">Page 3</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;B. Sanitary District Explained</span>
+                        <a href="#governance" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;B. Sanitary District Explained</a>
+                        <span class="toc-page">Page 4</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;C. Board &amp; Committees Structure</span>
+                        <a href="#governance" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;C. Board &amp; Committees Structure</a>
+                        <span class="toc-page">Page 6</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;D. Membership &amp; Meetings</span>
+                        <a href="#governance" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;D. Membership &amp; Meetings</a>
+                        <span class="toc-page">Page 7</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;E. New Home Construction Requirements</span>
-                    </div>
-                </div>
-                
-                <div class="toc-section">
-                    <div class="toc-item">
-                        <span>II. A MOUNTAIN HOME</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;A. Community Origins</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;B. Seasonal and Permanent Residents</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;C. Natural Beauty &amp; Wildlife</span>
+                        <a href="#governance" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;E. New Home Construction Requirements</a>
+                        <span class="toc-page">Page 8</span>
                     </div>
                 </div>
                 
                 <div class="toc-section">
                     <div class="toc-item">
-                        <span>III. WOOD-CHIPPING PROGRAM</span>
+                        <a href="#mountain-home" class="toc-item-linked">II. A MOUNTAIN HOME</a>
+                        <span class="toc-page">Page 9</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;A. Annual Chipping &amp; Fire Mitigation</span>
+                        <a href="#mountain-home" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;A. Community Origins</a>
+                        <span class="toc-page">Page 9</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;B. Brush Pile Guidelines</span>
+                        <a href="#mountain-home" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;B. Seasonal and Permanent Residents</a>
+                        <span class="toc-page">Page 10</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;C. Wood Chip Access &amp; Delivery</span>
-                    </div>
-                </div>
-                
-                <div class="toc-section">
-                    <div class="toc-item">
-                        <span>IV. FIRE SAFETY &amp; EMERGENCY PREPAREDNESS</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;A. Wildfire Risk Understanding</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;B. Evacuation Zones &amp; Routes</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;C. Home Fire Protection Strategies</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;D. Family Emergency Planning</span>
+                        <a href="#mountain-home" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;C. Natural Beauty &amp; Wildlife</a>
+                        <span class="toc-page">Page 10</span>
                     </div>
                 </div>
                 
                 <div class="toc-section">
                     <div class="toc-item">
-                        <span>V. COMMUNITY SERVICES &amp; AMENITIES</span>
+                        <a href="#wood-chipping" class="toc-item-linked">III. WOOD-CHIPPING PROGRAM</a>
+                        <span class="toc-page">Page 11</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;A. Roads &amp; Winter Weather Guidelines</span>
+                        <a href="#wood-chipping" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;A. Annual Chipping &amp; Fire Mitigation</a>
+                        <span class="toc-page">Page 11</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;B. Refuse Collection &amp; Disposal</span>
+                        <a href="#wood-chipping" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;B. Brush Pile Guidelines</a>
+                        <span class="toc-page">Page 12</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;C. Internet Service Providers</span>
-                    </div>
-                </div>
-                
-                <div class="toc-section">
-                    <div class="toc-item">
-                        <span>VI. DEER LAKE RECREATION AREA</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;A. Location &amp; Access</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;B. Recreational Area Passes</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;C. Lake &amp; Beach Rules</span>
+                        <a href="#wood-chipping" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;C. Wood Chip Access &amp; Delivery</a>
+                        <span class="toc-page">Page 12</span>
                     </div>
                 </div>
                 
                 <div class="toc-section">
                     <div class="toc-item">
-                        <span>VII. THE LODGE</span>
+                        <a href="#fire-safety" class="toc-item-linked">IV. FIRE SAFETY &amp; EMERGENCY PREPAREDNESS</a>
+                        <span class="toc-page">Page 13</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;A. Lodge Location &amp; Features</span>
+                        <a href="#fire-safety" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;A. Wildfire Risk Understanding</a>
+                        <span class="toc-page">Page 13</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;B. Rental Information &amp; Pricing</span>
+                        <a href="#fire-safety" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;B. Evacuation Zones &amp; Routes</a>
+                        <span class="toc-page">Page 14</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;C. Lodge Usage Guidelines</span>
-                    </div>
-                </div>
-                
-                <div class="toc-section">
-                    <div class="toc-item">
-                        <span>VIII. COMMUNITY COMMUNICATION</span>
+                        <a href="#fire-safety" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;C. Home Fire Protection Strategies</a>
+                        <span class="toc-page">Page 16</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;A. Social Events &amp; Activities</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;B. Online Resources</span>
-                    </div>
-                    <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;C. Newsletter &amp; Announcements</span>
+                        <a href="#fire-safety" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;D. Family Emergency Planning</a>
+                        <span class="toc-page">Page 17</span>
                     </div>
                 </div>
                 
                 <div class="toc-section">
                     <div class="toc-item">
-                        <span>IX. CONTACTS &amp; COMMUNICATION</span>
+                        <a href="#community-services" class="toc-item-linked">V. COMMUNITY SERVICES &amp; AMENITIES</a>
+                        <span class="toc-page">Page 18</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;A. BMPOA Contact Directory</span>
+                        <a href="#community-services" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;A. Roads &amp; Winter Weather Guidelines</a>
+                        <span class="toc-page">Page 18</span>
                     </div>
                     <div class="toc-item">
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;B. Emergency Numbers</span>
+                        <a href="#community-services" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;B. Refuse Collection &amp; Disposal</a>
+                        <span class="toc-page">Page 19</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#community-services" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;C. Internet Service Providers</a>
+                        <span class="toc-page">Page 20</span>
+                    </div>
+                </div>
+                
+                <div class="toc-section">
+                    <div class="toc-item">
+                        <a href="#deer-lake" class="toc-item-linked">VI. DEER LAKE RECREATION AREA</a>
+                        <span class="toc-page">Page 21</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#deer-lake" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;A. Location &amp; Access</a>
+                        <span class="toc-page">Page 21</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#deer-lake" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;B. Recreational Area Passes</a>
+                        <span class="toc-page">Page 22</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#deer-lake" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;C. Lake &amp; Beach Rules</a>
+                        <span class="toc-page">Page 22</span>
+                    </div>
+                </div>
+                
+                <div class="toc-section">
+                    <div class="toc-item">
+                        <a href="#lodge" class="toc-item-linked">VII. THE LODGE</a>
+                        <span class="toc-page">Page 23</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#lodge" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;A. Lodge Location &amp; Features</a>
+                        <span class="toc-page">Page 23</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#lodge" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;B. Rental Information &amp; Pricing</a>
+                        <span class="toc-page">Page 24</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#lodge" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;C. Lodge Usage Guidelines</a>
+                        <span class="toc-page">Page 25</span>
+                    </div>
+                </div>
+                
+                <div class="toc-section">
+                    <div class="toc-item">
+                        <a href="#community-communication" class="toc-item-linked">VIII. COMMUNITY COMMUNICATION</a>
+                        <span class="toc-page">Page 26</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#community-communication" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;A. Social Events &amp; Activities</a>
+                        <span class="toc-page">Page 26</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#community-communication" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;B. Online Resources</a>
+                        <span class="toc-page">Page 27</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#community-communication" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;C. Newsletter &amp; Announcements</a>
+                        <span class="toc-page">Page 27</span>
+                    </div>
+                </div>
+                
+                <div class="toc-section">
+                    <div class="toc-item">
+                        <a href="#contacts" class="toc-item-linked">IX. CONTACTS &amp; COMMUNICATION</a>
+                        <span class="toc-page">Page 28</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#contacts" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;A. BMPOA Contact Directory</a>
+                        <span class="toc-page">Page 28</span>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#contacts" class="toc-item-linked">&nbsp;&nbsp;&nbsp;&nbsp;B. Emergency Numbers</a>
+                        <span class="toc-page">Page 29</span>
                     </div>
                 </div>
             </div>
@@ -1820,7 +1983,7 @@
             <p>The BMPOA is a legally established non-profit organization incorporated under Virginia law. The Association operates according to its bylaws and the Blue Mountain Subdivision Declaration of Protective Covenants, Conditions &amp; Restrictions, which run with the land and are binding on all property owners.</p>
             
             <div class="info-box">
-                <h4>YOUR RELATIONSHIP WITH BMPOA</h4>
+                <h5>YOUR RELATIONSHIP WITH BMPOA</h5>
                 <p>As a Blue Mountain property owner, you are automatically a member of the Association. There are no additional dues required for membership, as community maintenance and services are funded through the Blue Mountain Sanitary District tax, which is collected with your Warren County property taxes.</p>
             </div>
             
@@ -1833,7 +1996,7 @@
             <p>All Board members are Blue Mountain property owners elected at the Annual Meeting for two-year terms.</p>
             
             <div class="alert-box">
-                <h4>BOARD ELECTIONS 2025</h4>
+                <h5>BOARD ELECTIONS 2025</h5>
                 <p>The Board nomination window is currently open and closes at midnight, June 30th. All nine positions on the Board as well as two positions on the nominating committee are up for election at the annual meeting on August 17, 2025. Any property owner may run for any position on the Board.</p>
             </div>
             
@@ -1848,7 +2011,7 @@
             <p>A Sanitary District is a special taxing district allowed by the Code of Virginia. It provides a mechanism for communities like ours to fund necessary infrastructure and services through a dedicated tax assessment on properties within the district.</p>
             
             <div class="info-box">
-                <h4>Key Benefit</h4>
+                <h5>Key Benefit</h5>
                 <p>Our Sanitary District status ensures that all property owners, including developers, contribute fairly to the maintenance of our roads and community assets.</p>
             </div>
             
@@ -1902,7 +2065,7 @@
             </ul>
             
             <div class="info-box">
-                <h4>BLUE MOUNTAIN IS ONE OF 13 SANITARY DISTRICTS</h4>
+                <h5>BLUE MOUNTAIN IS ONE OF 13 SANITARY DISTRICTS</h5>
                 <p>Currently there are 13 sanitary districts in Warren County including Blue Mountain, Cedarville Heights, High Knob, Lake Front Royal, Linden Heights, Osprey Lane, Riverside, Shangri-La, Shenandoah Farms, Shenandoah Shores, Skyland Estates, South River Estates, and Wildcat Drive.</p>
             </div>
             
@@ -1955,7 +2118,7 @@
             <p>The BMPOA Board meets monthly to conduct Association business. These meetings are typically held on the second Monday of each month at the Blue Mountain Lodge at 6:00 PM. All property owners are welcome and encouraged to attend.</p>
             
             <div class="info-box">
-                <h4>UPCOMING MEETINGS</h4>
+                <h5>UPCOMING MEETINGS</h5>
                 <p>Next Board Meeting: Monday, May 12th at 6:00 PM at the Blue Mountain Lodge</p>
                 <p>Following Board Meeting: Monday, June 9th at 6:00 PM at the Blue Mountain Lodge</p>
             </div>
@@ -1999,8 +2162,8 @@
             
             <p>If written notification is not provided within thirty (30) days of receipt of the request, the request will be deemed to have been approved.</p>
             
-            <div class="alert-box">
-                <h4>IMPORTANT</h4>
+            <div class="critical-box">
+                <h5>CONSTRUCTION REQUIREMENTS</h5>
                 <p>New construction shall not commence until the building site and detailed plans, including materials, and plans for tree removal have been approved by the Architectural Review Committee (ARC). Any deviation in approved plans may result in legal action.</p>
             </div>
             
@@ -2053,6 +2216,7 @@
                 <img src="mountain-overlook.jpg" alt="Mountain Overlook" class="gallery-image">
                 <img src="Building1.jpg" alt="Mountain Home" class="gallery-image">
             </div>
+            <div class="image-caption">Spectacular mountain views and quality homes define our Blue Mountain community</div>
             
             <h3>A. COMMUNITY ORIGINS</h3>
             <p>Created in the late 1950's as a vacation community for Washington D.C. residents, Blue Mountain has become a mix of summer residents and families establishing year-round homes. The area is known for its scenic overlooks and seasonal wildflowers as well as a peaceful and serene mountain getaway.</p>
@@ -2104,7 +2268,7 @@
             
             <div class="image-container">
                 <img src="virginia-bluebells.jpeg" alt="Virginia Bluebells" class="section-image-small">
-                <div class="image-caption">Virginia bluebells - one of our mountain's native spring wildflowers</div>
+                <div class="image-caption">Virginia bluebells bloom each spring, showcasing the natural beauty that makes Blue Mountain a special place to live</div>
             </div>
             
             <h4>1. SCENIC VIEWS</h4>
@@ -2147,8 +2311,8 @@
                 <li>Never intentionally feed bears</li>
             </ul>
             
-            <div class="info-box">
-                <h4>BEAR SAFETY RESOURCES</h4>
+            <div class="tip-box">
+                <h5>BEAR SAFETY RESOURCES</h5>
                 <p>For more detailed information about living safely with black bears, visit the Virginia Department of Wildlife Resources website: <strong>dwr.virginia.gov/wildlife/bear/living-with-black-bears/</strong></p>
             </div>
             
@@ -2156,7 +2320,7 @@
             
             <div class="image-container">
                 <img src="trillium-bloom-at-thompson-wma-in-virginia.jpeg" alt="Virginia Spring Wildflowers" class="section-image-small">
-                <div class="image-caption">Protecting Virginia's natural beauty through fire prevention</div>
+                <div class="image-caption">Spring wildflowers like trillium remind us why fire prevention is essential to protect our mountain environment</div>
             </div>
             
             <h3>A. ANNUAL CHIPPING &amp; FIRE MITIGATION</h3>
@@ -2191,8 +2355,8 @@
                 <li>Accommodate both weekend and full-time residents</li>
             </ul>
             
-            <div class="alert-box">
-                <h4>2025 SPRING CHIPPING DATE CHANGE</h4>
+            <div class="warning-box">
+                <h5>2025 SPRING CHIPPING DATE CHANGE</h5>
                 <p>The spring chipping date has been changed to April 30th, 2025. We are scheduling the chipping for the week of May 5th. To help us secure grant funding, please report your brush clearing hours or contractor payments to Patrick at quietgeneral@yahoo.com.</p>
                 <p>Our Firewise team, Jim Cook (jcook0313@gmail.com) and Patrick Patton (quietgeneral@yahoo.com) are representing BMPOA in the Virginia Department of Forestry's (VDOF) USA Firewise program. With your help, they are working to get the maximum VDOF grant authorized for 2025.</p>
             </div>
@@ -2261,7 +2425,7 @@
             
             <div class="image-container">
                 <img src="debris-fire.png" alt="Fire Safety - Debris Fire" class="section-image-small">
-                <div class="image-caption">Understanding fire risks and prevention in our mountain community</div>
+                <div class="image-caption">Proper debris management and fire safety practices protect our homes and natural surroundings</div>
             </div>
             
             <h3>A. WILDFIRE RISK UNDERSTANDING</h3>
@@ -2794,6 +2958,7 @@
                 <img src="lodge-interior.jpeg" alt="Lodge Interior" class="gallery-image">
                 <img src="TheLodgeOverlook.jpg" alt="Lodge Mountain Overlook" class="gallery-image">
             </div>
+            <div class="image-caption">The Blue Mountain Lodge provides beautiful event space with panoramic mountain views</div>
             
             <h3>A. LODGE LOCATION &amp; FEATURES</h3>
             
@@ -3000,35 +3165,35 @@
             <div class="contact-card">
                 <div class="contact-name">Board President</div>
                 <div class="contact-info">
-                    <p><strong>Email:</strong> president@bmpoa.org</p>
+                    <div class="contact-method">Email: president@bmpoa.org</div>
                 </div>
             </div>
             
             <div class="contact-card">
                 <div class="contact-name">First Vice President</div>
                 <div class="contact-info">
-                    <p><strong>Email:</strong> vicepresident@bmpoa.org</p>
+                    <div class="contact-method">Email: vicepresident@bmpoa.org</div>
                 </div>
             </div>
             
             <div class="contact-card">
                 <div class="contact-name">Second Vice President</div>
                 <div class="contact-info">
-                    <p><strong>Email:</strong> vicepresident2@bmpoa.org</p>
+                    <div class="contact-method">Email: vicepresident2@bmpoa.org</div>
                 </div>
             </div>
             
             <div class="contact-card">
                 <div class="contact-name">Secretary</div>
                 <div class="contact-info">
-                    <p><strong>Email:</strong> secretary@bmpoa.org</p>
+                    <div class="contact-method">Email: secretary@bmpoa.org</div>
                 </div>
             </div>
             
             <div class="contact-card">
                 <div class="contact-name">Treasurer</div>
                 <div class="contact-info">
-                    <p><strong>Email:</strong> treasurer@bmpoa.org</p>
+                    <div class="contact-method">Email: treasurer@bmpoa.org</div>
                 </div>
             </div>
             
@@ -3037,36 +3202,36 @@
             <div class="contact-card">
                 <div class="contact-name">Roads Committee</div>
                 <div class="contact-info">
-                    <p><strong>Email:</strong> bmpoaroads@gmail.com</p>
+                    <div class="contact-method">Email: bmpoaroads@gmail.com</div>
                 </div>
             </div>
             
             <div class="contact-card">
                 <div class="contact-name">Architectural Review Committee</div>
                 <div class="contact-info">
-                    <p><strong>Email:</strong> architecture@bmpoa.org</p>
+                    <div class="contact-method">Email: architecture@bmpoa.org</div>
                 </div>
             </div>
             
             <div class="contact-card">
                 <div class="contact-name">Firewise Team</div>
                 <div class="contact-info">
-                    <p><strong>Jim Cook:</strong> jcook0313@gmail.com</p>
-                    <p><strong>Patrick Patton:</strong> quietgeneral@yahoo.com</p>
+                    <div class="contact-method">Jim Cook: jcook0313@gmail.com</div>
+                    <div class="contact-method">Patrick Patton: quietgeneral@yahoo.com</div>
                 </div>
             </div>
             
             <div class="contact-card">
                 <div class="contact-name">Lodge Coordinator</div>
                 <div class="contact-info">
-                    <p><strong>Email:</strong> bluemountainlodgebooking@gmail.com</p>
+                    <div class="contact-method">Email: bluemountainlodgebooking@gmail.com</div>
                 </div>
             </div>
             
             <div class="contact-card">
                 <div class="contact-name">Deer Lake Recreation Area</div>
                 <div class="contact-info">
-                    <p><strong>Email:</strong> bmpoadeerlake@gmail.com</p>
+                    <div class="contact-method">Email: bmpoadeerlake@gmail.com</div>
                 </div>
             </div>
             
@@ -3074,8 +3239,8 @@
             <div class="contact-card">
                 <div class="contact-name">Blue Mountain Property Owners Association</div>
                 <div class="contact-info">
-                    <p><strong>Mailing Address:</strong> P.O. Box 114, Linden, VA 22642</p>
-                    <p><strong>Website:</strong> www.bmpoa.org</p>
+                    <div class="contact-method">Mailing Address: P.O. Box 114, Linden, VA 22642</div>
+                    <div class="contact-method">Website: www.bmpoa.org</div>
                 </div>
             </div>
         </div>
