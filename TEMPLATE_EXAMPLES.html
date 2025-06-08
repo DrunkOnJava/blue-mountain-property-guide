@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMPOA Formatting Templates - Examples</title>
+    <style>
+        /* Include the same CSS variables and template system as main document */
+        :root {
+            --primary: #5D5CDE;
+            --primary-light: #7A79E3;
+            --secondary: #3498DB;
+            --secondary-light: #5DADE2;
+            --accent: #E74C3C;
+            --accent-light: #F1948A;
+            --spring: #2ECC71;
+            --spring-light: #A3E4BC;
+            --neutral-100: #FFFFFF;
+            --neutral-200: #F7F9FA;
+            --neutral-300: #EEF2F5;
+            --neutral-400: #D1D8E0;
+            --neutral-500: #A9B4C0;
+            --text-primary: #2C3E50;
+            --text-secondary: #5D6D7E;
+            --text-muted: #7F8C9A;
+            --text-light: #FFFFFF;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 1rem;
+            background: var(--neutral-100);
+        }
+        
+        /* Include all the template CSS classes from the main document */
+        .section-divider-standard {
+            border-top: 2px solid var(--primary);
+            margin: 2rem 0 1.5rem 0;
+            padding-top: 1rem;
+        }
+        
+        .container-highlight {
+            background: var(--neutral-200);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .container-warning {
+            background: linear-gradient(135deg, var(--accent-light), var(--neutral-200));
+            border: 2px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .container-info {
+            background: linear-gradient(135deg, var(--secondary-light), var(--neutral-200));
+            border: 2px solid var(--secondary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .table-standard {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--neutral-100);
+        }
+        
+        .table-standard th {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid var(--primary);
+        }
+        
+        .table-standard td {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--neutral-400);
+            vertical-align: top;
+        }
+        
+        .table-standard tr:nth-child(even) {
+            background: var(--neutral-200);
+        }
+        
+        .layout-two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .list-checklist {
+            margin: 1rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .list-checklist li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        
+        .list-checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .text-lead {
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .example-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            border: 1px solid var(--neutral-400);
+            border-radius: 8px;
+            background: var(--neutral-100);
+        }
+    </style>
+</head>
+<body>
+    <h1>BMPOA Formatting Templates - Live Examples</h1>
+    <p class="text-lead">This document demonstrates all available formatting templates in action. Use these as copy-paste templates for consistent document formatting.</p>
+    
+    <!-- Section Divider Example -->
+    <div class="example-section">
+        <h2>Section Divider Examples</h2>
+        
+        <div class="section-divider-standard">
+            <h3>Standard Section Divider</h3>
+            <p>This is a standard section break with a 2px primary color border. Use for regular section divisions.</p>
+        </div>
+        
+        <h4>Code:</h4>
+        <pre><code>&lt;div class="section-divider-standard"&gt;
+    &lt;h3&gt;Section Title&lt;/h3&gt;
+    &lt;p&gt;Content...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    
+    <!-- Container Examples -->
+    <div class="example-section">
+        <h2>Presentation Container Examples</h2>
+        
+        <div class="container-highlight">
+            <h4>Highlight Container</h4>
+            <p>Use this container for important information that needs emphasis. Perfect for key points and essential details.</p>
+        </div>
+        
+        <div class="container-warning">
+            <h4>Warning Container</h4>
+            <p>This container is ideal for warnings, alerts, and critical information that users must notice. The red color scheme draws attention.</p>
+        </div>
+        
+        <div class="container-info">
+            <h4>Information Container</h4>
+            <p>Use this for helpful tips, additional information, and supplementary details. The blue color scheme is friendly and informative.</p>
+        </div>
+        
+        <h4>Code:</h4>
+        <pre><code>&lt;div class="container-highlight"&gt;
+    &lt;h4&gt;Title&lt;/h4&gt;
+    &lt;p&gt;Content...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    
+    <!-- Table Example -->
+    <div class="example-section">
+        <h2>Table Template Example</h2>
+        
+        <table class="table-standard">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Provider</th>
+                    <th>Contact</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Internet</td>
+                    <td>Xfinity</td>
+                    <td>1-855-399-1542</td>
+                    <td>Cable service, check availability</td>
+                </tr>
+                <tr>
+                    <td>Satellite</td>
+                    <td>HughesNet</td>
+                    <td>1-866-347-3292</td>
+                    <td>Available throughout community</td>
+                </tr>
+                <tr>
+                    <td>Waste Management</td>
+                    <td>Warren County</td>
+                    <td>540-635-4549</td>
+                    <td>Convenience sites available</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h4>Code:</h4>
+        <pre><code>&lt;table class="table-standard"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;&lt;th&gt;Header&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+    </div>
+    
+    <!-- Layout Example -->
+    <div class="example-section">
+        <h2>Two-Column Layout Example</h2>
+        
+        <div class="layout-two-column">
+            <div>
+                <h4>Left Column</h4>
+                <p>This is the left column content. Perfect for main information, detailed descriptions, or primary content.</p>
+                <ul class="list-checklist">
+                    <li>Checklist item one</li>
+                    <li>Checklist item two</li>
+                    <li>Checklist item three</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Right Column</h4>
+                <p>This is the right column content. Ideal for supplementary information, quick facts, or related details.</p>
+                <div class="container-info">
+                    <h5>Quick Tip</h5>
+                    <p>Use two-column layouts to present related information side-by-side while maintaining readability.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h4>Code:</h4>
+        <pre><code>&lt;div class="layout-two-column"&gt;
+    &lt;div&gt;Left content...&lt;/div&gt;
+    &lt;div&gt;Right content...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    
+    <!-- Combined Example -->
+    <div class="example-section">
+        <h2>Complete Section Example</h2>
+        <p>Here's how multiple templates work together:</p>
+        
+        <div class="section-divider-standard">
+            <h3>Wood-Chipping Program Guidelines</h3>
+            
+            <p class="text-lead">The annual wood-chipping program helps reduce fire hazards while providing convenient debris disposal for all property owners.</p>
+            
+            <div class="layout-two-column">
+                <div>
+                    <h4>Preparation Steps</h4>
+                    <ul class="list-checklist">
+                        <li>Create brush pile within 6 feet of roadside</li>
+                        <li>Remove any non-organic materials</li>
+                        <li>Cut branches to manageable lengths</li>
+                        <li>Ensure clear access for equipment</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="container-warning">
+                        <h4>Important Notice</h4>
+                        <p>2025 chipping date has changed to April 30th. Please prepare your brush piles by this date.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <table class="table-standard">
+                <thead>
+                    <tr>
+                        <th>Material Type</th>
+                        <th>Accepted</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tree branches</td>
+                        <td>Yes</td>
+                        <td>Up to 6 inches diameter</td>
+                    </tr>
+                    <tr>
+                        <td>Brush and shrubs</td>
+                        <td>Yes</td>
+                        <td>Cut to manageable lengths</td>
+                    </tr>
+                    <tr>
+                        <td>Leaves and grass</td>
+                        <td>No</td>
+                        <td>Compost separately</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="container-highlight">
+                <h4>Fire Prevention Benefit</h4>
+                <p>Participating in the wood-chipping program creates defensible space around your home—one of the most effective wildfire protection strategies available to mountain residents.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--neutral-400); text-align: center; color: var(--text-muted);">
+        <p>BMPOA Formatting Templates v1.0 | For questions, contact the Communications Committee</p>
+    </footer>
+</body>
+</html>

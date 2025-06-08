@@ -368,6 +368,616 @@
             z-index: 100;
         }
         
+        /* Professional Image Styles */
+        .section-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            margin: 1rem auto;
+            display: block;
+        }
+        
+        .section-image-small {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: var(--shadow-sm);
+            margin: 0.75rem auto;
+            display: block;
+        }
+        
+        .section-image-inline {
+            width: 200px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: var(--shadow-sm);
+            margin: 0.5rem 1rem 0.5rem 0;
+            float: left;
+        }
+        
+        .emblem {
+            width: 100px;
+            height: auto;
+            margin: 0.5rem;
+            display: inline-block;
+        }
+        
+        .cover-hero {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            margin: 1rem auto;
+            display: block;
+        }
+        
+        .image-gallery {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .gallery-image {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .flag-emblem-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .va-flag {
+            width: 120px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* Print Optimizations for Images */
+        @media print {
+            .section-image, .gallery-image {
+                page-break-inside: avoid;
+                max-height: 4in;
+            }
+            
+            .cover-hero {
+                max-height: 3in;
+            }
+        }
+        
+        /* ==============================================
+           STANDARDIZED FORMATTING SYSTEM v1.0
+           Blue Mountain Property Owners Association
+           ==============================================
+           
+           AUTHORITY HIERARCHY:
+           1. Document-wide CSS variables (--primary, --secondary, etc.)
+           2. Base element styles (h1, h2, p, etc.)
+           3. Layout containers (.paper-page, .document-container)
+           4. Template classes (below)
+           5. Page-specific overrides (.page-[name] .element)
+           6. Utility classes (!important rules)
+           
+           USAGE GUIDELINES:
+           - Always use template classes for consistency
+           - Page-specific styles should override via .page-[name] selectors
+           - Utility classes for quick adjustments only
+           - Maintain print-first design philosophy
+        */
+        
+        /* ==============================================
+           SECTION DIVIDER TEMPLATES
+           ============================================== */
+        
+        .section-divider-standard {
+            border-top: 2px solid var(--primary);
+            margin: 2rem 0 1.5rem 0;
+            padding-top: 1rem;
+        }
+        
+        .section-divider-subtle {
+            border-top: 1px solid var(--neutral-400);
+            margin: 1.5rem 0 1rem 0;
+            padding-top: 0.75rem;
+        }
+        
+        .section-divider-bold {
+            border-top: 4px solid var(--primary);
+            background: linear-gradient(to right, var(--neutral-200), transparent);
+            margin: 2.5rem 0 2rem 0;
+            padding: 1rem 0 0.5rem 1rem;
+        }
+        
+        .section-divider-seasonal {
+            border-top: 3px solid var(--spring);
+            background: linear-gradient(90deg, var(--spring-light), transparent);
+            margin: 2rem 0 1.5rem 0;
+            padding: 0.75rem 0 0.25rem 0.75rem;
+        }
+        
+        /* ==============================================
+           TABLE TEMPLATES
+           ============================================== */
+        
+        .table-standard {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--neutral-100);
+        }
+        
+        .table-standard th {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid var(--primary);
+        }
+        
+        .table-standard td {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--neutral-400);
+            vertical-align: top;
+        }
+        
+        .table-standard tr:nth-child(even) {
+            background: var(--neutral-200);
+        }
+        
+        .table-compact {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .table-compact th {
+            background: var(--neutral-300);
+            color: var(--text-primary);
+            padding: 0.5rem;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid var(--neutral-500);
+        }
+        
+        .table-compact td {
+            padding: 0.375rem 0.5rem;
+            border: 1px solid var(--neutral-400);
+        }
+        
+        .table-borderless {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .table-borderless td {
+            padding: 0.5rem 0.75rem;
+            border: none;
+            border-bottom: 1px solid var(--neutral-300);
+        }
+        
+        .table-borderless th {
+            padding: 0.75rem;
+            border: none;
+            border-bottom: 2px solid var(--primary);
+            background: none;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        /* ==============================================
+           PRESENTATION CONTAINER TEMPLATES
+           ============================================== */
+        
+        .container-highlight {
+            background: var(--neutral-200);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .container-warning {
+            background: linear-gradient(135deg, var(--accent-light), var(--neutral-200));
+            border: 2px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .container-info {
+            background: linear-gradient(135deg, var(--secondary-light), var(--neutral-200));
+            border: 2px solid var(--secondary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .container-success {
+            background: linear-gradient(135deg, var(--spring-light), var(--neutral-200));
+            border: 2px solid var(--spring);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .container-quote {
+            background: var(--neutral-100);
+            border-left: 6px solid var(--neutral-500);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .container-quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--neutral-500);
+            position: absolute;
+            top: -0.5rem;
+            left: 0.5rem;
+            line-height: 1;
+        }
+        
+        .container-card {
+            background: var(--neutral-100);
+            border: 1px solid var(--neutral-400);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .container-featured {
+            background: linear-gradient(135deg, var(--primary-light), var(--neutral-200));
+            border: 3px solid var(--primary);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* ==============================================
+           LIST TEMPLATES
+           ============================================== */
+        
+        .list-standard {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .list-standard li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .list-compact {
+            margin: 0.5rem 0;
+            padding-left: 1.25rem;
+        }
+        
+        .list-compact li {
+            margin-bottom: 0.25rem;
+            line-height: 1.4;
+        }
+        
+        .list-spaced {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .list-spaced li {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        
+        .list-checklist {
+            margin: 1rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .list-checklist li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        
+        .list-checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .list-numbered-custom {
+            counter-reset: custom-counter;
+            margin: 1rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .list-numbered-custom li {
+            counter-increment: custom-counter;
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        
+        .list-numbered-custom li::before {
+            content: counter(custom-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--primary);
+            color: var(--text-light);
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        /* ==============================================
+           TABLE OF CONTENTS TEMPLATES
+           ============================================== */
+        
+        .toc-modern {
+            background: var(--neutral-200);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .toc-modern .toc-title {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .toc-simple {
+            border: 1px solid var(--neutral-400);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background: var(--neutral-100);
+        }
+        
+        .toc-simple .toc-title {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .toc-item-linked {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--neutral-400);
+            transition: all 0.2s ease;
+        }
+        
+        .toc-item-linked:hover {
+            color: var(--primary);
+            background: var(--neutral-200);
+            padding-left: 0.5rem;
+        }
+        
+        /* ==============================================
+           PARAGRAPH AND TEXT TEMPLATES
+           ============================================== */
+        
+        .text-lead {
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .text-emphasis {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .text-muted {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .text-small {
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        .text-large {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-right {
+            text-align: right;
+        }
+        
+        .text-justify {
+            text-align: justify;
+        }
+        
+        .paragraph-indent {
+            text-indent: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .paragraph-hanging {
+            padding-left: 2rem;
+            text-indent: -2rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* ==============================================
+           DUAL COLUMN LAYOUT SYSTEM
+           ============================================== */
+        
+        .layout-two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .layout-two-column-60-40 {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .layout-two-column-70-30 {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .layout-sidebar-left {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .layout-sidebar-right {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .column-break {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+        
+        /* ==============================================
+           PAGE-SPECIFIC OVERRIDE SYSTEM
+           ============================================== */
+        
+        /* Page-specific styling - use .page-[name] .element pattern */
+        .page-governance .container-highlight {
+            border-left-color: var(--secondary);
+            background: var(--secondary-light);
+        }
+        
+        .page-fire-safety .container-warning {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+        
+        .page-community .container-info {
+            border-color: var(--spring);
+            background: var(--spring-light);
+        }
+        
+        /* ==============================================
+           UTILITY CLASSES (USE SPARINGLY)
+           ============================================== */
+        
+        .u-margin-none { margin: 0 !important; }
+        .u-margin-small { margin: 0.5rem !important; }
+        .u-margin-large { margin: 2rem !important; }
+        .u-padding-none { padding: 0 !important; }
+        .u-padding-small { padding: 0.5rem !important; }
+        .u-padding-large { padding: 2rem !important; }
+        .u-hidden { display: none !important; }
+        .u-visible { display: block !important; }
+        .u-text-bold { font-weight: bold !important; }
+        .u-text-normal { font-weight: normal !important; }
+        .u-border-none { border: none !important; }
+        .u-shadow-none { box-shadow: none !important; }
+        
+        /* ==============================================
+           PRINT OPTIMIZATIONS FOR NEW TEMPLATES
+           ============================================== */
+        
+        @media print {
+            .layout-two-column,
+            .layout-two-column-60-40,
+            .layout-two-column-70-30 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .layout-sidebar-left,
+            .layout-sidebar-right {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            
+            .container-highlight,
+            .container-warning,
+            .container-info,
+            .container-success,
+            .container-featured {
+                page-break-inside: avoid;
+                margin: 1rem 0;
+            }
+            
+            .section-divider-bold,
+            .section-divider-seasonal {
+                background: none;
+                padding-left: 0;
+            }
+        }
+        
         /* Responsive Adjustments */
         @media (max-width: 8.5in) {
             body {
@@ -484,8 +1094,14 @@
         <!-- Cover Page -->
         <div class="paper-page">
             <div class="cover-page">
+                <div class="image-container">
+                    <img src="optimized/bmpoa-emblem.png" alt="BMPOA Emblem" class="emblem">
+                </div>
                 <h1 class="cover-title">BLUE MOUNTAIN PROPERTY OWNERS ASSOCIATION</h1>
                 <p class="cover-subtitle">Your Complete Guide to Mountain Living in Linden, Virginia</p>
+                <div class="image-container">
+                    <img src="optimized/blue-mountain-vista-cover.jpg" alt="Blue Mountain Vista" class="cover-hero">
+                </div>
                 <p>A comprehensive resource for new and existing residents</p>
             </div>
         </div>
@@ -679,8 +1295,9 @@
             
             <h3>B. SANITARY DISTRICT EXPLAINED</h3>
             
-            <div style="text-align: center; margin-bottom: 1rem;">
-                <img src="https://pfst.cf2.poecdn.net/base/image/2c8d0185562f1ca8aec8931109cf86b16dfc07e63201b4f74764779935ef631d?w=1179&amp;h=805" alt="Virginia State Flag" class="va-flag">
+            <div class="flag-emblem-container">
+                <img src="optimized/VA-Flag.jpeg" alt="Virginia State Flag" class="va-flag">
+                <img src="optimized/bmpoa-emblem.png" alt="BMPOA Emblem" class="emblem">
             </div>
             
             <h4>1. WHAT IS A SANITARY DISTRICT?</h4>
@@ -888,8 +1505,9 @@
             <h2 id="mountain-home">II. A MOUNTAIN HOME</h2>
             
             <div class="image-gallery">
-                <img src="https://pfst.cf2.poecdn.net/base/image/7a0c6bd484cc86de1995d0bca3f25eeb906a4009564e94bc8be356659911e703?w=1179&amp;h=758" alt="Mountain View" class="gallery-image">
-                <img src="https://pfst.cf2.poecdn.net/base/image/466f185ee00b0bdf71b1717db6d8f9a0451c7ef7c3c1a81bc2c9dfd6ae3529b3?w=1170&amp;h=757" alt="Mountain Home" class="gallery-image">
+                <img src="optimized/mountain-vista.jpeg" alt="Mountain Vista View" class="gallery-image">
+                <img src="optimized/mountain-overlook.jpeg" alt="Mountain Overlook" class="gallery-image">
+                <img src="optimized/Building1.jpg" alt="Mountain Home" class="gallery-image">
             </div>
             
             <h3>A. COMMUNITY ORIGINS</h3>
@@ -940,6 +1558,11 @@
         <div class="paper-page">
             <h3>C. NATURAL BEAUTY &amp; WILDLIFE</h3>
             
+            <div class="image-container">
+                <img src="optimized/virginia-bluebells.jpeg" alt="Virginia Bluebells" class="section-image-small">
+                <div class="image-caption">Virginia bluebells - one of our mountain's native spring wildflowers</div>
+            </div>
+            
             <h4>1. SCENIC VIEWS</h4>
             <p>Blue Mountain is known for its spectacular vistas, particularly:</p>
             <ul>
@@ -986,6 +1609,11 @@
             </div>
             
             <h2 id="wood-chipping">III. WOOD-CHIPPING PROGRAM</h2>
+            
+            <div class="image-container">
+                <img src="optimized/trillium-bloom-at-thompson-wma-in-virginia.jpeg" alt="Virginia Spring Wildflowers" class="section-image-small">
+                <div class="image-caption">Protecting Virginia's natural beauty through fire prevention</div>
+            </div>
             
             <h3>A. ANNUAL CHIPPING &amp; FIRE MITIGATION</h3>
             
@@ -1086,6 +1714,11 @@
         <!-- Fire Safety Page -->
         <div class="paper-page">
             <h2 id="fire-safety">IV. FIRE SAFETY &amp; EMERGENCY PREPAREDNESS</h2>
+            
+            <div class="image-container">
+                <img src="optimized/debris-fire.png" alt="Fire Safety - Debris Fire" class="section-image-small">
+                <div class="image-caption">Understanding fire risks and prevention in our mountain community</div>
+            </div>
             
             <h3>A. WILDFIRE RISK UNDERSTANDING</h3>
             
@@ -1332,6 +1965,11 @@
         <div class="paper-page">
             <h2 id="community-services">V. COMMUNITY SERVICES &amp; AMENITIES</h2>
             
+            <div class="image-container">
+                <img src="optimized/warren-county-waste-map.png" alt="Warren County Waste Management Map" class="section-image">
+                <div class="image-caption">Warren County waste management and recycling locations</div>
+            </div>
+            
             <h3>A. ROADS &amp; WINTER WEATHER GUIDELINES</h3>
             
             <h4>1. ROAD MAINTENANCE RESPONSIBILITIES</h4>
@@ -1436,7 +2074,16 @@
         
         <!-- Internet Services Page -->
         <div class="paper-page">
-            <h3>C. INTERNET SERVICE PROVIDERS</h3>
+            <h3>C. LOCAL AREA AMENITIES</h3>
+            
+            <div class="image-gallery">
+                <img src="optimized/winery-1.jpeg" alt="Local Winery" class="gallery-image">
+                <img src="optimized/OverlookatVineyard.png" alt="Vineyard Overlook" class="gallery-image">
+                <img src="optimized/VineyardGreen.png" alt="Virginia Vineyard" class="gallery-image">
+            </div>
+            <div class="image-caption">Enjoy local wineries and scenic vineyards in the beautiful Shenandoah Valley region</div>
+            
+            <h3>D. INTERNET SERVICE PROVIDERS</h3>
             
             <h4>1. AVAILABLE PROVIDERS</h4>
             <p>Several internet service options are available to Blue Mountain residents:</p>
@@ -1477,13 +2124,16 @@
             
             <h2 id="deer-lake">VI. DEER LAKE RECREATION AREA</h2>
             
+            <div class="image-container">
+                <img src="optimized/deer-lake-dock.jpeg" alt="Deer Lake Dock and Recreation Area" class="section-image">
+                <div class="image-caption">Deer Lake - A peaceful retreat for Blue Mountain residents</div>
+            </div>
+            
             <h3>A. LOCATION &amp; ACCESS</h3>
             
             <h4>1. DEER LAKE LOCATION</h4>
             <p><strong>Address:</strong> 3367 Blue Mountain Road, Linden, Virginia 22630</p>
             <p>Deer Lake is nestled in a peaceful setting on Blue Mountain Road. The lake features a beach area, swimming area with a dock, picnic facilities, and fishing opportunities. It serves as a central gathering place for community events and a recreational retreat for residents.</p>
-            
-            <img src="https://pfst.cf2.poecdn.net/base/image/c1d92cbfaeeba52200d374dc78880bf7b91175428db4858e41f5f28b846fc6b9?w=1179&amp;h=1333" alt="Deer Lake Map" style="width: 100%; max-width: 500px; margin: 1rem auto; display: block;">
         </div>
         
         <!-- Deer Lake Access Page -->
@@ -1594,6 +2244,12 @@
             </ul>
             
             <h2 id="lodge">VII. THE LODGE</h2>
+            
+            <div class="image-gallery">
+                <img src="optimized/TheLodge.jpg" alt="Blue Mountain Lodge Exterior" class="gallery-image">
+                <img src="optimized/lodge-interior.jpeg" alt="Lodge Interior" class="gallery-image">
+                <img src="optimized/TheLodgeOverlook.jpg" alt="Lodge Mountain Overlook" class="gallery-image">
+            </div>
             
             <h3>A. LODGE LOCATION &amp; FEATURES</h3>
             
