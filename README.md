@@ -1,160 +1,224 @@
 # Blue Mountain Property Owners Association Guide
 
-A comprehensive interactive guide for residents of Blue Mountain, Linden, Virginia. This document provides essential information about community governance, services, amenities, and living guidelines.
+## 🏔️ Overview
 
-## 🏔️ Features
+This is a comprehensive web-based property owners guide for the Blue Mountain Property Owners Association (BMPOA) in Linden, Virginia. The guide is specifically optimized for printing on US Letter sized paper (8.5" × 11") while maintaining an excellent digital reading experience.
 
-- **Professional Print Layout**: Optimized for printing with proper page breaks
-- **Responsive Design**: Works on desktop, tablet, and mobile devices  
-- **Interactive Navigation**: Table of contents with smooth scrolling
-- **Image Gallery**: Professional integration of community photos
-- **Dark/Light Mode**: Toggle between themes for comfortable viewing
-- **Comprehensive Templates**: Standardized formatting system for consistency
+## 🎯 Project Goals
 
-## 🚀 Development
+### Primary Objectives
+1. **PDF-Printer Ready**: Strict compliance with US Letter paper dimensions
+2. **Emergency Information**: Clear, prominent display of critical safety contacts
+3. **Professional Appearance**: High-quality typography and layout
+4. **Accessibility**: Readable across all devices and print formats
+5. **Maintainability**: Standardized formatting system for easy updates
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
+### Critical Requirements
+- ✅ **NO EXCEPTIONS** on US Letter paper compliance
+- ✅ Emergency contacts must be prominently displayed
+- ✅ Print quality must be professional-grade
+- ✅ All content must fit within printable margins
+- ✅ Cross-browser print compatibility required
 
-### Getting Started
+## 🛠️ Technology Stack
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/DrunkOnJava/blue-mountain-property-guide.git
-   cd blue-mountain-property-guide
-   ```
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript
+- **Build Tool**: Vite 6.3.5
+- **Fonts**: Montserrat (headings), Roboto (screen), Times New Roman (print)
+- **Styling**: CSS Custom Properties (Variables)
+- **Print Optimization**: Advanced CSS `@media print` rules
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+## 📋 Key Features
 
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-   Opens automatically at `http://localhost:3000`
+### ✨ Current Strengths
+- **Advanced CSS Variable System**: Comprehensive color and spacing consistency
+- **Template-Based Design**: Standardized formatting classes
+- **Dark/Light Mode**: User preference support
+- **Responsive Design**: Works on mobile, tablet, and desktop
+- **Print Optimization**: Enhanced for US Letter paper printing
 
-4. **Build for production**
-   ```bash
-   npm run build
-   ```
-
-5. **Preview production build**
-   ```bash
-   npm run preview
-   ```
-
-### Available Scripts
-
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build optimized production bundle
-- `npm run preview` - Preview production build locally  
-- `npm run serve` - Serve production build on port 4173
-- `npm run clean` - Clean build cache and dependencies
+### 🎨 Design System
+- **Color Palette**: Primary (#5D5CDE), Secondary (#3498DB), Accent (#E74C3C)
+- **Typography**: Montserrat for headings, Roboto for body text
+- **Spacing**: Consistent rem-based spacing system
+- **Shadows**: Three-tier shadow system (sm, md, lg)
 
 ## 📁 Project Structure
 
 ```
-blue-mountain-property-guide/
-├── index.html              # Main guide document
-├── TEMPLATE_EXAMPLES.html   # Live formatting examples
-├── FORMATTING_RULEBOOK.md   # Complete formatting documentation
-├── optimized/              # Optimized images and assets
-├── vite.config.js          # Vite configuration
-├── package.json            # Project dependencies and scripts
-└── README.md              # This file
+6pm/
+├── index.html              # Main application file
+├── package.json            # Node.js dependencies and scripts
+├── vite.config.js          # Vite build configuration
+├── FORMATTING_RULEBOOK.md  # Design system documentation
+├── README.md               # This file
+├── CLAUDE_CODE_TASKS.md    # Specific tasks for Claude Code CLI
+└── optimized/              # Image assets directory (referenced in vite.config.js)
 ```
 
-## 🎨 Formatting System
+## 🚀 Development Workflow
 
-The project includes a comprehensive formatting system with:
+### Getting Started
+```bash
+# Install dependencies
+npm install
 
-### Template Categories
-- **Section Dividers** (4 types: standard, subtle, bold, seasonal)
-- **Table Templates** (3 types: standard, compact, borderless)  
-- **Presentation Containers** (7 types: highlight, warning, info, success, quote, card, featured)
-- **List Templates** (5 types: standard, compact, spaced, checklist, custom-numbered)
-- **Dual Column Layouts** (5 responsive grid options)
+# Start development server
+npm run dev
+# Opens http://localhost:3000
 
-### Usage
-See `FORMATTING_RULEBOOK.md` for complete documentation and `TEMPLATE_EXAMPLES.html` for live examples.
+# Build for production
+npm run build
 
-```html
-<!-- Example: Highlight Container -->
-<div class="container-highlight">
-    <h4>Important Information</h4>
-    <p>Content that needs emphasis...</p>
-</div>
-
-<!-- Example: Two-Column Layout -->
-<div class="layout-two-column">
-    <div>Left column content</div>
-    <div>Right column content</div>
-</div>
+# Preview production build
+npm run preview
 ```
 
-## 🖨️ Print Optimization
+### Testing Print Functionality
+1. Open the application in a browser
+2. Press Ctrl+P (Cmd+P on Mac) to open print preview
+3. Verify:
+   - Paper size is set to "Letter"
+   - Content fits within margins
+   - Emergency contacts are clearly visible
+   - Page breaks occur at logical points
 
-The guide is optimized for printing:
-- Letter size (8.5" x 11") page layout
-- Print-friendly color schemes
-- Automatic page breaks at logical points
-- Image sizing optimized for print quality
-- Multi-column layouts collapse for print
+## 🎯 Critical Print Requirements
 
-## 🌐 Deployment
+### US Letter Paper Specifications
+- **Dimensions**: 8.5" × 11" (216mm × 279mm)
+- **Margins**: 0.75" top/bottom, 0.5" left/right
+- **Printable Area**: 7.5" width × 9.5" height
+- **Font Sizes**: Minimum 11pt body text, 9pt for captions
 
-### GitHub Pages
-The site is automatically deployed to GitHub Pages at:
-https://drunkonjava.github.io/blue-mountain-property-guide/
+### Emergency Contact Standards
+- **High Contrast**: Black text on white background
+- **Border Requirements**: Minimum 2pt solid borders around emergency sections
+- **Text Size**: Minimum 12pt for emergency numbers
+- **Page Breaks**: Emergency contacts must not split across pages
 
-### Manual Deployment
-1. Build the project: `npm run build`
-2. Deploy the `dist/` folder to your hosting provider
+### Browser Compatibility
+- ✅ Chrome (primary testing browser)
+- ✅ Firefox (secondary)
+- ✅ Safari (macOS users)
+- ✅ Edge (Windows users)
 
-## 📄 Content Sections
+## 🔧 CSS Architecture
 
-1. **Governance & Structure** - BMPOA overview, sanitary district, board structure
-2. **A Mountain Home** - Community origins, residents, natural beauty
-3. **Wood-Chipping Program** - Annual program, fire mitigation, guidelines
-4. **Fire Safety & Emergency** - Risk understanding, evacuation, preparedness
-5. **Community Services** - Roads, waste management, internet, amenities  
-6. **Deer Lake Recreation** - Location, access, rules, passes
-7. **The Lodge** - Facilities, rentals, events, activities
-8. **Community Communication** - Contacts, meetings, updates
-9. **Contacts & Resources** - Directory of important contacts
+### CSS Custom Properties (Variables)
+Located in `:root` selector, includes:
+- Color system (primary, secondary, neutral, text colors)
+- Typography scales
+- Spacing system
+- Shadow definitions
+- Paper dimensions for print
 
-## 🤝 Contributing
+### Print-Specific CSS
+Critical `@media print` rules ensure:
+- Exact US Letter page dimensions
+- Proper margin calculations
+- Color printing support
+- Page break management
+- Image size constraints
+- Typography optimization
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes following the formatting guidelines
-4. Test your changes: `npm run dev`
-5. Build to ensure no errors: `npm run build`
-6. Commit your changes: `git commit -m "Description"`
-7. Push to your fork: `git push origin feature-name`
-8. Submit a pull request
+### Template Classes
+Standardized classes for consistent formatting:
+- `.container-highlight` - Important information boxes
+- `.container-warning` - Alert and warning content
+- `.emergency-contacts` - Special formatting for emergency information
+- `.contact-card` - Individual contact information blocks
 
-### Guidelines
-- Follow the established formatting system
-- Use template classes for consistency
-- Test print layouts before submitting
-- Maintain responsive design principles
-- Document any new templates or patterns
+## 🧪 Quality Assurance
 
-## 📞 Support
+### Testing Checklist
+- [ ] Print preview shows US Letter format
+- [ ] Emergency contacts are prominently displayed
+- [ ] No content extends beyond printable margins
+- [ ] Images scale appropriately for print
+- [ ] Typography is clear and readable
+- [ ] Page breaks occur at logical points
+- [ ] Colors print correctly (if color printer available)
 
-For questions about the guide content, contact the BMPOA Communications Committee.
+### Performance Standards
+- [ ] Page load time < 3 seconds
+- [ ] Print preparation time < 1 second
+- [ ] Responsive layout works on mobile devices
+- [ ] Dark mode toggle functions correctly
 
-For technical issues, please open an issue on GitHub.
+## 🎨 Design Principles
 
-## 📋 License
+### Print-First Approach
+- All design decisions prioritize print quality
+- Screen experience enhanced but not at print's expense
+- Typography optimized for readability on paper
+- Color choices consider both screen and print media
 
-This project is licensed under the ISC License. See the repository for details.
+### Professional Appearance
+- Clean, organized layout
+- Consistent spacing and alignment
+- Professional typography hierarchy
+- Clear information hierarchy
+
+### Safety Focus
+- Emergency information receives special visual treatment
+- Critical safety data never hidden or hard to find
+- Contact information formatted for quick reference
+- Print-friendly emergency contact layout
+
+## 📞 Key Content Sections
+
+1. **Cover Page**: Title, subtitle, and organizational branding
+2. **Table of Contents**: Navigation for printed document
+3. **Governance & Structure**: BMPOA organizational information
+4. **Fire Safety & Emergency Preparedness**: Critical safety information
+5. **Community Services**: Practical information for residents
+6. **Recreation Areas**: Deer Lake and Lodge information
+7. **Emergency Contacts**: **CRITICAL SECTION** - must be prominently displayed
+
+## 🔄 Maintenance Guidelines
+
+### Content Updates
+- Use existing template classes for new content
+- Test print layout after significant changes
+- Ensure emergency information remains prominent
+- Verify US Letter compliance after updates
+
+### Code Modifications
+- Follow the authority hierarchy in FORMATTING_RULEBOOK.md
+- Test print functionality in multiple browsers
+- Maintain CSS variable consistency
+- Document any new template classes
+
+## 📈 Future Enhancements
+
+### Planned Improvements
+- Enhanced mobile print support
+- Additional emergency contact formatting options
+- Automated print testing
+- Content management system integration
+
+### Monitoring
+- Regular print quality checks
+- Browser compatibility updates
+- Performance optimization
+- User feedback incorporation
+
+## 🚨 Critical Notes for Claude Code CLI
+
+### Primary Focus Areas
+1. **Print Optimization**: Ensuring strict US Letter compliance
+2. **Emergency Contact Enhancement**: Making critical information more prominent
+3. **Cross-Browser Testing**: Ensuring consistent print behavior
+4. **Performance Optimization**: Maintaining fast load times
+5. **Code Organization**: Following the established design system
+
+### Constraints
+- **NO BREAKING CHANGES** to existing screen functionality
+- Must maintain CSS variable system integrity
+- Print requirements are non-negotiable
+- Emergency contact visibility is critical for resident safety
 
 ---
 
-**Blue Mountain Property Owners Association**  
-*Your Complete Guide to Mountain Living in Linden, Virginia*
+*This guide serves as a critical resource for Blue Mountain residents and must maintain the highest standards of quality and accessibility.*
