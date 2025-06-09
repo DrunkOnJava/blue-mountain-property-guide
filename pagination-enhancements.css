@@ -1,0 +1,348 @@
+/* 
+ * Enhanced Pagination CSS for Blue Mountain Property Guide
+ * Advanced page break controls and print optimizations
+ */
+
+/* ============================================================================
+   ENHANCED PAGE BREAK CONTROL
+   ============================================================================ */
+
+/* Advanced page break avoidance for content blocks */
+.content-block,
+.section-content,
+.emergency-section,
+.contact-group {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: hidden !important;
+}
+
+/* Enhanced heading protection with better spacing */
+h1, h2, h3 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    /* Ensure minimum space after headings */
+    margin-bottom: 0.5in !important;
+}
+
+h1 + *, h2 + *, h3 + * {
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+}
+
+/* List management for better pagination */
+ul, ol {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+}
+
+li {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 0.1in;
+}
+
+/* Enhanced table pagination */
+table {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    width: 100% !important;
+    border-collapse: collapse !important;
+}
+
+thead {
+    display: table-header-group !important;
+}
+
+tbody {
+    display: table-row-group !important;
+}
+
+tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+}
+
+/* ============================================================================
+   ENHANCED PAGE SIZE CONTROL
+   ============================================================================ */
+
+/* Stricter height control for pages */
+.paper-page {
+    height: 9.5in !important;
+    min-height: 9.5in !important;
+    max-height: 9.5in !important;
+    overflow: hidden !important;
+    
+    /* Enhanced box model */
+    box-sizing: border-box !important;
+    padding: 0.75in 0.5in 0.75in 0.5in !important;
+    
+    /* Better content flow */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
+
+/* Page content wrapper with overflow protection */
+.page-content {
+    flex: 1 1 auto;
+    overflow: hidden !important;
+    max-height: 8in !important; /* Account for padding */
+}
+
+/* ============================================================================
+   OVERFLOW DETECTION AND WARNINGS
+   ============================================================================ */
+
+/* Visual indicators for content overflow (screen only) */
+@media screen {
+    .paper-page::after {
+        content: "";
+        position: absolute;
+        bottom: 0.75in;
+        right: 0.5in;
+        width: 0.25in;
+        height: 0.25in;
+        background: linear-gradient(45deg, transparent 40%, #e74c3c 40%, #e74c3c 60%, transparent 60%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+    }
+    
+    /* Show warning when page height exceeds limit */
+    .paper-page[data-overflow="true"]::after {
+        opacity: 1;
+    }
+    
+    .paper-page[data-overflow="true"] {
+        border-left: 4px solid #e74c3c !important;
+        box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2) !important;
+    }
+}
+
+/* ============================================================================
+   ENHANCED PRINT OPTIMIZATIONS
+   ============================================================================ */
+
+@media print {
+    /* Enhanced page control */
+    @page {
+        size: 8.5in 11in !important;
+        margin: 0.75in 0.5in 0.75in 0.5in !important;
+        
+        /* Enhanced headers and footers */
+        @top-center {
+            content: "Blue Mountain Property Owners Association • Page " counter(page);
+            font-family: 'Roboto', Arial, sans-serif !important;
+            font-size: 9pt !important;
+            color: #5D6D7E !important;
+            margin-bottom: 0.25in !important;
+            font-weight: 500 !important;
+        }
+        
+        @bottom-center {
+            content: "www.bmpoa.org • Complete Guide to Mountain Living";
+            font-family: 'Roboto', Arial, sans-serif !important;
+            font-size: 8pt !important;
+            color: #A9B4C0 !important;
+            margin-top: 0.25in !important;
+        }
+    }
+    
+    /* Cover page customization */
+    @page :first {
+        @top-center { content: none !important; }
+        @bottom-center { content: none !important; }
+        margin: 0 !important;
+    }
+    
+    /* Emergency pages with special headers */
+    @page emergency {
+        @top-center {
+            content: "🚨 EMERGENCY CONTACT INFORMATION • Page " counter(page);
+            color: #E74C3C !important;
+            font-weight: bold !important;
+            font-size: 10pt !important;
+        }
+    }
+    
+    /* Enhanced print quality */
+    * {
+        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+    
+    /* Force proper page breaks */
+    .paper-page {
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-after: auto !important;
+        break-after: auto !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    
+    /* Enhanced image handling */
+    img {
+        max-width: 6.5in !important;
+        max-height: 4in !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    
+    /* Hide screen-only elements */
+    .screen-only,
+    .toc-toggle,
+    .print-button,
+    button,
+    .interactive-element {
+        display: none !important;
+    }
+    
+    /* Enhanced text rendering */
+    body {
+        font-size: 11pt !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* Better widows and orphans control */
+    p, li, div {
+        orphans: 2 !important;
+        widows: 2 !important;
+    }
+}
+
+/* ============================================================================
+   SPECIALIZED PAGE TYPES
+   ============================================================================ */
+
+/* Cover page enhancements */
+.cover-page {
+    page: cover;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* Table of contents page formatting */
+.toc-page {
+    page: toc;
+}
+
+.toc-page .paper-page {
+    padding-top: 1in !important;
+}
+
+/* Emergency contact pages */
+.emergency-page {
+    page: emergency;
+}
+
+.emergency-page .paper-page {
+    border-left: 4px solid #e74c3c !important;
+}
+
+/* Section divider pages */
+.section-divider {
+    page: section;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%) !important;
+    color: white !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* ============================================================================
+   CONTENT-SPECIFIC ENHANCEMENTS
+   ============================================================================ */
+
+/* Enhanced contact cards */
+.contact-card {
+    border: 1px solid var(--neutral-400) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 0.5in !important;
+    margin: 0.25in 0 !important;
+    background: var(--neutral-100) !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+}
+
+/* Enhanced alert boxes */
+.alert-box {
+    border-left: 4px solid var(--accent) !important;
+    padding: 0.25in !important;
+    margin: 0.25in 0 !important;
+    background: var(--neutral-200) !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+}
+
+/* Enhanced emergency info blocks */
+.emergency-info {
+    background: #fff5f5 !important;
+    border: 2px solid #e74c3c !important;
+    border-radius: var(--radius-md) !important;
+    padding: 0.5in !important;
+    margin: 0.25in 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+}
+
+/* ============================================================================
+   RESPONSIVE PAGINATION
+   ============================================================================ */
+
+@media (max-width: 8.5in) {
+    .paper-page {
+        width: 100% !important;
+        max-width: 8.5in !important;
+        margin: 0 auto 2rem auto !important;
+        padding: 0.5in !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .paper-page {
+        padding: 1rem !important;
+        height: auto !important;
+        min-height: auto !important;
+        max-height: none !important;
+    }
+    
+    /* Disable strict pagination on mobile */
+    .paper-page {
+        page-break-before: auto !important;
+        break-before: auto !important;
+    }
+}
+
+/* ============================================================================
+   PRINT PREVIEW ENHANCEMENTS
+   ============================================================================ */
+
+@media screen {
+    /* Print preview mode */
+    .print-preview .paper-page {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid var(--neutral-300) !important;
+    }
+    
+    /* Page numbering in preview */
+    .print-preview .paper-page::before {
+        content: "Page " attr(data-page-number);
+        position: absolute;
+        top: -1.5rem;
+        left: 0;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+}
