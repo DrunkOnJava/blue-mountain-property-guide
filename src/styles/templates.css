@@ -1,0 +1,129 @@
+/* ==============================================
+   STANDARDIZED FORMATTING SYSTEM v1.0
+   Blue Mountain Property Owners Association
+   ============================================== 
+   
+   AUTHORITY HIERARCHY:
+   1. Document-wide CSS variables (--primary, --secondary, etc.)
+   2. Base element styles (h1, h2, p, etc.)
+   3. Layout containers (.paper-page, .document-container)
+   4. Template classes (below)
+   5. Page-specific overrides (.page-[name] .element)
+   6. Utility classes (!important rules)
+   
+   USAGE GUIDELINES:
+   - Always use template classes for consistency
+   - Page-specific styles should override via .page-[name] selectors
+   - Utility classes for quick adjustments only
+   - Maintain print-first design philosophy
+*/
+
+/* ==============================================
+   PRESENTATION CONTAINER TEMPLATES
+   ============================================== */
+
+.container-highlight {
+    background: var(--neutral-200);
+    border-left: 4px solid var(--primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+}
+
+.container-warning {
+    background: linear-gradient(135deg, var(--accent-light), var(--neutral-200));
+    border: 2px solid var(--accent);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+.container-info {
+    background: linear-gradient(135deg, var(--secondary-light), var(--neutral-200));
+    border: 2px solid var(--secondary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+.container-success {
+    background: linear-gradient(135deg, var(--spring-light), var(--neutral-200));
+    border: 2px solid var(--spring);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+.container-quote {
+    background: var(--neutral-100);
+    border-left: 6px solid var(--neutral-500);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    position: relative;
+}
+
+.container-quote::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--neutral-500);
+    position: absolute;
+    top: -0.5rem;
+    left: 0.5rem;
+    line-height: 1;
+}
+
+.container-card {
+    background: var(--neutral-100);
+    border: 1px solid var(--neutral-400);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.container-featured {
+    background: linear-gradient(135deg, var(--primary-light), var(--neutral-200));
+    border: 3px solid var(--primary);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-lg);
+}
+
+/* ==============================================
+   PAGE-SPECIFIC OVERRIDE SYSTEM
+   ============================================== */
+
+/* Page-specific styling - use .page-[name] .element pattern */
+.page-governance .container-highlight {
+    border-left-color: var(--secondary);
+    background: var(--secondary-light);
+}
+
+.page-fire-safety .container-warning {
+    border-color: var(--accent);
+    background: var(--accent-light);
+}
+
+.page-community .container-info {
+    border-color: var(--spring);
+    background: var(--spring-light);
+}
+
+/* ==============================================
+   UTILITY CLASSES (USE SPARINGLY)
+   ============================================== */
+
+.u-margin-none { margin: 0 !important; }
+.u-margin-small { margin: 0.5rem !important; }
+.u-margin-large { margin: 2rem !important; }
+.u-padding-none { padding: 0 !important; }
+.u-padding-small { padding: 0.5rem !important; }
+.u-padding-large { padding: 2rem !important; }
+.u-hidden { display: none !important; }
+.u-visible { display: block !important; }
+.u-text-bold { font-weight: bold !important; }
+.u-text-normal { font-weight: normal !important; }
+.u-border-none { border: none !important; }
+.u-shadow-none { box-shadow: none !important; }

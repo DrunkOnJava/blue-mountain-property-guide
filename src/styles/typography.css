@@ -1,0 +1,135 @@
+/* ==============================================
+   TYPOGRAPHY STYLES
+   Blue Mountain Property Owners Association
+   ============================================== */
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    page-break-after: avoid;
+}
+
+h1 {
+    font-size: 24pt;
+    letter-spacing: -0.025em;
+    margin-top: 2rem;
+}
+
+h2 {
+    font-size: 18pt;
+    letter-spacing: -0.0125em;
+    margin-top: 1.5rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 14pt;
+    letter-spacing: -0.0125em;
+    margin-top: 1.25rem;
+    color: var(--primary);
+}
+
+h4 {
+    font-size: 12pt;
+    margin-top: 1rem;
+}
+
+h5 {
+    font-size: 11pt;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 10pt;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 0.75rem;
+}
+
+ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.25rem;
+    page-break-inside: avoid;
+}
+
+/* ==============================================
+   TEXT TEMPLATES
+   ============================================== */
+
+.text-lead {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.text-emphasis {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.text-muted {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.text-small {
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.text-large {
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.paragraph-indent {
+    text-indent: 2rem;
+    margin-bottom: 1rem;
+}
+
+.paragraph-hanging {
+    padding-left: 2rem;
+    text-indent: -2rem;
+    margin-bottom: 1rem;
+}
+
+/* Welcome Page Styles */
+.subtitle {
+    font-style: italic;
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 14pt;
+}
+
+.location-tagline {
+    font-style: italic;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 12pt;
+}

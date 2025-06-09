@@ -6,13 +6,18 @@
   "main": "index.html",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:document && vite build",
+    "build:document": "node build.cjs",
+    "build:watch": "node build.cjs --watch",
+    "build:clean": "node build.cjs --clean",
     "preview": "vite preview",
     "serve": "vite preview --port 4173",
     "clean": "rm -rf dist node_modules/.vite",
     "screenshot": "node screenshot-pages.js",
     "screenshot:help": "node screenshot-pages.js --help",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "validate": "node validate-pagination.cjs index.html",
+    "test": "npm run validate && npm run screenshot",
+    "test:full": "npm run build:document && npm run validate && npm run screenshot"
   },
   "repository": {
     "type": "git",
@@ -35,8 +40,9 @@
   },
   "homepage": "https://github.com/DrunkOnJava/blue-mountain-property-guide#readme",
   "devDependencies": {
-    "vite": "^6.3.5",
-    "puppeteer": "^23.9.0"
+    "chokidar": "^3.6.0",
+    "puppeteer": "^23.9.0",
+    "vite": "^6.3.5"
   },
   "browserslist": [
     "> 1%",

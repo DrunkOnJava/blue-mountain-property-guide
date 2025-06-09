@@ -1,0 +1,22 @@
+{
+  "build": {
+    "id": "build-mbogq9mu-v01od",
+    "timestamp": "2025-06-09T02:18:23.430Z",
+    "branch": "main",
+    "commit": "d657ebd9a5bdd8d9c67d765e08e5d741f5a10a89",
+    "version": "2025.1.0"
+  },
+  "timestamp": "2025-06-09T02:18:23.478Z",
+  "status": "success",
+  "sections": [],
+  "files": {
+    "output": "index.html",
+    "size": 167731,
+    "template": "src/templates/document-template.html"
+  },
+  "environment": {
+    "node": "v22.14.0",
+    "platform": "darwin",
+    "cwd": "/Users/griffin/Documents/6pm"
+  }
+}

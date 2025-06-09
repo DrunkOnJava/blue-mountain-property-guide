@@ -1,0 +1,111 @@
+/* ==============================================
+   LIST STYLES
+   Blue Mountain Property Owners Association
+   ============================================== */
+
+/* ==============================================
+   LIST TEMPLATES
+   ============================================== */
+
+.list-standard {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.list-standard li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.list-compact {
+    margin: 0.5rem 0;
+    padding-left: 1.25rem;
+}
+
+.list-compact li {
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+.list-spaced {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.list-spaced li {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.list-checklist {
+    margin: 1rem 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-checklist li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.list-checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.list-numbered-custom {
+    counter-reset: custom-counter;
+    margin: 1rem 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-numbered-custom li {
+    counter-increment: custom-counter;
+    position: relative;
+    padding-left: 2.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.list-numbered-custom li::before {
+    content: counter(custom-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--primary);
+    color: var(--text-light);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Checklist Style */
+.checklist {
+    list-style-type: none;
+    padding-left: 1.75rem;
+}
+
+.checklist li {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: -1.5rem;
+    color: var(--spring);
+    font-weight: bold;
+}

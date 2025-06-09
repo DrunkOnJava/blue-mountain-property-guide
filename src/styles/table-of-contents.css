@@ -1,0 +1,193 @@
+/* ==============================================
+   TABLE OF CONTENTS STYLES
+   Blue Mountain Property Owners Association
+   ============================================== */
+
+/* Table of Contents */
+.toc {
+    margin-bottom: 2rem;
+}
+
+.toc-title {
+    font-size: 20pt;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 1rem;
+}
+
+.toc-section {
+    margin-bottom: 1.5rem;
+}
+
+.toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px dotted var(--neutral-400);
+    padding: 0.5rem 0;
+    transition: background-color 0.2s ease;
+}
+
+.toc-item:hover {
+    background-color: var(--neutral-100);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    border-radius: 4px;
+}
+
+.toc-item-linked {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: block;
+    padding: 0.5rem 0;
+    border-bottom: 1px dotted var(--neutral-400);
+}
+
+.toc-item-linked:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+    background: var(--neutral-200);
+    padding-left: 0.5rem;
+}
+
+.toc-page {
+    color: var(--neutral-600);
+    font-weight: bold;
+    background-color: var(--neutral-200);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Table of Contents Sidebar */
+.toc-sidebar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 250px;
+    max-height: calc(100vh - 40px);
+    background: var(--neutral-100);
+    border: 1px solid var(--neutral-400);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: var(--shadow-md);
+    z-index: 998;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.toc-sidebar.visible {
+    transform: translateX(0);
+}
+
+.toc-sidebar h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    color: var(--primary);
+    border-bottom: 1px solid var(--neutral-300);
+    padding-bottom: 0.5rem;
+}
+
+.toc-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-sidebar li {
+    margin-bottom: 0.5rem;
+}
+
+.toc-sidebar a {
+    display: block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.toc-sidebar a:hover {
+    background: var(--neutral-200);
+    color: var(--primary);
+}
+
+.toc-sidebar a.active {
+    background: var(--primary);
+    color: var(--text-light);
+}
+
+.toc-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: var(--text-light);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    z-index: 999;
+    font-size: 0.9rem;
+}
+
+.toc-toggle:hover {
+    background: var(--primary-light);
+}
+
+/* Hide TOC on small screens */
+@media (max-width: 1024px) {
+    .toc-sidebar {
+        display: none;
+    }
+    
+    .toc-toggle {
+        display: none;
+    }
+}
+
+/* ==============================================
+   TABLE OF CONTENTS TEMPLATES
+   ============================================== */
+
+.toc-modern {
+    background: var(--neutral-200);
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.toc-modern .toc-title {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.toc-simple {
+    border: 1px solid var(--neutral-400);
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background: var(--neutral-100);
+}
+
+.toc-simple .toc-title {
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}

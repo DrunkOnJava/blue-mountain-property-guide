@@ -1,0 +1,212 @@
+/* ==============================================
+   SECTION DIVIDER STYLES
+   Blue Mountain Property Owners Association
+   ============================================== */
+
+/* Section Divider Pages */
+.section-divider-page {
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+    background-repeat: no-repeat;
+    height: 100%;
+    min-height: 9.5in;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.section-divider-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.section-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+.section-number {
+    font-size: 120pt;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-family: 'Georgia', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    opacity: 0.9;
+}
+
+.section-title {
+    font-size: 32pt;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    font-family: 'Georgia', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 2px;
+}
+
+.section-description {
+    font-size: 14pt;
+    line-height: 1.4;
+    margin: 0;
+    font-family: 'Georgia', serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    max-width: 500px;
+}
+
+.section-divider-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+/* Section Dividers */
+.section-divider {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    padding: 2rem;
+    page-break-before: always;
+    break-before: page;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(93, 92, 222, 0.8), rgba(52, 152, 219, 0.6));
+    z-index: 1;
+}
+
+.section-divider-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.section-number {
+    font-size: 8rem;
+    font-weight: 100;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.section-description {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Background variants for different sections */
+.governance-bg {
+    background-image: linear-gradient(135deg, rgba(93, 92, 222, 0.8), rgba(52, 152, 219, 0.6)), url('./VA-Flag.jpeg');
+}
+
+.fire-safety-bg {
+    background-image: linear-gradient(135deg, rgba(231, 76, 60, 0.8), rgba(255, 140, 0, 0.6)), url('./debris-fire.png');
+}
+
+.lodge-bg {
+    background-image: linear-gradient(135deg, rgba(46, 83, 57, 0.8), rgba(93, 92, 222, 0.6)), url('./TheLodge.jpg');
+}
+
+.contacts-bg {
+    background-image: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(93, 92, 222, 0.6)), url('./bmpoa-emblem.png');
+}
+
+.natural-attractions-bg {
+    background-image: linear-gradient(135deg, rgba(46, 204, 113, 0.8), rgba(52, 152, 219, 0.6)), url('./virginia-bluebells.jpeg');
+}
+
+/* Print adjustments for section dividers */
+@media print {
+    .section-divider {
+        min-height: 9.5in;
+        background-attachment: local;
+        page-break-before: always;
+        break-before: page;
+    }
+    
+    .section-number {
+        font-size: 6rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-description {
+        font-size: 1.1rem;
+    }
+}
+
+/* ==============================================
+   SECTION DIVIDER TEMPLATES
+   ============================================== */
+
+.section-divider-standard {
+    border-top: 2px solid var(--primary);
+    margin: 2rem 0 1.5rem 0;
+    padding-top: 1rem;
+}
+
+.section-divider-subtle {
+    border-top: 1px solid var(--neutral-400);
+    margin: 1.5rem 0 1rem 0;
+    padding-top: 0.75rem;
+}
+
+.section-divider-bold {
+    border-top: 4px solid var(--primary);
+    background: linear-gradient(to right, var(--neutral-200), transparent);
+    margin: 2.5rem 0 2rem 0;
+    padding: 1rem 0 0.5rem 1rem;
+}
+
+.section-divider-seasonal {
+    border-top: 3px solid var(--spring);
+    background: linear-gradient(90deg, var(--spring-light), transparent);
+    margin: 2rem 0 1.5rem 0;
+    padding: 0.75rem 0 0.25rem 0.75rem;
+}

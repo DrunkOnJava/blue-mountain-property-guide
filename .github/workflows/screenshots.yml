@@ -46,6 +46,12 @@ jobs:
           echo "📦 Installing dependencies..."
           npm ci
           
+      - name: Build modular document
+        run: |
+          echo "🔨 Building modular document..."
+          npm run build:document
+          echo "✅ Document build completed"
+          
       - name: Start development server
         run: |
           echo "🚀 Starting Vite development server..."

@@ -1,0 +1,137 @@
+/* ==============================================
+   LAYOUT & CONTAINER STYLES
+   Blue Mountain Property Owners Association
+   ============================================== */
+
+/* Document Container */
+.document-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Paper Page */
+.paper-page {
+    width: var(--paper-width);
+    min-height: 9.5in;
+    background-color: var(--neutral-100);
+    padding: var(--paper-padding);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==============================================
+   DUAL COLUMN LAYOUT SYSTEM
+   ============================================== */
+
+.layout-two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.layout-two-column-60-40 {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.layout-two-column-70-30 {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.layout-sidebar-left {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.layout-sidebar-right {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.column-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Two Column Layout */
+.two-column {
+    column-count: 2;
+    column-gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.two-column h3 {
+    column-span: all;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 8.5in) {
+    body {
+        padding: 1rem;
+    }
+    
+    .paper-page {
+        padding: 1rem;
+    }
+    
+    .cover-page {
+        padding: 1rem;
+        margin: -1rem;
+        height: auto;
+        min-height: 80vh;
+    }
+    
+    .cover-title {
+        font-size: 24pt;
+    }
+    
+    .cover-subtitle {
+        font-size: 14pt;
+    }
+    
+    .two-column {
+        column-count: 1;
+    }
+}
+
+/* Enhanced responsive design */
+@media (max-width: 768px) {
+    .layout-two-column,
+    .layout-two-column-60-40,
+    .layout-two-column-70-30,
+    .layout-sidebar-left,
+    .layout-sidebar-right {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .image-gallery {
+        flex-direction: column;
+    }
+    
+    .gallery-image {
+        max-width: 100%;
+    }
+    
+    .theme-toggle,
+    .print-button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+}

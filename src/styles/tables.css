@@ -1,0 +1,177 @@
+/* ==============================================
+   TABLE STYLES
+   Blue Mountain Property Owners Association
+   ============================================== */
+
+/* Base Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+th, td {
+    padding: 0.5rem;
+    border: 1px solid var(--neutral-400);
+    text-align: left;
+}
+
+th {
+    background-color: var(--neutral-300);
+    font-weight: 600;
+}
+
+/* ==============================================
+   TABLE TEMPLATES
+   ============================================== */
+
+.table-standard {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: var(--neutral-100);
+}
+
+.table-standard th {
+    background: var(--primary);
+    color: var(--text-light);
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid var(--primary);
+}
+
+.table-standard td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--neutral-400);
+    vertical-align: top;
+}
+
+.table-standard tr:nth-child(even) {
+    background: var(--neutral-200);
+}
+
+.table-compact {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.table-compact th {
+    background: var(--neutral-300);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid var(--neutral-500);
+}
+
+.table-compact td {
+    padding: 0.375rem 0.5rem;
+    border: 1px solid var(--neutral-400);
+}
+
+.table-borderless {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.table-borderless td {
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-bottom: 1px solid var(--neutral-300);
+}
+
+.table-borderless th {
+    padding: 0.75rem;
+    border: none;
+    border-bottom: 2px solid var(--primary);
+    background: none;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Evacuation Table Styles */
+.evacuation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-md);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.evacuation-table th {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    padding: 1rem 0.75rem;
+    font-size: 0.95rem;
+}
+
+.evacuation-table td {
+    padding: 0.75rem;
+    border: 1px solid var(--neutral-300);
+    vertical-align: top;
+    line-height: 1.4;
+}
+
+.zone-cell {
+    background-color: var(--neutral-100);
+    font-weight: 700;
+    text-align: center;
+    width: 80px;
+    font-size: 0.9rem;
+}
+
+.zone-1 {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-left: 4px solid #dc3545;
+}
+
+.zone-2 {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-left: 4px solid #ffc107;
+}
+
+.zone-3 {
+    background-color: rgba(255, 165, 0, 0.1);
+    border-left: 4px solid #ff8c00;
+}
+
+.zone-4 {
+    background-color: rgba(40, 167, 69, 0.1);
+    border-left: 4px solid #28a745;
+}
+
+.zone-5 {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left: 4px solid #3498db;
+}
+
+.priority-high {
+    background-color: #dc3545;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.priority-medium {
+    background-color: #ffc107;
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.priority-low {
+    background-color: #28a745;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 4px;
+}

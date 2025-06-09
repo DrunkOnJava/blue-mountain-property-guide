@@ -1,0 +1,76 @@
+/* ==============================================
+   CSS RESET & BASE STYLES
+   Blue Mountain Property Owners Association
+   ============================================== */
+
+/* Base Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 11pt;
+    line-height: 1.5;
+    color: var(--text-primary);
+    background-color: var(--neutral-200);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 2rem;
+}
+
+/* Enhanced Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary);
+    color: var(--text-light);
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Focus indicators */
+.theme-toggle:focus, .print-button:focus {
+    outline: 3px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary: #000080;
+        --secondary: #006400;
+        --text-primary: #000000;
+        --neutral-400: #666666;
+    }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .section-image:hover, .gallery-image:hover {
+        transform: none;
+        transition: none;
+    }
+    
+    .loading {
+        animation: none;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
