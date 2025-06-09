@@ -40,9 +40,74 @@ jobs:
           fi
           echo "✅ Pagination validation passed"
 
+  # Generate page screenshots
+  screenshots:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Start development server
+        run: |
+          echo "🚀 Starting Vite development server..."
+          npm run dev &
+          DEV_PID=$!
+          echo "DEV_PID=$DEV_PID" >> $GITHUB_ENV
+          
+          # Wait for server to be ready
+          echo "⏳ Waiting for server to start..."
+          for i in {1..30}; do
+            if curl -s http://localhost:3000 > /dev/null; then
+              echo "✅ Server is ready"
+              break
+            fi
+            echo "   Attempt $i/30 - waiting..."
+            sleep 2
+          done
+          
+      - name: Generate page screenshots
+        run: |
+          echo "📸 Generating page screenshots..."
+          node screenshot-pages.js
+          
+          # Verify screenshots were generated
+          if [ -d "build/screenshots" ] && [ "$(ls -A build/screenshots)" ]; then
+            echo "✅ Screenshots generated successfully"
+            echo "📊 Generated files:"
+            ls -la build/screenshots/
+          else
+            echo "❌ No screenshots were generated"
+            exit 1
+          fi
+          
+      - name: Stop development server
+        if: always()
+        run: |
+          if [ ! -z "$DEV_PID" ]; then
+            kill $DEV_PID || true
+            echo "🔒 Development server stopped"
+          fi
+          
+      - name: Upload screenshot artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: page-screenshots
+          path: build/screenshots/
+          retention-days: 30
+
   # Deploy to GitHub Pages
   deploy:
-    needs: validate
+    needs: [validate, screenshots]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -51,13 +116,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
+      - name: Download screenshot artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: page-screenshots
+          path: build/screenshots/
+          
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
+          # Upload entire repository including screenshots
           path: '.'
           
       - name: Deploy to GitHub Pages

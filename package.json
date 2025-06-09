@@ -35,7 +35,8 @@
   },
   "homepage": "https://github.com/DrunkOnJava/blue-mountain-property-guide#readme",
   "devDependencies": {
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "puppeteer": "^23.9.0"
   },
   "browserslist": [
     "> 1%",
