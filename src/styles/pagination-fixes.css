@@ -1,0 +1,208 @@
+/* ==============================================
+   PAGINATION FIXES & ENHANCEMENTS
+   Blue Mountain Property Owners Association
+   
+   Additional pagination rules to ensure proper
+   content flow and page breaks
+   ============================================== */
+
+/* Ensure content flows properly within page constraints */
+.paper-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
+
+/* Content overflow management */
+.paper-page > * {
+    flex-shrink: 0;
+}
+
+/* Prevent problematic breaks */
+.info-box,
+.alert-box,
+.warning-box,
+.success-box,
+.critical-box,
+.container-highlight,
+.container-warning,
+.container-info,
+.container-success,
+.container-featured {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    page-break-before: auto;
+    break-before: auto;
+    page-break-after: auto;
+    break-after: auto;
+    margin: 1rem 0;
+}
+
+/* Keep headings with following content */
+h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    orphans: 3;
+    widows: 3;
+}
+
+/* Ensure images don't break pages */
+.image-gallery,
+.image-grid,
+.featured-image {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin: 1rem 0;
+}
+
+img {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    max-width: 100%;
+    height: auto;
+}
+
+/* List management */
+ul, ol {
+    page-break-inside: auto;
+    break-inside: auto;
+}
+
+li {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    orphans: 2;
+    widows: 2;
+}
+
+/* Table pagination */
+table {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Two-column layout adjustments */
+.layout-two-column,
+.layout-two-column-60-40,
+.layout-two-column-70-30 {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin: 1rem 0;
+}
+
+.two-column {
+    column-fill: auto;
+    orphans: 3;
+    widows: 3;
+}
+
+/* Emergency contact special handling */
+.emergency-contacts {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    page-break-before: auto;
+    break-before: auto;
+}
+
+.contact-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 0.5rem;
+}
+
+/* Section dividers must break properly */
+.section-divider {
+    page-break-before: always;
+    break-before: page;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Keep construction requirements together */
+.requirement-section,
+.building-specs,
+.setback-requirements,
+.environmental-rules {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Trail information should stay together */
+.trail-info,
+.difficulty-level,
+.winery-profile {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 1rem;
+}
+
+/* Responsive pagination adjustments */
+@media screen and (max-width: 1024px) {
+    .paper-page {
+        max-height: none;
+        height: auto;
+        overflow: visible;
+    }
+}
+
+/* Print-specific pagination enforcement */
+@media print {
+    .paper-page {
+        height: 9.5in !important;
+        max-height: 9.5in !important;
+        overflow: hidden !important;
+        page-break-after: always !important;
+        break-after: page !important;
+    }
+    
+    /* Ensure content doesn't overflow in print */
+    .paper-page > * {
+        max-width: 100% !important;
+    }
+    
+    /* Force page breaks at section boundaries */
+    .section-divider + .paper-page {
+        page-break-before: always !important;
+        break-before: page !important;
+    }
+    
+    /* Emergency content special treatment */
+    .alert-box,
+    .emergency-contacts {
+        border: 2pt solid #E74C3C !important;
+        background: #FDF2F2 !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+}
+
+/* Page truncation indicator */
+.page-truncated-indicator {
+    position: absolute !important;
+    bottom: 10px !important;
+    right: 10px !important;
+    font-size: 10px !important;
+    color: #999 !important;
+    background: rgba(255,255,255,0.9) !important;
+    padding: 2px 6px !important;
+    border-radius: 3px !important;
+    border: 1px solid #ddd !important;
+    z-index: 1000 !important;
+    font-family: monospace !important;
+}
+
+@media print {
+    .page-truncated-indicator {
+        display: none !important;
+    }
+}

@@ -39,7 +39,10 @@
 /* 11. Template System */
 @import './templates.css';
 
-/* 12. Print Styles (load last to override) */
+/* 12. Pagination Fixes */
+@import './pagination-fixes.css';
+
+/* 13. Print Styles (load last to override) */
 @import './print.css';
 
 /* ==============================================

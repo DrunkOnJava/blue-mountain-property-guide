@@ -15,13 +15,20 @@
 /* Paper Page */
 .paper-page {
     width: var(--paper-width);
+    height: auto;
     min-height: 9.5in;
+    max-height: 9.5in;
     background-color: var(--neutral-100);
     padding: var(--paper-padding);
     box-shadow: var(--shadow-md);
     margin-bottom: 2rem;
     max-width: 100%;
     box-sizing: border-box;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 
 /* ==============================================
