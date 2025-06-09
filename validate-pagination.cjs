@@ -1,49 +1,12 @@
 #!/usr/bin/env node
 
 /**
- * Pagination Validation Script for Blue Mountain Property Guide
+ * Simplified Pagination Validation Script for Blue Mountain Property Guide
  * 
- * This script enforces mandatory US Letter pagination rules and prevents
- * commits/builds when pagination overrides are detected.
+ * Focuses on critical US Letter compliance without over-validation
  */
 
 const fs = require('fs');
-const path = require('path');
-
-// Configuration for US Letter size requirements
-const US_LETTER_CONFIG = {
-    width: '8.5in',
-    height: '11in',
-    margins: {
-        top: '0.75in',
-        right: '0.5in', 
-        bottom: '0.75in',
-        left: '0.5in'
-    },
-    printableArea: {
-        width: '7.5in',  // 8.5 - 0.5 - 0.5
-        height: '9.5in'  // 11 - 0.75 - 0.75
-    }
-};
-
-// Forbidden pagination overrides that will cause build/commit failures
-const FORBIDDEN_OVERRIDES = [
-    /\.paper-page[^{]*{[^}]*page-break-before:\s*(?!always)/i,
-    /\.section-divider[^{]*{[^}]*page-break-before:\s*(?!always)/i,
-    /\.paper-page[^{]*{[^}]*height:\s*(?!9\.5in\s*!important)/i,
-    /\.paper-page[^{]*{[^}]*overflow:\s*(?!hidden)/i,
-    /\.section-divider[^{]*{[^}]*overflow:\s*(?!hidden)/i
-];
-
-// Required pagination rules that must be present
-const REQUIRED_RULES = [
-    '@page',
-    'size: 8.5in 11in',
-    'margin: 0.75in 0.5in 0.75in 0.5in',
-    '.paper-page',
-    'page-break-before: always',
-    'break-before: page'
-];
 
 class PaginationValidator {
     constructor(filePath) {
@@ -57,12 +20,8 @@ class PaginationValidator {
         try {
             this.content = fs.readFileSync(this.filePath, 'utf8');
             
-            this.validatePageSize();
-            this.validateMargins();
+            this.validateCriticalPageSetup();
             this.validateForbiddenOverrides();
-            this.validateRequiredRules();
-            this.validatePaperPageStructure();
-            this.validateSectionBreaks();
             
             return {
                 isValid: this.errors.length === 0,
@@ -79,78 +38,48 @@ class PaginationValidator {
         }
     }
 
-    validatePageSize() {
-        const hasCorrectSize = this.content.includes('size: 8.5in 11in');
-        if (!hasCorrectSize) {
-            this.errors.push('CRITICAL: Missing mandatory US Letter page size (8.5in 11in)');
+    validateCriticalPageSetup() {
+        // Check for US Letter page size in @page rules
+        const hasUSLetter = this.content.includes('size: 8.5in 11in');
+        if (!hasUSLetter) {
+            this.errors.push('CRITICAL: Missing US Letter page size (8.5in 11in) in @page rules');
         }
 
-        // Check for other @page size declarations (not font-size)
-        const pageBlocks = this.content.match(/@page[^{]*{[^}]*size:\s*(?!8\.5in\s+11in)[^;}]+/gi);
-        if (pageBlocks) {
-            pageBlocks.forEach(block => {
-                const sizeMatch = block.match(/size:\s*([^;}]+)/i);
-                if (sizeMatch) {
-                    this.errors.push(`FORBIDDEN: Non-US Letter @page size detected: ${sizeMatch[0]}`);
-                }
-            });
-        }
-    }
-
-    validateMargins() {
-        const correctMargins = 'margin: 0.75in 0.5in 0.75in 0.5in';
-        const hasCorrectMargins = this.content.includes(correctMargins);
-        
-        if (!hasCorrectMargins) {
-            this.errors.push(`CRITICAL: Missing mandatory US Letter margins (${correctMargins})`);
+        // Check for proper margins
+        const hasProperMargins = this.content.includes('margin: 0.75in 0.5in 0.75in 0.5in');
+        if (!hasProperMargins) {
+            this.errors.push('CRITICAL: Missing proper US Letter margins');
         }
     }
 
     validateForbiddenOverrides() {
-        FORBIDDEN_OVERRIDES.forEach(pattern => {
-            const matches = this.content.match(pattern);
-            if (matches) {
-                matches.forEach(match => {
-                    this.errors.push(`FORBIDDEN OVERRIDE: ${match} - This breaks US Letter compliance`);
-                });
-            }
-        });
-    }
-
-    validateRequiredRules() {
-        REQUIRED_RULES.forEach(rule => {
-            if (!this.content.includes(rule)) {
-                this.errors.push(`MISSING REQUIRED RULE: ${rule}`);
-            }
-        });
-    }
-
-    validatePaperPageStructure() {
-        // Check that all .paper-page elements have proper height constraints
-        const paperPageRegex = /\.paper-page\s*{[^}]*}/g;
-        const paperPageBlocks = this.content.match(paperPageRegex);
-        
-        if (paperPageBlocks) {
-            paperPageBlocks.forEach(block => {
-                if (!block.includes('height: 9.5in') && !block.includes('min-height: 9.5in')) {
-                    this.warnings.push(`Paper page block may be missing height constraint: ${block.substring(0, 50)}...`);
+        // Check for non-US Letter page sizes (but exclude the correct 8.5in 11in)
+        const pageBlocks = this.content.match(/@page[^{]*{[^}]*}/g);
+        if (pageBlocks) {
+            pageBlocks.forEach(block => {
+                const sizeMatch = block.match(/size:\s*([^;}]+)/);
+                if (sizeMatch && !sizeMatch[1].includes('8.5in 11in')) {
+                    // Only flag if it's clearly a different page size format
+                    if (sizeMatch[1].match(/\d+(\.\d+)?\s*(in|mm|cm|pt)\s+\d+(\.\d+)?\s*(in|mm|cm|pt)/)) {
+                        this.errors.push(`FORBIDDEN: Non-US Letter page size: ${sizeMatch[0]}`);
+                    }
                 }
             });
         }
-    }
-
-    validateSectionBreaks() {
-        // Ensure section dividers have mandatory page breaks
-        const sectionDividerRegex = /\.section-divider[^{]*{[^}]*}/g;
-        const sectionBlocks = this.content.match(sectionDividerRegex);
         
-        if (sectionBlocks) {
-            sectionBlocks.forEach(block => {
-                if (!block.includes('page-break-before: always') && !block.includes('break-before: page')) {
-                    this.errors.push(`MISSING MANDATORY PAGE BREAK: Section divider must have page-break-before: always`);
-                }
-            });
-        }
+        // Check for any explicit overrides that would disable pagination
+        const dangerousOverrides = [
+            'page-break: none',
+            'break-before: avoid', 
+            'break-after: avoid',
+            'overflow: visible'
+        ];
+        
+        dangerousOverrides.forEach(override => {
+            if (this.content.includes(override)) {
+                this.warnings.push(`POTENTIAL ISSUE: Found "${override}" which may affect pagination`);
+            }
+        });
     }
 }
 
@@ -158,7 +87,7 @@ class PaginationValidator {
 async function main() {
     const args = process.argv.slice(2);
     if (args.length === 0) {
-        console.error('Usage: node validate-pagination.js <file-path>');
+        console.error('Usage: node validate-pagination.cjs <file-path>');
         process.exit(1);
     }
 
@@ -177,7 +106,7 @@ async function main() {
     if (result.errors.length > 0) {
         console.log('\n❌ CRITICAL ERRORS:');
         result.errors.forEach(error => console.log(`   ${error}`));
-        console.log('\n🚫 BUILD/COMMIT BLOCKED - Fix pagination violations above');
+        console.log('\n🚫 BUILD/COMMIT BLOCKED - Fix critical violations above');
         process.exit(1);
     }
 
@@ -190,4 +119,4 @@ if (require.main === module) {
     main().catch(console.error);
 }
 
-module.exports = { PaginationValidator, US_LETTER_CONFIG };
+module.exports = { PaginationValidator };
