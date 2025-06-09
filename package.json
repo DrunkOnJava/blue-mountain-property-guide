@@ -10,6 +10,8 @@
     "preview": "vite preview",
     "serve": "vite preview --port 4173",
     "clean": "rm -rf dist node_modules/.vite",
+    "screenshot": "node screenshot-pages.js",
+    "screenshot:help": "node screenshot-pages.js --help",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

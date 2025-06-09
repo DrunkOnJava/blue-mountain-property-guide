@@ -16,7 +16,8 @@
       "Bash(mv:*)",
       "Bash(node:*)",
       "Bash(gh api:*)",
-      "Bash(gh run list:*)"
+      "Bash(gh run list:*)",
+      "mcp__puppeteer__puppeteer_navigate"
     ],
     "deny": []
   }
