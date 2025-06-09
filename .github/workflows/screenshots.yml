@@ -1,0 +1,169 @@
+name: Generate Page Screenshots
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'index.html'
+      - '**.css'
+      - 'public/**'
+      - 'optimized/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'index.html'
+      - '**.css'
+      - 'public/**'
+      - 'optimized/**'
+  workflow_dispatch:  # Allow manual trigger
+    inputs:
+      include_artifacts:
+        description: 'Include screenshot artifacts'
+        required: false
+        default: 'true'
+        type: boolean
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  generate-screenshots:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: |
+          echo "📦 Installing dependencies..."
+          npm ci
+          
+      - name: Start development server
+        run: |
+          echo "🚀 Starting Vite development server..."
+          npm run dev &
+          DEV_PID=$!
+          echo "DEV_PID=$DEV_PID" >> $GITHUB_ENV
+          
+          # Wait for server to be ready with timeout
+          echo "⏳ Waiting for server to start..."
+          READY=false
+          for i in {1..30}; do
+            if curl -s --fail http://localhost:3000 > /dev/null 2>&1; then
+              echo "✅ Server is ready at http://localhost:3000"
+              READY=true
+              break
+            fi
+            echo "   Attempt $i/30 - waiting for server..."
+            sleep 2
+          done
+          
+          if [ "$READY" = false ]; then
+            echo "❌ Server failed to start within 60 seconds"
+            exit 1
+          fi
+          
+      - name: Validate server response
+        run: |
+          echo "🔍 Validating server response..."
+          response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000)
+          if [ "$response" != "200" ]; then
+            echo "❌ Server not responding correctly (HTTP $response)"
+            exit 1
+          fi
+          echo "✅ Server validation passed"
+          
+      - name: Generate page screenshots
+        run: |
+          echo "📸 Generating page screenshots..."
+          node screenshot-pages.js
+          
+          # Verify screenshots were generated
+          if [ -d "build/screenshots" ] && [ "$(ls -A build/screenshots 2>/dev/null)" ]; then
+            echo "✅ Screenshots generated successfully"
+            echo ""
+            echo "📊 Generated files:"
+            ls -la build/screenshots/ | head -20
+            
+            # Count files
+            png_count=$(find build/screenshots -name "*.png" | wc -l)
+            echo ""
+            echo "📈 Summary: $png_count PNG files generated"
+            
+            # Check for index file
+            if [ -f "build/screenshots/index.html" ]; then
+              echo "📋 HTML index created"
+            else
+              echo "⚠️ No HTML index found"
+            fi
+          else
+            echo "❌ No screenshots were generated"
+            echo "🔍 Directory contents:"
+            ls -la build/ 2>/dev/null || echo "   No build directory found"
+            exit 1
+          fi
+          
+      - name: Stop development server
+        if: always()
+        run: |
+          if [ ! -z "$DEV_PID" ]; then
+            echo "🔒 Stopping development server (PID: $DEV_PID)..."
+            kill $DEV_PID 2>/dev/null || true
+            sleep 2
+            # Force kill if still running
+            kill -9 $DEV_PID 2>/dev/null || true
+            echo "✅ Development server stopped"
+          fi
+          
+      - name: Upload screenshot artifacts
+        if: success() && (github.event_name != 'workflow_dispatch' || inputs.include_artifacts == 'true')
+        uses: actions/upload-artifact@v4
+        with:
+          name: page-screenshots-${{ github.sha }}
+          path: build/screenshots/
+          retention-days: 30
+          compression-level: 6
+          
+      - name: Generate summary
+        if: success()
+        run: |
+          echo "## 📸 Screenshot Generation Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **Status**: Success" >> $GITHUB_STEP_SUMMARY
+          echo "📊 **Generated**: $(find build/screenshots -name "*.png" | wc -l) page screenshots" >> $GITHUB_STEP_SUMMARY
+          echo "📁 **Location**: \`build/screenshots/\`" >> $GITHUB_STEP_SUMMARY
+          echo "🌐 **Index**: Available in artifacts as \`index.html\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Generated Files" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          ls -la build/screenshots/ | head -10 >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          
+      - name: Comment on PR
+        if: github.event_name == 'pull_request' && success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const png_count = require('fs').readdirSync('build/screenshots').filter(f => f.endsWith('.png')).length;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## 📸 Page Screenshots Generated
+              
+✅ **${png_count} screenshots** generated successfully for this PR
+
+📁 Screenshots are available in the workflow artifacts
+🌐 View the generated index.html for a visual gallery of all pages
+
+The screenshots capture the current state of the document with US Letter dimensions (8.5" × 11").`
+            });

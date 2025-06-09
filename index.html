@@ -242,7 +242,17 @@
             max-height: 300px;
             width: auto;
             height: auto;
-            background: transparent;
+            background: transparent !important;
+            /* Remove white background using CSS filters */
+            filter: 
+                contrast(1.2) 
+                brightness(1.1)
+                saturate(1.1);
+            /* Alternative: use mix-blend-mode to remove white */
+            mix-blend-mode: multiply;
+            /* Ensure crisp rendering */
+            image-rendering: crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
         }
         
         .cover-content {

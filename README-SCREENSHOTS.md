@@ -2,6 +2,15 @@
 
 This project includes an automated screenshot system that captures every page of the Blue Mountain Property Guide document.
 
+## 🤖 Automated Generation
+
+Screenshots are **automatically generated** on every commit to GitHub through GitHub Actions:
+
+- ✅ **On Push**: Screenshots generated when `main` or `develop` branches are updated
+- ✅ **On PR**: Screenshots generated for pull requests with visual changes
+- ✅ **Manual Trigger**: Can be run manually from GitHub Actions tab
+- ✅ **Artifact Storage**: Screenshots saved as downloadable artifacts (30-day retention)
+
 ## Quick Start
 
 ```bash
@@ -83,20 +92,36 @@ chmod +x screenshot-pages.js
 npm install
 ```
 
+## GitHub Actions Integration
+
+Two automated workflows handle screenshot generation:
+
+### 1. Full Deployment (`deploy-pages.yml`)
+- Runs on commits to `main`
+- Validates pagination → Generates screenshots → Deploys to GitHub Pages
+- Screenshots included in live site at `/build/screenshots/`
+
+### 2. Screenshot-Only (`screenshots.yml`)
+- Runs on any visual changes (`index.html`, CSS, images)
+- Fast screenshot generation without full deployment
+- Perfect for PR review and validation
+- Manual trigger available
+
+### Accessing Screenshots
+
+**From GitHub:**
+1. Go to Actions tab → Latest workflow run
+2. Download "page-screenshots" artifact
+3. Extract and open `index.html`
+
+**From Deployed Site:**
+- Visit: `https://your-username.github.io/your-repo/build/screenshots/`
+
 ## Integration
 
-Add to build process:
-```json
-{
-  "scripts": {
-    "build:full": "npm run build && npm run screenshot"
-  }
-}
-```
-
 The screenshot system is perfect for:
-- 📋 Document review and approval
-- 🖨️ Print layout verification
-- 📊 Progress tracking
-- 🔍 Quality assurance
-- 📤 Sharing preview versions
+- 📋 **Automated Review**: Every commit gets visual validation
+- 🖨️ **Print Verification**: US Letter compliance checking  
+- 📊 **Progress Tracking**: Visual changelog of document evolution
+- 🔍 **Quality Assurance**: Catch layout issues before deployment
+- 📤 **Stakeholder Sharing**: Easy access to current document state
