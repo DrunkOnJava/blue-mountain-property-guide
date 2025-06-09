@@ -179,11 +179,33 @@
         /* Paper Page */
         .paper-page {
             width: var(--paper-width);
+            height: 9.5in;
+            min-height: 9.5in;
+            max-height: 9.5in;
             background-color: var(--neutral-100);
             padding: var(--paper-padding);
             box-shadow: var(--shadow-md);
             margin-bottom: 2rem;
             max-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        /* Ensure content fills page completely */
+        .page-content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        /* Page filler for short content */
+        .page-filler {
+            flex-grow: 1;
+            min-height: 1rem;
         }
         
         /* Cover Page */
@@ -240,6 +262,7 @@
             max-height: 300px;
             width: auto;
             height: auto;
+            background: transparent;
         }
         
         .cover-content {
@@ -2244,8 +2267,9 @@
             
             .paper-page {
                 width: 7.5in !important; /* Available print area */
-                height: auto !important;
+                height: 9.5in !important; /* FIXED HEIGHT - always full page */
                 min-height: 9.5in !important; /* Available print height */
+                max-height: 9.5in !important; /* Prevent overflow */
                 margin: 0 !important;
                 padding: 0 !important;
                 box-shadow: none !important;
@@ -2256,6 +2280,8 @@
                 /* Ensure content doesn't overflow */
                 overflow: hidden !important;
                 box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: column !important;
             }
             
             .paper-page:last-child {
@@ -2943,9 +2969,10 @@
 
         <!-- Executive Summary / Quick Start Guide Page -->
         <div class="paper-page">
-            <div class="exec-summary">
-                <h3>EXECUTIVE SUMMARY & QUICK START GUIDE</h3>
-                <p><strong>Welcome to Blue Mountain!</strong> This guide provides essential information for new and existing residents. For immediate needs, use the quick navigation below or refer to the emergency contacts on the back cover.</p>
+            <div class="page-content-wrapper">
+                <div class="exec-summary">
+                    <h3>EXECUTIVE SUMMARY & QUICK START GUIDE</h3>
+                    <p><strong>Welcome to Blue Mountain!</strong> This guide provides essential information for new and existing residents. For immediate needs, use the quick navigation below or refer to the emergency contacts on the back cover.</p>
                 
                 <div class="quick-nav">
                     <div class="quick-nav-item">
