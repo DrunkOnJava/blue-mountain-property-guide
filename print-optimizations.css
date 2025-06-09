@@ -1,0 +1,521 @@
+/* 
+ * Advanced Print Optimizations for Blue Mountain Property Guide
+ * High-quality print output with professional formatting
+ */
+
+/* ============================================================================
+   PRINT MEDIA QUERIES - HIGH-QUALITY OUTPUT
+   ============================================================================ */
+
+@media print {
+    
+    /* ========================================================================
+       GLOBAL PRINT SETTINGS
+       ======================================================================== */
+    
+    * {
+        /* Force exact color reproduction */
+        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        
+        /* Optimize text rendering */
+        text-rendering: optimizeLegibility !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+    }
+    
+    html {
+        /* Remove margins for full bleed */
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+    }
+    
+    body {
+        /* Reset body for print */
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        font-size: 11pt !important;
+        line-height: 1.4 !important;
+        color: #000 !important;
+        
+        /* Enhanced text rendering */
+        orphans: 2 !important;
+        widows: 2 !important;
+    }
+    
+    /* ========================================================================
+       PAGE SETUP AND MARGINS
+       ======================================================================== */
+    
+    @page {
+        /* Enforce US Letter with precise margins */
+        size: 8.5in 11in !important;
+        margin: 0.75in 0.5in 0.75in 0.5in !important;
+        
+        /* Page headers and footers */
+        @top-center {
+            content: "Blue Mountain Property Owners Association • Page " counter(page);
+            font-family: 'Roboto', Arial, sans-serif !important;
+            font-size: 9pt !important;
+            color: #5D6D7E !important;
+            margin-bottom: 0.25in !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.025em !important;
+        }
+        
+        @bottom-center {
+            content: "www.bmpoa.org • Complete Guide to Mountain Living";
+            font-family: 'Roboto', Arial, sans-serif !important;
+            font-size: 8pt !important;
+            color: #A9B4C0 !important;
+            margin-top: 0.25in !important;
+            letter-spacing: 0.05em !important;
+        }
+    }
+    
+    /* Special page types */
+    @page :first {
+        @top-center { content: none !important; }
+        @bottom-center { content: none !important; }
+        margin: 0 !important;
+    }
+    
+    @page :blank {
+        @top-center { content: none !important; }
+        @bottom-center { content: none !important; }
+    }
+    
+    @page emergency {
+        @top-center {
+            content: "🚨 EMERGENCY CONTACT INFORMATION • Page " counter(page);
+            color: #E74C3C !important;
+            font-weight: bold !important;
+            font-size: 10pt !important;
+        }
+    }
+    
+    @page toc {
+        @top-center {
+            content: "TABLE OF CONTENTS • Page " counter(page);
+            color: #5D5CDE !important;
+            font-weight: 600 !important;
+        }
+    }
+    
+    /* ========================================================================
+       PAGE STRUCTURE AND BREAKS
+       ======================================================================== */
+    
+    .paper-page {
+        /* Force page breaks and exact sizing */
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-after: auto !important;
+        break-after: auto !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        
+        /* Exact page dimensions */
+        width: 7.5in !important;
+        height: 9.5in !important;
+        min-height: 9.5in !important;
+        max-height: 9.5in !important;
+        
+        /* Remove screen styling */
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        
+        /* Content flow */
+        overflow: hidden !important;
+        position: relative !important;
+    }
+    
+    /* ========================================================================
+       TYPOGRAPHY OPTIMIZATION
+       ======================================================================== */
+    
+    h1, h2, h3, h4, h5, h6 {
+        /* Prevent orphaned headings */
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        
+        /* Enhanced spacing */
+        margin-bottom: 0.5in !important;
+        
+        /* Color optimization for print */
+        color: #2C3E50 !important;
+    }
+    
+    h1 {
+        font-size: 22pt !important;
+        line-height: 1.2 !important;
+        margin-top: 0.5in !important;
+    }
+    
+    h2 {
+        font-size: 16pt !important;
+        line-height: 1.3 !important;
+        margin-top: 0.4in !important;
+        color: #5D5CDE !important;
+        border-bottom: 1pt solid #5D5CDE !important;
+        padding-bottom: 0.1in !important;
+    }
+    
+    h3 {
+        font-size: 13pt !important;
+        line-height: 1.3 !important;
+        margin-top: 0.3in !important;
+        color: #5D5CDE !important;
+    }
+    
+    h4, h5, h6 {
+        font-size: 11pt !important;
+        margin-top: 0.25in !important;
+        font-weight: 600 !important;
+    }
+    
+    p, li, div {
+        /* Improved readability */
+        orphans: 2 !important;
+        widows: 2 !important;
+        line-height: 1.4 !important;
+        
+        /* Prevent awkward breaks */
+        page-break-inside: avoid-if-possible !important;
+        break-inside: avoid-if-possible !important;
+    }
+    
+    /* ========================================================================
+       CONTENT BLOCKS AND COMPONENTS
+       ======================================================================== */
+    
+    .content-block,
+    .emergency-section,
+    .contact-group,
+    .alert-box,
+    .contact-card,
+    .emergency-info {
+        /* Keep content together */
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        
+        /* Enhanced print styling */
+        background: white !important;
+        border: 1pt solid #D1D8E0 !important;
+        padding: 0.25in !important;
+        margin: 0.1in 0 !important;
+    }
+    
+    .emergency-info {
+        background: #fff8f8 !important;
+        border: 2pt solid #E74C3C !important;
+        border-radius: 0 !important;
+    }
+    
+    .alert-box {
+        border-left: 4pt solid #E74C3C !important;
+        background: #fff8f8 !important;
+    }
+    
+    .contact-card {
+        border: 1pt solid #5D6D7E !important;
+        margin: 0.15in 0 !important;
+    }
+    
+    /* ========================================================================
+       LISTS AND TABLES
+       ======================================================================== */
+    
+    ul, ol {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin: 0.1in 0 !important;
+        padding-left: 0.3in !important;
+    }
+    
+    li {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin-bottom: 0.05in !important;
+        line-height: 1.4 !important;
+    }
+    
+    table {
+        /* Table pagination */
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        width: 100% !important;
+        border-collapse: collapse !important;
+        margin: 0.1in 0 !important;
+        
+        /* Enhanced borders for print */
+        border: 1pt solid #2C3E50 !important;
+    }
+    
+    thead {
+        display: table-header-group !important;
+    }
+    
+    tbody {
+        display: table-row-group !important;
+    }
+    
+    tr {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    
+    th, td {
+        border: 0.5pt solid #5D6D7E !important;
+        padding: 0.1in !important;
+        text-align: left !important;
+        vertical-align: top !important;
+    }
+    
+    th {
+        background: #F7F9FA !important;
+        font-weight: 600 !important;
+        color: #2C3E50 !important;
+    }
+    
+    /* ========================================================================
+       IMAGES AND MEDIA
+       ======================================================================== */
+    
+    img {
+        /* Optimize images for print */
+        max-width: 6.5in !important;
+        max-height: 4in !important;
+        height: auto !important;
+        
+        /* Prevent image breaks */
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        
+        /* Image quality */
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: optimize-contrast !important;
+        
+        /* Center images */
+        display: block !important;
+        margin: 0.1in auto !important;
+    }
+    
+    /* Logo and emblem specific sizing */
+    .logo,
+    .emblem,
+    .cover-emblem {
+        max-width: 3in !important;
+        max-height: 3in !important;
+    }
+    
+    .cover-image {
+        max-width: 7in !important;
+        max-height: 5in !important;
+    }
+    
+    /* ========================================================================
+       NAVIGATION AND INTERACTIVE ELEMENTS
+       ======================================================================== */
+    
+    /* Hide screen-only elements */
+    .screen-only,
+    .toc-toggle,
+    .toc-sidebar,
+    .print-button,
+    .interactive-element,
+    button,
+    nav,
+    .navigation,
+    .menu,
+    .tooltip,
+    .popup {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    
+    /* Show print-only elements */
+    .print-only {
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    /* ========================================================================
+       LINKS AND REFERENCES
+       ======================================================================== */
+    
+    a {
+        color: #2C3E50 !important;
+        text-decoration: none !important;
+    }
+    
+    /* Show URLs for important links */
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 9pt !important;
+        color: #7F8C9A !important;
+        word-break: break-all !important;
+    }
+    
+    /* Don't show URLs for internal links */
+    a[href^="#"]:after {
+        content: none !important;
+    }
+    
+    /* ========================================================================
+       SECTION DIVIDERS AND SPECIAL PAGES
+       ======================================================================== */
+    
+    .section-divider {
+        /* Full page section breaks */
+        page: section;
+        background: linear-gradient(135deg, #5D5CDE 0%, #7A79E3 100%) !important;
+        color: white !important;
+        text-align: center !important;
+        
+        /* Center content */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        
+        /* Full page sizing */
+        height: 9.5in !important;
+        width: 7.5in !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .cover-page {
+        page: cover;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    .emergency-page {
+        page: emergency;
+    }
+    
+    .toc-page {
+        page: toc;
+    }
+    
+    /* ========================================================================
+       QUALITY ENHANCEMENTS
+       ======================================================================== */
+    
+    /* Better text spacing */
+    .text-content {
+        text-align: justify !important;
+        hyphens: auto !important;
+        -webkit-hyphens: auto !important;
+        -ms-hyphens: auto !important;
+    }
+    
+    /* Emphasis and highlighting */
+    strong, b {
+        font-weight: 700 !important;
+        color: #2C3E50 !important;
+    }
+    
+    em, i {
+        font-style: italic !important;
+        color: #5D6D7E !important;
+    }
+    
+    /* Code and monospace */
+    code, pre {
+        font-family: 'Courier New', monospace !important;
+        font-size: 10pt !important;
+        background: #F7F9FA !important;
+        border: 0.5pt solid #D1D8E0 !important;
+        padding: 0.05in !important;
+    }
+    
+    /* ========================================================================
+       FOOTER AND PAGE NUMBERS
+       ======================================================================== */
+    
+    .page-footer {
+        position: absolute !important;
+        bottom: 0.25in !important;
+        left: 0 !important;
+        right: 0 !important;
+        text-align: center !important;
+        font-size: 8pt !important;
+        color: #A9B4C0 !important;
+    }
+    
+    /* ========================================================================
+       ACCESSIBILITY AND CONTRAST
+       ======================================================================== */
+    
+    /* Ensure sufficient contrast for print */
+    .low-contrast {
+        color: #2C3E50 !important;
+    }
+    
+    /* Background patterns and textures - remove for print */
+    .pattern,
+    .texture,
+    .gradient-bg {
+        background: white !important;
+        background-image: none !important;
+    }
+}
+
+/* ============================================================================
+   HIGH-DPI PRINT OPTIMIZATION
+   ============================================================================ */
+
+@media print and (min-resolution: 300dpi) {
+    * {
+        /* Optimize for high-resolution printers */
+        text-rendering: geometricPrecision !important;
+    }
+    
+    img {
+        image-rendering: high-quality !important;
+        image-rendering: -webkit-optimize-contrast !important;
+    }
+}
+
+/* ============================================================================
+   PRINT PREVIEW MODE (SCREEN)
+   ============================================================================ */
+
+@media screen {
+    .print-preview {
+        background: #f5f5f5 !important;
+        padding: 2rem !important;
+    }
+    
+    .print-preview .paper-page {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid #ddd !important;
+        margin: 2rem auto !important;
+        background: white !important;
+        position: relative !important;
+    }
+    
+    .print-preview .paper-page::before {
+        content: "Page " attr(data-page-number) " - Print Preview";
+        position: absolute !important;
+        top: -2rem !important;
+        left: 0 !important;
+        font-size: 0.875rem !important;
+        color: #666 !important;
+        font-weight: 500 !important;
+    }
+}

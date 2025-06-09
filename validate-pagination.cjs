@@ -80,6 +80,60 @@ class PaginationValidator {
                 this.warnings.push(`POTENTIAL ISSUE: Found "${override}" which may affect pagination`);
             }
         });
+        
+        // Enhanced validation for content overflow
+        this.validateContentOverflow();
+        
+        // Check for missing pagination enhancements
+        this.validatePaginationEnhancements();
+    }
+    
+    validateContentOverflow() {
+        // Check for elements that might cause overflow
+        const problematicPatterns = [
+            { pattern: /height:\s*auto(?!\s*!important)/, message: 'Height auto without !important may cause issues' },
+            { pattern: /min-height:\s*auto/, message: 'Min-height auto may cause pagination issues' },
+            { pattern: /max-height:\s*none/, message: 'Max-height none may allow overflow' },
+            { pattern: /overflow:\s*visible/, message: 'Overflow visible may break page boundaries' }
+        ];
+        
+        problematicPatterns.forEach(({ pattern, message }) => {
+            if (pattern.test(this.content)) {
+                this.warnings.push(`OVERFLOW RISK: ${message}`);
+            }
+        });
+    }
+    
+    validatePaginationEnhancements() {
+        // Check if enhanced pagination CSS is included
+        const hasEnhancements = this.content.includes('pagination-enhancements.css') || 
+                               this.content.includes('Enhanced Pagination CSS');
+        
+        if (!hasEnhancements) {
+            this.warnings.push('ENHANCEMENT: Consider including pagination-enhancements.css for better control');
+        }
+        
+        // Check for pagination validator script
+        const hasValidator = this.content.includes('pagination-validator.js') ||
+                           this.content.includes('PaginationValidator');
+        
+        if (!hasValidator) {
+            this.warnings.push('ENHANCEMENT: Consider including pagination-validator.js for real-time monitoring');
+        }
+        
+        // Check for proper page break classes
+        const essentialClasses = [
+            '.paper-page',
+            '.content-block',
+            '.emergency-info',
+            '.contact-card'
+        ];
+        
+        essentialClasses.forEach(className => {
+            if (!this.content.includes(className)) {
+                this.warnings.push(`MISSING CLASS: ${className} not found - ensure proper pagination structure`);
+            }
+        });
     }
 }
 

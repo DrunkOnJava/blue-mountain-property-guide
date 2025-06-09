@@ -317,8 +317,9 @@
             background-position: center;
             background-attachment: local;
             background-repeat: no-repeat;
-            height: 9.5in;
-            margin: -0.75in;
+            height: 100%;
+            min-height: 9.5in;
+            margin: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -326,6 +327,7 @@
             text-align: center;
             color: white;
             position: relative;
+            box-sizing: border-box;
         }
         
         .section-divider-page::before {
@@ -732,6 +734,23 @@
             height: auto;
             box-shadow: var(--shadow-md);
             border-radius: var(--radius-sm);
+        }
+        
+        /* Upper Right Corner Emblem */
+        .corner-emblem {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 80px;
+            height: auto;
+            opacity: 0.3;
+            z-index: 10;
+        }
+        
+        @media print {
+            .corner-emblem {
+                opacity: 0.2;
+            }
         }
         
         /* Print Button */
@@ -2820,6 +2839,7 @@
         
         <!-- Table of Contents Page -->
         <div class="paper-page">
+            <img src="./bmpoa-emblem.png" alt="BMPOA Emblem" class="corner-emblem">
             <h1 class="toc-title">TABLE OF CONTENTS</h1>
             
             <div class="toc">
@@ -2881,6 +2901,7 @@
         
         <!-- Table of Contents Page 2 -->
         <div class="paper-page">
+            <img src="./bmpoa-emblem.png" alt="BMPOA Emblem" class="corner-emblem">
             <h1 class="toc-title">TABLE OF CONTENTS <span style="font-size: 0.7em; font-weight: 400;">(Page 2)</span></h1>
             
             <div class="toc">
@@ -2949,6 +2970,7 @@
         
         <!-- Table of Contents Page 3 -->
         <div class="paper-page">
+            <img src="./bmpoa-emblem.png" alt="BMPOA Emblem" class="corner-emblem">
             <h1 class="toc-title">TABLE OF CONTENTS <span style="font-size: 0.7em; font-weight: 400;">(Page 3)</span></h1>
             
             <div class="toc">
@@ -3013,6 +3035,7 @@
         
         <!-- Table of Contents Page 4 -->
         <div class="paper-page">
+            <img src="./bmpoa-emblem.png" alt="BMPOA Emblem" class="corner-emblem">
             <h1 class="toc-title">TABLE OF CONTENTS <span style="font-size: 0.7em; font-weight: 400;">(Page 4)</span></h1>
             
             <div class="toc">
@@ -3054,6 +3077,7 @@
 
         <!-- Executive Summary / Quick Start Guide Page -->
         <div class="paper-page">
+            <img src="./bmpoa-emblem.png" alt="BMPOA Emblem" class="corner-emblem">
             <div class="exec-summary">
                     <h3>EXECUTIVE SUMMARY & QUICK START GUIDE</h3>
                     <p><strong>Welcome to Blue Mountain!</strong> This guide provides essential information for new and existing residents. For immediate needs, use the quick navigation below or refer to the emergency contacts on the back cover.</p>
