@@ -14,7 +14,9 @@
       "Bash(chmod:*)",
       "Bash(git config:*)",
       "Bash(mv:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(gh api:*)",
+      "Bash(gh run list:*)"
     ],
     "deny": []
   }
