@@ -270,6 +270,87 @@
             color: #2F5233;
         }
         
+        /* Welcome Page Styles */
+        .subtitle {
+            font-style: italic;
+            text-align: center;
+            margin: 1.5rem 0;
+            font-size: 14pt;
+        }
+        
+        .location-tagline {
+            font-style: italic;
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 12pt;
+        }
+        
+        .contact-box {
+            background: var(--spring);
+            color: white;
+            padding: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-box h4 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Section Divider Pages */
+        .section-divider-page {
+            background-size: cover;
+            background-position: center;
+            height: 9.5in;
+            margin: -0.75in;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .section-divider-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        
+        .section-divider-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding: 2rem;
+        }
+        
+        .section-number {
+            font-size: 72pt;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        
+        .section-title {
+            font-size: 32pt;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .section-description {
+            font-size: 14pt;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+        
         /* Table of Contents */
         .toc {
             margin-bottom: 2rem;
@@ -326,55 +407,6 @@
             border-radius: 4px;
             min-width: 60px;
             text-align: center;
-        }
-        
-        /* Executive Summary Styles */
-        .exec-summary {
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--neutral-100) 100%);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border-left: 5px solid var(--primary);
-        }
-        
-        .exec-summary h3 {
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .quick-nav {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .quick-nav-item {
-            background: white;
-            padding: 1rem;
-            border-radius: 6px;
-            border: 1px solid var(--neutral-300);
-            text-align: center;
-            transition: all 0.2s ease;
-        }
-        
-        .quick-nav-item:hover {
-            background: var(--primary-light);
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-        
-        .quick-nav-item a {
-            text-decoration: none;
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-        
-        .quick-nav-item p {
-            margin: 0.5rem 0 0 0;
-            font-size: 0.9rem;
-            color: var(--neutral-600);
         }
         
         /* Info Boxes */
@@ -850,163 +882,6 @@
         .non-emergency {
             color: var(--text-secondary);
             font-size: 0.95rem;
-        }
-        
-        /* Emergency Contact Quick-Reference Card Styles */
-        .emergency-contacts-quick-ref {
-            background: linear-gradient(135deg, #FDF2F2 0%, #FFFFFF 100%);
-            border: 4px solid var(--accent);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 8px 24px rgba(231, 76, 60, 0.15);
-            page-break-inside: avoid;
-        }
-        
-        .emergency-title {
-            color: var(--accent);
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 0.75rem;
-        }
-        
-        .emergency-911-banner {
-            background: var(--accent);
-            color: white;
-            text-align: center;
-            padding: 1.25rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
-        }
-        
-        .emergency-911-text {
-            font-size: 2.5rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .emergency-911-subtitle {
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-top: 0.5rem;
-            opacity: 0.95;
-        }
-        
-        .quick-contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .quick-contact-card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.25rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .quick-contact-card.priority-1 {
-            border: 3px solid var(--accent);
-            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.2);
-        }
-        
-        .quick-contact-card.priority-1:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
-        }
-        
-        .quick-contact-card.priority-2 {
-            border: 2px solid var(--secondary);
-            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.15);
-        }
-        
-        .quick-contact-card.priority-2:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(52, 152, 219, 0.25);
-        }
-        
-        .quick-contact-card.priority-3 {
-            border: 2px solid var(--neutral-500);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .quick-contact-card.priority-3:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        .contact-header {
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-        
-        .quick-contact-card.priority-1 .contact-header {
-            color: var(--accent);
-        }
-        
-        .quick-contact-card.priority-2 .contact-header {
-            color: var(--secondary);
-        }
-        
-        .contact-number {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            font-family: 'Courier New', monospace;
-        }
-        
-        .quick-contact-card.priority-1 .contact-number {
-            color: var(--accent);
-        }
-        
-        .quick-contact-card.priority-2 .contact-number {
-            color: var(--secondary);
-        }
-        
-        .quick-contact-card.priority-3 .contact-number {
-            color: var(--text-primary);
-        }
-        
-        .contact-details {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        
-        .emergency-notice {
-            background: white;
-            border: 2px solid var(--primary);
-            border-radius: 8px;
-            padding: 1.25rem;
-            margin-top: 1.5rem;
-        }
-        
-        .emergency-notice h4 {
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-        
-        .emergency-notice p {
-            margin-bottom: 0.5rem;
-            line-height: 1.5;
-        }
-        
-        .emergency-notice p:last-child {
-            margin-bottom: 0;
         }
         
         .contact-method {
@@ -2430,154 +2305,6 @@
             }
             
             /* ==============================================
-               EMERGENCY CONTACT QUICK-REFERENCE CARD - PRINT
-               ============================================== */
-            
-            .emergency-contacts-quick-ref {
-                page: emergency-contacts !important;
-                background: white !important;
-                border: 6pt solid #E74C3C !important;
-                border-radius: 8pt !important;
-                padding: 24pt !important;
-                margin: 24pt 0 !important;
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-                page-break-before: auto !important;
-                break-before: auto !important;
-            }
-            
-            .emergency-title {
-                color: #E74C3C !important;
-                text-align: center !important;
-                font-size: 18pt !important;
-                font-weight: 800 !important;
-                text-transform: uppercase !important;
-                margin-bottom: 18pt !important;
-                border-bottom: 3pt solid #E74C3C !important;
-                padding-bottom: 8pt !important;
-                letter-spacing: 1pt !important;
-            }
-            
-            .emergency-911-banner {
-                background: #E74C3C !important;
-                color: white !important;
-                text-align: center !important;
-                padding: 18pt !important;
-                border-radius: 6pt !important;
-                margin-bottom: 18pt !important;
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-            }
-            
-            .emergency-911-text {
-                font-size: 28pt !important;
-                font-weight: 900 !important;
-                letter-spacing: 2pt !important;
-                text-shadow: none !important;
-            }
-            
-            .emergency-911-subtitle {
-                font-size: 12pt !important;
-                font-weight: 600 !important;
-                margin-top: 6pt !important;
-            }
-            
-            .quick-contact-grid {
-                display: block !important;
-                margin-bottom: 18pt !important;
-            }
-            
-            .quick-contact-card {
-                background: white !important;
-                border-radius: 4pt !important;
-                padding: 12pt !important;
-                margin-bottom: 12pt !important;
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-                display: block !important;
-                width: 100% !important;
-            }
-            
-            .quick-contact-card.priority-1 {
-                border: 3pt solid #E74C3C !important;
-            }
-            
-            .quick-contact-card.priority-2 {
-                border: 2pt solid #3498DB !important;
-            }
-            
-            .quick-contact-card.priority-3 {
-                border: 2pt solid #7F8C9A !important;
-            }
-            
-            .contact-header {
-                font-weight: 700 !important;
-                font-size: 12pt !important;
-                margin-bottom: 6pt !important;
-                color: #2C3E50 !important;
-            }
-            
-            .quick-contact-card.priority-1 .contact-header {
-                color: #E74C3C !important;
-            }
-            
-            .quick-contact-card.priority-2 .contact-header {
-                color: #3498DB !important;
-            }
-            
-            .contact-number {
-                font-size: 16pt !important;
-                font-weight: 800 !important;
-                margin-bottom: 4pt !important;
-                font-family: 'Times New Roman', serif !important;
-            }
-            
-            .quick-contact-card.priority-1 .contact-number {
-                color: #E74C3C !important;
-            }
-            
-            .quick-contact-card.priority-2 .contact-number {
-                color: #3498DB !important;
-            }
-            
-            .quick-contact-card.priority-3 .contact-number {
-                color: #2C3E50 !important;
-            }
-            
-            .contact-details {
-                font-size: 10pt !important;
-                color: #5D6D7E !important;
-                font-weight: 500 !important;
-            }
-            
-            .emergency-notice {
-                background: #F7F9FA !important;
-                border: 2pt solid #5D5CDE !important;
-                border-radius: 4pt !important;
-                padding: 12pt !important;
-                margin-top: 18pt !important;
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-            }
-            
-            .emergency-notice h4 {
-                color: #5D5CDE !important;
-                margin-bottom: 8pt !important;
-                font-size: 12pt !important;
-                font-weight: 700 !important;
-            }
-            
-            .emergency-notice p {
-                margin-bottom: 6pt !important;
-                line-height: 1.3 !important;
-                font-size: 10pt !important;
-            }
-            
-            .emergency-notice p:last-child {
-                margin-bottom: 0 !important;
-            }
-            
-            /* ==============================================
                EMERGENCY CONTACTS SPECIAL FORMATTING - ENHANCED
                ============================================== */
             
@@ -3182,181 +2909,76 @@
                 </ul>
             </div>
             
-            <!-- Emergency Contact Quick-Reference Card -->
-            <div class="emergency-contacts-quick-ref">
-                <h3 class="emergency-title">🚨 EMERGENCY CONTACT QUICK-REFERENCE CARD</h3>
-                
-                <div class="emergency-911-banner">
-                    <div class="emergency-911-text">EMERGENCY: 911</div>
-                    <div class="emergency-911-subtitle">Fire • Police • Medical Emergencies</div>
-                </div>
-                
-                <div class="quick-contact-grid">
-                    <div class="quick-contact-card priority-1">
-                        <div class="contact-header">🔥 FIRE EMERGENCY</div>
-                        <div class="contact-number">911</div>
-                        <div class="contact-details">Warren County Fire & Rescue</div>
-                    </div>
-                    
-                    <div class="quick-contact-card priority-1">
-                        <div class="contact-header">🚔 POLICE EMERGENCY</div>
-                        <div class="contact-number">911</div>
-                        <div class="contact-details">Warren County Sheriff</div>
-                    </div>
-                    
-                    <div class="quick-contact-card priority-1">
-                        <div class="contact-header">🚑 MEDICAL EMERGENCY</div>
-                        <div class="contact-number">911</div>
-                        <div class="contact-details">Emergency Medical Services</div>
-                    </div>
-                    
-                    <div class="quick-contact-card priority-2">
-                        <div class="contact-header">🏘️ COMMUNITY EMERGENCY</div>
-                        <div class="contact-number">(540) 635-4128</div>
-                        <div class="contact-details">Warren County Sheriff (Non-Emergency)</div>
-                    </div>
-                    
-                    <div class="quick-contact-card priority-2">
-                        <div class="contact-header">🛣️ ROAD EMERGENCY</div>
-                        <div class="contact-number">See Directory</div>
-                        <div class="contact-details">Contact BMPOA Board Members</div>
-                    </div>
-                    
-                    <div class="quick-contact-card priority-3">
-                        <div class="contact-header">⚡ UTILITY EMERGENCY</div>
-                        <div class="contact-number">See Full Guide</div>
-                        <div class="contact-details">Power, Gas, Water Issues</div>
-                    </div>
-                </div>
-                
-                <div class="emergency-notice">
-                    <h4>📋 EMERGENCY PREPARATION REMINDER</h4>
-                    <p><strong>Print this page and keep copies in:</strong> Your home emergency kit, vehicle glove compartment, and with important documents. Cell towers may fail during emergencies.</p>
-                    <p><strong>Complete emergency contacts:</strong> <a href="#emergency-contacts" style="color: var(--accent); font-weight: bold;">See Section VIII - Emergency Contacts</a></p>
-                </div>
+            <div class="info-box">
+                <h5>MOST IMPORTANT CONTACT INFORMATION</h5>
+                <p><strong>Emergency:</strong> 911<br>
+                <strong>Warren County Sheriff (Non-Emergency):</strong> (540) 635-4128<br>
+                <strong>BMPOA President:</strong> See current contact directory<br>
+                <strong>Road Emergencies:</strong> Contact Board members immediately</p>
             </div>
         </div>
 
-        <!-- Executive Summary / Quick Start Guide Page -->
+        <!-- Welcome Page -->
         <div class="paper-page">
-            <div class="exec-summary">
-                <h2 id="executive-summary">🏔️ EXECUTIVE SUMMARY & QUICK START GUIDE</h2>
-                
-                <h3>Welcome to Blue Mountain, Virginia!</h3>
-                <p class="text-lead">This guide provides essential information for Blue Mountain Property Owners Association (BMPOA) residents. Whether you're new to our community or need a quick reference, this summary covers the most critical information for mountain living.</p>
-                
-                <div class="quick-nav">
-                    <div class="quick-nav-item">
-                        <a href="#fire-safety">🔥 Fire Safety</a>
-                        <p>Emergency procedures, evacuation routes, and wildfire prevention</p>
-                    </div>
-                    
-                    <div class="quick-nav-item">
-                        <a href="#emergency-contacts">🚨 Emergency Contacts</a>
-                        <p>911 and all critical emergency phone numbers</p>
-                    </div>
-                    
-                    <div class="quick-nav-item">
-                        <a href="#governance">🏛️ Community Governance</a>
-                        <p>BMPOA structure, sanitary district, and board information</p>
-                    </div>
-                    
-                    <div class="quick-nav-item">
-                        <a href="#community-services">🛠️ Services & Utilities</a>
-                        <p>Roads, waste management, internet, and community amenities</p>
-                    </div>
-                    
-                    <div class="quick-nav-item">
-                        <a href="#deer-lake">🏊 Recreation</a>
-                        <p>Deer Lake access, lodge rentals, and community activities</p>
-                    </div>
-                    
-                    <div class="quick-nav-item">
-                        <a href="#contacts">📞 Directory</a>
-                        <p>Complete contact information and resources</p>
-                    </div>
-                </div>
-                
-                <h3>🚨 CRITICAL SAFETY INFORMATION</h3>
-                <div class="container-warning">
-                    <h4>Emergency Contact: 911</h4>
-                    <ul>
-                        <li><strong>Fire Emergency:</strong> Blue Mountain is in a high wildfire risk area. Know your evacuation routes.</li>
-                        <li><strong>Medical Emergency:</strong> Warren Memorial Hospital is the closest facility.</li>
-                        <li><strong>Road Emergency:</strong> Contact BMPOA board members for road issues.</li>
-                        <li><strong>Weather Alerts:</strong> Sign up for Smart911 emergency notifications.</li>
-                    </ul>
-                </div>
-                
-                <h3>🏡 ESSENTIAL COMMUNITY INFORMATION</h3>
-                <div class="container-highlight">
-                    <h4>What You Need to Know First</h4>
-                    <ul>
-                        <li><strong>Property Ownership:</strong> You are automatically a BMPOA member</li>
-                        <li><strong>Annual Dues:</strong> Support community services and amenities</li>
-                        <li><strong>Road Maintenance:</strong> Privately maintained; follow winter guidelines</li>
-                        <li><strong>Waste Management:</strong> Weekly pickup through County contract</li>
-                        <li><strong>Fire Prevention:</strong> Burn ban enforcement varies by season</li>
-                        <li><strong>Wildlife:</strong> Respect mountain wildlife and secure garbage</li>
-                    </ul>
-                </div>
-                
-                <h3>📅 SEASONAL REMINDERS</h3>
-                <div class="layout-two-column">
-                    <div>
-                        <h4>🌸 Spring & Summer</h4>
-                        <ul class="list-compact">
-                            <li>Wood-chipping program (April)</li>
-                            <li>Fire season preparation</li>
-                            <li>Lake recreation opens</li>
-                            <li>Road maintenance activities</li>
-                            <li>Wildlife activity increases</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>🍂 Fall & Winter</h4>
-                        <ul class="list-compact">
-                            <li>Snow removal preparations</li>
-                            <li>Emergency kit updates</li>
-                            <li>Heating system maintenance</li>
-                            <li>Holiday lodge events</li>
-                            <li>Annual meeting planning</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h3>📱 STAY CONNECTED</h3>
-                <div class="container-info">
-                    <h4>Communication Channels</h4>
-                    <ul>
-                        <li><strong>Website:</strong> www.bmpoa.org</li>
-                        <li><strong>Emergency Alerts:</strong> Smart911.com registration</li>
-                        <li><strong>Board Meetings:</strong> Check website for current schedule</li>
-                        <li><strong>Community Updates:</strong> Email newsletters and announcements</li>
-                        <li><strong>Social Media:</strong> Follow BMPOA for community news</li>
-                    </ul>
-                </div>
-                
-                <div class="emergency-notice">
-                    <h4>🎯 ACTION ITEMS FOR NEW RESIDENTS</h4>
-                    <ol class="checklist">
-                        <li>Register for Smart911 emergency notifications</li>
-                        <li>Locate your property on evacuation zone maps</li>
-                        <li>Program emergency contacts into your phone</li>
-                        <li>Create printed emergency contact list</li>
-                        <li>Plan evacuation routes from your property</li>
-                        <li>Contact BMPOA board to introduce yourself</li>
-                        <li>Review annual dues payment information</li>
-                        <li>Sign up for community email updates</li>
-                    </ol>
-                </div>
-                
-                <div style="text-align: center; margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, var(--primary-light) 0%, var(--neutral-100) 100%); border-radius: 8px;">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">📖 How to Use This Guide</h3>
-                    <p style="margin-bottom: 0.5rem;"><strong>Print Version:</strong> This document is optimized for US Letter printing. Keep emergency contacts accessible.</p>
-                    <p style="margin-bottom: 0.5rem;"><strong>Digital Version:</strong> Use the table of contents and links for quick navigation.</p>
-                    <p style="margin-bottom: 0;"><strong>Updates:</strong> Check www.bmpoa.org for the latest version and community announcements.</p>
-                </div>
+            <h2>Welcome to Blue Mountain</h2>
+            
+            <p class="subtitle">"A Community United by Natural Beauty and Shared Stewardship"</p>
+            
+            <p class="location-tagline">Blue Mountain Vista - Our Home in the Blue Ridge</p>
+            
+            <p>Dear Neighbor,</p>
+            
+            <p>Welcome to the Blue Mountain Property Owners Association (BMPOA) and the Blue Mountain Sanitary District. Whether you're a new resident, a longtime property owner, or considering joining our community, this booklet serves as your comprehensive guide to life on Blue Mountain.</p>
+            
+            <p>Our mountain community is special. Created in the late 1950s as a vacation retreat for Washington D.C. area residents, Blue Mountain has evolved into a unique blend of weekend retreats and year-round homes. We are bound together not just by our property lines, but by our shared appreciation for the natural beauty that surrounds us and our commitment to preserving it for future generations.</p>
+            
+            <h3>What Makes Blue Mountain Unique</h3>
+            <ul>
+                <li><strong>Natural Beauty:</strong> From our famous trillium blooms to scenic mountain vistas, we live in one of Virginia's most beautiful settings</li>
+                <li><strong>Community Spirit:</strong> Our volunteer-run association brings neighbors together through social events, shared amenities, and mutual support</li>
+                <li><strong>Environmental Stewardship:</strong> We're a certified FireWise Community committed to forest health and wildfire prevention</li>
+                <li><strong>Rich History:</strong> Over six decades of stories, traditions, and careful development have shaped our community</li>
+            </ul>
+            
+            <h3>Your Role in Our Community</h3>
+            <p>As a property owner, you're not just a resident—you're a steward of this special place. Your participation in community events, adherence to our covenants, and support of association initiatives help maintain the character and value of Blue Mountain.</p>
+        </div>
+        
+        <!-- This Booklet Page -->
+        <div class="paper-page">
+            <h2>This Booklet</h2>
+            
+            <p>This guide contains essential information about:</p>
+            <ul>
+                <li>Emergency contacts and services</li>
+                <li>Community rules and building requirements</li>
+                <li>Amenities like the Lodge and Deer Lake</li>
+                <li>Safety guidelines for living with wildlife</li>
+                <li>Social activities and volunteer opportunities</li>
+                <li>Natural resources and conservation efforts</li>
+            </ul>
+            
+            <h3>Getting Involved</h3>
+            <p>We encourage you to:</p>
+            <ul>
+                <li>Attend board meetings (first Saturday of each month)</li>
+                <li>Join our Facebook groups for community updates</li>
+                <li>Participate in social events and work days</li>
+                <li>Volunteer for committees that interest you</li>
+                <li>Share your skills and ideas with the board</li>
+            </ul>
+            
+            <p>Thank you for being part of Blue Mountain. Together, we maintain not just properties, but a way of life that celebrates nature, community, and the simple pleasure of mountain living.</p>
+            
+            <p>Warmly,</p>
+            <p><em>The BMPOA Board of Directors</em></p>
+            
+            <div class="contact-box">
+                <h4>Contact Us</h4>
+                <p><strong>BMPOA Board of Directors</strong><br>
+                P.O. Box 114, Linden, VA 22642<br>
+                Email: bmpoaoffice@gmail.com<br>
+                Website: bluemountainpoa.org</p>
             </div>
         </div>
 
