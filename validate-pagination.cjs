@@ -20,6 +20,9 @@ class PaginationValidator {
         try {
             this.content = fs.readFileSync(this.filePath, 'utf8');
             
+            // Also load CSS files that might contain the @page rules
+            this.loadImportedCSS();
+            
             this.validateCriticalPageSetup();
             this.validateForbiddenOverrides();
             
@@ -35,6 +38,25 @@ class PaginationValidator {
                 errors: this.errors,
                 warnings: this.warnings
             };
+        }
+    }
+
+    loadImportedCSS() {
+        const path = require('path');
+        const dir = path.dirname(this.filePath);
+        
+        // Check for main.css import
+        const mainCSSPath = path.join(dir, 'src/styles/main.css');
+        if (fs.existsSync(mainCSSPath)) {
+            const mainCSS = fs.readFileSync(mainCSSPath, 'utf8');
+            this.content += '\n' + mainCSS;
+            
+            // Check for print.css import specifically
+            const printCSSPath = path.join(dir, 'src/styles/print.css');
+            if (fs.existsSync(printCSSPath)) {
+                const printCSS = fs.readFileSync(printCSSPath, 'utf8');
+                this.content += '\n' + printCSS;
+            }
         }
     }
 
