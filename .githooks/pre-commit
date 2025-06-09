@@ -1,0 +1,76 @@
+#!/bin/bash
+
+# Pre-commit hook to enforce US Letter pagination compliance
+# This script prevents commits that violate pagination rules
+
+echo "🔍 Running US Letter Pagination Validation..."
+
+# Check if validation script exists
+if [ ! -f "validate-pagination.cjs" ]; then
+    echo "❌ ERROR: validate-pagination.cjs not found"
+    echo "   Auto-pagination validation script is required"
+    exit 1
+fi
+
+# Check if Node.js is available
+if ! command -v node &> /dev/null; then
+    echo "❌ ERROR: Node.js is required for pagination validation"
+    echo "   Please install Node.js to continue"
+    exit 1
+fi
+
+# Run pagination validation on index.html
+echo "   Validating index.html..."
+node validate-pagination.cjs index.html
+
+if [ $? -ne 0 ]; then
+    echo ""
+    echo "🚫 COMMIT BLOCKED: Pagination validation failed"
+    echo "   Fix the pagination violations listed above before committing"
+    echo "   This ensures document maintains US Letter compliance"
+    exit 1
+fi
+
+# Check for forbidden pagination overrides in staged files
+echo "   Checking for forbidden pagination overrides..."
+
+# Get list of staged HTML/CSS files
+staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(html|css)$')
+
+if [ ! -z "$staged_files" ]; then
+    # Check for forbidden patterns
+    forbidden_patterns=(
+        "page-break:\s*auto"
+        "break-after:\s*auto" 
+        "break-before:\s*auto"
+        "page-break-inside:\s*auto"
+        "break-inside:\s*auto"
+        "overflow:\s*visible"
+        "height:\s*auto(?!\s*!important)"
+        "min-height:\s*auto"
+        "max-height:\s*none"
+    )
+    
+    violations_found=false
+    
+    for file in $staged_files; do
+        for pattern in "${forbidden_patterns[@]}"; do
+            if grep -qP "$pattern" "$file" 2>/dev/null; then
+                echo "❌ FORBIDDEN OVERRIDE in $file: $pattern"
+                violations_found=true
+            fi
+        done
+    done
+    
+    if [ "$violations_found" = true ]; then
+        echo ""
+        echo "🚫 COMMIT BLOCKED: Forbidden pagination overrides detected"
+        echo "   Remove the pagination overrides listed above"
+        echo "   These break US Letter compliance and are not allowed"
+        exit 1
+    fi
+fi
+
+echo "✅ Pagination validation passed"
+echo "📄 All files comply with US Letter requirements"
+exit 0

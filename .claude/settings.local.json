@@ -8,7 +8,13 @@
       "Bash(grep:*)",
       "Bash(sed:*)",
       "Bash(git add:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(gh repo view:*)",
+      "Bash(mkdir:*)",
+      "Bash(chmod:*)",
+      "Bash(git config:*)",
+      "Bash(mv:*)",
+      "Bash(node:*)"
     ],
     "deny": []
   }
