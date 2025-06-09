@@ -1643,7 +1643,6 @@ This includes:
 
 \infobox{Report Fire Hazards}{
 See dangerous conditions? Contact:\\
-BMPOA Board: bmpoaoffice@gmail.com\\
 Warren County Fire Marshal: (540) 636-3830
 }
 
@@ -1793,7 +1792,7 @@ The following are prohibited:
 \end{itemize}
 
 \infobox{Before You Build}{
-Contact the Architectural Review Committee early in your planning process. They can provide guidance that saves time and money. Email: bmpoaoffice@gmail.com
+Contact the Architectural Review Committee early in your planning process. They can provide guidance that saves time and money.
 }
 
 ==== FILENAME: page8.tex ====
@@ -2039,7 +2038,6 @@ Interested in serving on the board?
 \end{itemize}
 
 \infobox{Contact the Board}{
-Email: bmpoaoffice@gmail.com\\
 Mail: P.O. Box 114, Linden, VA 22642\\
 Website: bluemountainpoa.org
 }
@@ -2346,7 +2344,6 @@ Thank you for being part of Blue Mountain. Together, we maintain not just proper
 \infobox{Contact Us}{
 BMPOA Board of Directors\\
 P.O. Box 114, Linden, VA 22642\\
-Email: bmpoaoffice@gmail.com\\
 Website: bluemountainpoa.org
 }
 

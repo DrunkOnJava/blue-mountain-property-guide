@@ -1793,8 +1793,7 @@ The following are prohibited:
 \end{itemize}
 
 \infobox{Before You Build}{
-Contact the Architectural Review Committee early in your planning process. They can provide guidance that saves time and money. Email: bmpoaoffice@gmail.com
-}
+Contact the Architectural Review Committee early in your planning process. They can provide guidance that saves time and money. Email: }
 
 ==== FILENAME: page8.tex ====
 Size: 3.92 KB

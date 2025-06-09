@@ -17,7 +17,13 @@
       "Bash(node:*)",
       "Bash(gh api:*)",
       "Bash(gh run list:*)",
-      "mcp__puppeteer__puppeteer_navigate"
+      "mcp__puppeteer__puppeteer_navigate",
+      "Bash(npm run lint)",
+      "Bash(npm run:*)",
+      "Bash(git push:*)",
+      "mcp__puppeteer__puppeteer_screenshot",
+      "mcp__puppeteer__puppeteer_evaluate",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }
