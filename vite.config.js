@@ -4,8 +4,8 @@ export default defineConfig({
   // Root directory for the project
   root: '.',
   
-  // Public directory for static assets  
-  publicDir: false, // Disable to use explicit paths
+  // Public directory for static assets
+  publicDir: 'optimized',
   
   // Server configuration
   server: {
