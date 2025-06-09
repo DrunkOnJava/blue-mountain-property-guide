@@ -324,6 +324,42 @@
             z-index: 1;
         }
         
+        .section-overlay {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding: 2rem;
+        }
+        
+        .section-number {
+            font-size: 120pt;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            font-family: 'Georgia', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            font-size: 32pt;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+        }
+        
+        .section-description {
+            font-size: 14pt;
+            line-height: 1.4;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            max-width: 500px;
+        }
+        
         .section-divider-content {
             position: relative;
             z-index: 2;
@@ -3257,11 +3293,19 @@
             </div>
         </div>
 
-        <!-- Mountain Home Page -->
+        <!-- Section 02: A Mountain Home Divider -->
         <div class="paper-page">
-            <div class="section-divider-bold">
-                <h2 id="mountain-home">II. A MOUNTAIN HOME</h2>
+            <div class="section-divider-page" style="background-image: url('./optimized/mountain-vista.jpg');">
+                <div class="section-overlay">
+                    <div class="section-number">02</div>
+                    <h2 class="section-title">A MOUNTAIN HOME</h2>
+                    <p class="section-description">Blue Mountain's natural beauty is one of its greatest assets. From spectacular mountain vistas to seasonal wildflowers, our community offers a peaceful mountain retreat in the heart of Warren County.</p>
+                </div>
             </div>
+        </div>
+
+        <!-- Mountain Home Content -->
+        <div class="paper-page">
             
             <div class="image-gallery">
                 <img src="mountain-vista.jpg" alt="Mountain Vista View" class="gallery-image">
@@ -3792,11 +3836,19 @@
             </div>
         </div>
         
-        <!-- Community Services Page -->
+        <!-- Section 05: Community Services Divider -->
         <div class="paper-page">
-            <div class="section-divider-standard">
-                <h2 id="community-services">V. COMMUNITY SERVICES &amp; AMENITIES</h2>
+            <div class="section-divider-page" style="background-image: url('./optimized/Building1.jpg');">
+                <div class="section-overlay">
+                    <div class="section-number">05</div>
+                    <h2 class="section-title">COMMUNITY SERVICES</h2>
+                    <p class="section-description">Essential services and amenities available to Blue Mountain residents, including waste management, utilities, transportation, and local business connections.</p>
+                </div>
             </div>
+        </div>
+
+        <!-- Community Services Content -->
+        <div class="paper-page">
             
             <div class="image-container">
                 <img src="warren-county-waste-map.png" alt="Warren County Waste Management Map" class="section-image">
@@ -4080,20 +4132,19 @@
             
         </div>
         
-        <!-- Lodge Section Divider -->
-        <div class="section-divider lodge-bg">
-            <div class="section-divider-content">
-                <div class="section-number">07</div>
-                <h1 class="section-title">The Lodge</h1>
-                <p class="section-description">The Blue Mountain Lodge serves as our community's central gathering place. This section provides information about the Lodge's facilities, rental procedures, and usage guidelines for all your event and meeting needs.</p>
+        <!-- Section 07: The Lodge Divider -->
+        <div class="paper-page">
+            <div class="section-divider-page" style="background-image: url('./optimized/TheLodge.jpg');">
+                <div class="section-overlay">
+                    <div class="section-number">07</div>
+                    <h2 class="section-title">THE LODGE</h2>
+                    <p class="section-description">The Blue Mountain Lodge serves as our community's central gathering place. This section provides information about the Lodge's facilities, rental procedures, and usage guidelines for all your event and meeting needs.</p>
+                </div>
             </div>
         </div>
         
         <!-- Lodge Content -->
         <div class="paper-page">
-            <div class="section-divider-standard">
-                <h2 id="lodge">VII. THE LODGE</h2>
-            </div>
             
             <div class="image-gallery">
                 <img src="TheLodge.jpg" alt="Blue Mountain Lodge Exterior" class="gallery-image">
@@ -4494,6 +4545,30 @@
                 <h4>EMERGENCY PREPARATION TIP</h4>
                 <p>Create a printed copy of these emergency contacts to keep in your emergency kit. Cell phones may not work during major emergencies due to power outages or network congestion.</p>
             </div>
+            
+        </div>
+        
+        <!-- Section 10: Natural Attractions Divider -->
+        <div class="paper-page">
+            <div class="section-divider-page" style="background-image: url('./optimized/virginia-bluebells.jpeg');">
+                <div class="section-overlay">
+                    <div class="section-number">10</div>
+                    <h2 class="section-title">NATURAL ATTRACTIONS</h2>
+                    <p class="section-description">Blue Mountain's natural beauty is one of its greatest assets. From professional spring wildflowers to scenic hiking trails and seasonal wildlife, our community offers year-round natural attractions for residents to enjoy.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Natural Attractions Content -->
+        <div class="paper-page">
+            <h3>WILDLIFE VIEWING</h3>
+            <p>Blue Mountain offers exceptional opportunities for wildlife observation throughout the year. Residents commonly spot deer, wild turkeys, various bird species, and occasional black bears. The best viewing times are typically early morning and evening.</p>
+            
+            <h3>SEASONAL WILDFLOWERS</h3>
+            <p>Spring brings spectacular displays of native wildflowers including Virginia bluebells, trilliums, and wild dogwood. These natural displays typically peak in April and May, creating beautiful photography opportunities and nature walks.</p>
+            
+            <h3>SCENIC OVERLOOKS</h3>
+            <p>Several locations throughout Blue Mountain provide breathtaking views of the Shenandoah Valley and surrounding mountain ranges. These overlooks are perfect for sunrise viewing, photography, and peaceful reflection.</p>
             
             <div style="text-align: center; margin-top: 3rem;">
                 <h3>CONCLUSION</h3>
