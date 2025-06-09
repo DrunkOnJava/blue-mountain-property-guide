@@ -13,6 +13,8 @@ class ErrorDisplaySystem {
             enableSound: false,
             enableNotifications: true,
             updateInterval: 2000,
+            publicMode: true, // Always visible to all users
+            startVisible: true, // Start in visible state
             ...options
         };
         
@@ -78,7 +80,7 @@ class ErrorDisplaySystem {
             <div class="error-console-header">
                 <div class="error-console-title">
                     <span class="error-icon">🚨</span>
-                    <span class="error-title-text">Document Errors</span>
+                    <span class="error-title-text">Document Quality Monitor</span>
                     <span class="error-count-badge">0</span>
                 </div>
                 <div class="error-console-controls">
@@ -120,10 +122,12 @@ class ErrorDisplaySystem {
         // Add event listeners
         this.setupEventListeners(console);
         
-        // Show console
-        setTimeout(() => {
-            console.style.transform = 'translateX(0)';
-        }, 100);
+        // Show console immediately if in public mode
+        if (this.options.startVisible || this.options.publicMode) {
+            setTimeout(() => {
+                console.style.transform = 'translateX(0)';
+            }, 100);
+        }
         
         this.console = console;
     }
